@@ -1,0 +1,456 @@
+<!-- Copied from https://formuland.com/ -->
+<div class="formuland-footer-wrapper">
+<div class="shopify-section" id="shopify-section-footer"><footer class="site-footer-wrapper" data-section-id="footer" data-section-type="footer" role="contentinfo">
+<style>
+    /* ===== Brand sidebar (logo / tagline / contact) — matches Figma left column ===== */
+    .footer-brand {
+      grid-area: brand;
+    }
+    .footer-brand__logo-link {
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+    .footer-brand__logo-link img {
+      display: block;
+      width: 197px;
+      height: auto;
+    }
+    .footer-brand__logo-link--text {
+      font-family: 'Libre Baskerville', serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 28px;
+      color: #FBFBF8;
+      text-decoration: none;
+    }
+    .footer-brand__tagline {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(251, 251, 248, 0.6);
+      margin: 0 0 22px;
+    }
+    .footer-brand__contact-text {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+      color: rgba(251, 251, 248, 0.85);
+      margin: 0 0 6px;
+    }
+    .footer-brand__email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--footer-accent, #C9A667);
+      text-decoration: underline;
+      margin-bottom: 0;
+    }
+    .footer-brand__email-icon {
+      flex-shrink: 0;
+      color: var(--footer-accent, #C9A667);
+    }
+
+    /* Original theme markup for this block has no flex styling of its own —
+       force the tight vertical rhythm and side-by-side badges seen in Figma */
+    .footer-app-badges {
+      margin-top: 28px !important;
+      padding: 0 !important;
+    }
+    .footer-app-heading {
+      margin: 0 0 14px !important;
+    }
+    .footer-badge-wrapper {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .footer-badge-wrapper a {
+      display: block;
+      line-height: 0;
+    }
+    .footer-badge {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    /* ===== Figma color / type pass on the existing block system ===== */
+    .site-footer-wrapper {
+      background: #13322B;
+      color: #FBFBF8;
+      padding-top: 60px;
+    }
+    .footer__title {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 24px;
+      color: var(--footer-accent, #E6F28C);
+      border-bottom: none !important;
+      text-decoration: none !important;
+      padding-bottom: 0 !important;
+      box-shadow: none !important;
+    }
+    .footer__title::after,
+    .footer__title::before {
+      display: none !important;
+      content: none !important;
+    }
+    .footer-app-heading {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #FBFBF8;
+      margin: 0 0 12px;
+    }
+    .footer-quicklinks a,
+    .footer-quicklinks__submenu a {
+      font-family: 'Libre Franklin', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: rgba(251, 251, 248, 0.85);
+    }
+    .footer-quicklinks a:hover,
+    .footer-quicklinks__submenu a:hover {
+      color: #FBFBF8;
+    }
+
+    /* Chevron on the top-level accordion trigger only rotates/shows on mobile —
+       desktop stays static and open, matching Figma (no arrows shown there) */
+    @media (min-width: 750px) {
+      .footer__title svg { display: none; }
+      /* The "Mobile accordion" block setting should only affect mobile —
+         force the link list / rte body to always render at desktop
+         regardless of the open/closed-by-default class added there. */
+      [data-accordion-body-mobile] {
+        display: block !important;
+        height: auto !important;
+        max-height: none !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+    }
+    @media (max-width: 749px) {
+      .footer__title[aria-expanded="true"] svg { transform: rotate(90deg); }
+      .footer__title svg { transition: transform .2s ease; }
+    }
+
+    /* ===== Desktop layout: brand sidebar beside the 4 link columns ===== */
+    @media (min-width: 750px) {
+      .wrapper.site-footer {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        grid-template-areas:
+          "brand columns"
+          "extras extras"
+          "legal legal";
+        column-gap: 64px;
+        row-gap: 32px;
+        align-items: start;
+      }
+      .grid.grid--uniform { grid-area: columns; margin: 0; }
+      .grid.footer-secondary-wrapper { grid-area: extras; }
+    }
+
+    /* Mobile: logo stays at top of .footer-brand; tagline/contact/app
+       download is moved (via JS) to sit after the accordion columns —
+       styled here as its own centered block in that new position. */
+    @media (max-width: 749px) {
+      .footer-brand { text-align: center; margin-bottom: 8px; }
+      .footer-brand__logo-link img { margin: 0 auto; }
+
+      .footer-brand__info {
+        text-align: center;
+        margin-top: 32px;
+        padding-top: 28px;
+      }
+      .footer-brand__info .footer-badge-wrapper {
+        justify-content: center;
+      }
+
+      .footer__title {
+        margin: 0;
+        padding: 22px 0;
+        min-height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        line-height: 24px;
+      }
+      .footer-quicklinks {
+        padding-bottom: 22px;
+      }
+      .footer-quicklinks__submenu {
+        padding-bottom: 4px;
+      }
+    }
+
+    /* ===== Bottom legal / copyright bar ===== */
+    .footer-bottom-bar {
+      grid-area: legal;
+      border-top: 1px solid rgba(251, 251, 248, 0.12);
+      margin-top: 40px;
+      padding: 24px 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 13px;
+    }
+    .footer-bottom-bar__copyright {
+      color: rgba(251, 251, 248, 0.7);
+      margin: 0;
+    }
+    .footer-bottom-bar__legal {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-bottom-bar__legal a {
+      color: rgba(251, 251, 248, 0.7);
+      text-decoration: none;
+    }
+    .footer-bottom-bar__legal a:hover {
+      color: #FBFBF8;
+      text-decoration: underline;
+    }
+    .footer-bottom-bar__divider {
+      color: rgba(251, 251, 248, 0.4);
+    }
+    @media (max-width: 749px) {
+      .footer-bottom-bar {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    /* ===== Existing nested-submenu styles (unchanged) ===== */
+    .footer-quicklinks__parent { list-style: none; }
+    .footer-quicklinks__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .footer-quicklinks__head > a { flex: 1 1 auto; }
+    .footer-quicklinks__toggle {
+      background: none;
+      border: 0;
+      padding: 4px;
+      margin: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      color: inherit;
+      line-height: 0;
+      flex: 0 0 auto;
+    }
+    .footer-quicklinks__toggle svg {
+      width: 12px;
+      height: 12px;
+      transition: transform .2s ease;
+    }
+    .footer-quicklinks__toggle[aria-expanded="true"] svg { transform: rotate(90deg); }
+    .footer-quicklinks__submenu {
+      list-style: none;
+      margin: 6px 0 10px;
+      padding-left: 14px;
+    }
+    .footer-quicklinks__submenu[hidden] { display: none; }
+    .footer-quicklinks__submenu li { margin-top: 4px; }
+  </style>
+<div class="wrapper site-footer" style="--footer-accent: #e6f28c;"><div class="footer-brand"><a class="footer-brand__logo-link" href="/">
+<img alt="Formuland" height="96" loading="lazy" src="//formuland.com/cdn/shop/files/logo_2_400x.png?v=1782847267" width="394"/>
+</a><div class="footer-brand__info" data-desktop-parent="footer-brand" id="FooterBrandInfo"><p class="footer-brand__contact-text">Any questions? We are here to help! Please send us an email:</p><a class="footer-brand__email" href="mailto:care@formuland.com">
+<svg aria-hidden="true" class="footer-brand__email-icon" fill="none" height="16" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 6L12 13L21 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+<rect height="14" rx="1.5" stroke="currentColor" stroke-width="1.6" width="18" x="3" y="5"></rect>
+</svg>
+<span>care@formuland.com</span>
+</a><!-- Editable download section -->
+<div class="footer-app-badges">
+<p class="footer-app-heading">Download the Formuland App</p>
+<div class="footer-badge-wrapper">
+<a href="https://play.google.com/store/apps/details?id=co.app.id_6BvYk09PBe" target="_blank">
+<img alt="Google Play" class="footer-badge" src="//formuland.com/cdn/shop/files/google_play_badge_300x.png?v=1752263122"/>
+</a>
+<a href="https://apps.apple.com/us/app/formuland-shop/id6743446918" target="_blank">
+<img alt="App Store" class="footer-badge" src="//formuland.com/cdn/shop/files/app_store_badge_300x.png?v=1752263004"/>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid--uniform" data-accordion-group="" id="FooterNavGrid">
+<div class="grid__item medium-up--one-quarter footer__block">
+<p aria-controls="accordion-69a1f966-68f6-4a02-80a0-d073c22bf93e-1" aria-expanded="true" aria-haspopup="true" class="uppercase footer__title" data-accordion-trigger="accordion-69a1f966-68f6-4a02-80a0-d073c22bf93e-1">
+                  Popular Brands
+                  <svg aria-hidden="true" class="icon icon-arrow-medium-right" focusable="false" role="presentation" viewbox="0 0 9 15"><path d="M6.875 7.066L.87 1.06 1.93 0l6.006 6.005L7.94 6 9 7.06l-.004.006.005.005-1.06 1.06-.006-.004-6.005 6.005-1.061-1.06 6.005-6.006z" fill-rule="evenodd"></path></svg>
+</p>
+<ul class="footer-quicklinks" data-accordion-body="" data-accordion-body-mobile="" id="accordion-69a1f966-68f6-4a02-80a0-d073c22bf93e-1">
+<li><a href="/pages/european-baby-formula-comparison-chart">Baby Formula Comparison Chart</a></li>
+<li><a href="/collections/hipp-formula">HiPP Formula</a></li>
+<li><a href="/collections/holle-formula">Holle Formula</a></li>
+<li><a href="/collections/kendamil">Kendamil Formula</a></li>
+<li><a href="/collections/aptamil-formula">Aptamil Formula</a></li>
+<li><a href="https://formuland.com/collections/earth-mama">Earth Mama Organics</a></li>
+<li><a href="/collections/jovie-formula">Jovie Formula</a></li>
+<li><a href="/collections/kabrita-formula">Kabrita Formula</a></li>
+<li><a href="/collections/la-petite-creme">La Petite Creme</a></li>
+<li><a href="/collections/lebenswert-formula">Lebenswert Formula</a></li>
+<li><a href="/collections/littleoak-goat-formula">LittleOak Formula</a></li>
+<li><a href="/collections/nannycare-formula">Nanny Care Formula</a></li>
+<li><a href="https://formuland.com/collections/topfer">Topfer Formula</a></li>
+<li><a href="/collections/weleda-baby-care-natural-organic-skincare-for-your-little-one">Weleda</a></li>
+</ul>
+</div>
+<div class="grid__item medium-up--one-quarter footer__block">
+<p aria-controls="accordion-linklist_7t6iK7-2" aria-expanded="true" aria-haspopup="true" class="uppercase footer__title" data-accordion-trigger="accordion-linklist_7t6iK7-2">
+                  SPECIALTY FORMULAS
+                  <svg aria-hidden="true" class="icon icon-arrow-medium-right" focusable="false" role="presentation" viewbox="0 0 9 15"><path d="M6.875 7.066L.87 1.06 1.93 0l6.006 6.005L7.94 6 9 7.06l-.004.006.005.005-1.06 1.06-.006-.004-6.005 6.005-1.061-1.06 6.005-6.006z" fill-rule="evenodd"></path></svg>
+</p>
+<ul class="footer-quicklinks" data-accordion-body="" data-accordion-body-mobile="" id="accordion-linklist_7t6iK7-2">
+<li><a href="https://formuland.com/collections/formula-for-gassy-babies">Formula for Gassy Babies</a></li>
+<li class="footer-quicklinks__parent">
+<div class="footer-quicklinks__head">
+<a href="https://formuland.com/collections/sensitive-baby-formula">Sensitive Baby Formula</a>
+<button aria-controls="footer-sub-linklist_7t6iK7-2" aria-expanded="false" aria-label="Toggle Sensitive Baby Formula submenu" class="footer-quicklinks__toggle" type="button">
+<svg aria-hidden="true" class="icon icon-arrow-medium-right" focusable="false" role="presentation" viewbox="0 0 9 15"><path d="M6.875 7.066L.87 1.06 1.93 0l6.006 6.005L7.94 6 9 7.06l-.004.006.005.005-1.06 1.06-.006-.004-6.005 6.005-1.061-1.06 6.005-6.006z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+<ul class="footer-quicklinks__submenu" hidden="" id="footer-sub-linklist_7t6iK7-2">
+<li><a href="https://formuland.com/collections/hypoallergenic-formula">Hypoallergenic Baby Formula</a></li>
+<li><a href="https://formuland.com/collections/comfort-formula-formula-for-colic">Formula For Colic</a></li>
+<li><a href="https://formuland.com/collections/anti-reflux-formula">Anti Reflux Formula</a></li>
+</ul>
+</li>
+<li><a href="https://formuland.com/collections/stage-1-formula">Stage 1 Formula</a></li>
+<li><a href="https://formuland.com/collections/stage-2-formula">Stage 2 Formula</a></li>
+<li><a href="https://formuland.com/collections/hipp-anti-reflux-formula">HiPP Anti Reflux Formula</a></li>
+<li><a href="https://formuland.com/collections/goat-milk-formula">Goat Milk Formula</a></li>
+<li><a href="https://formuland.com/collections/baby-formula-deals-family-savings">Baby Formula Deals</a></li>
+</ul>
+</div>
+<div class="grid__item medium-up--one-quarter footer__block">
+<p aria-controls="accordion-linklist-3" aria-expanded="true" aria-haspopup="true" class="uppercase footer__title" data-accordion-trigger="accordion-linklist-3">
+                  RESOURCES
+                  <svg aria-hidden="true" class="icon icon-arrow-medium-right" focusable="false" role="presentation" viewbox="0 0 9 15"><path d="M6.875 7.066L.87 1.06 1.93 0l6.006 6.005L7.94 6 9 7.06l-.004.006.005.005-1.06 1.06-.006-.004-6.005 6.005-1.061-1.06 6.005-6.006z" fill-rule="evenodd"></path></svg>
+</p>
+<ul class="footer-quicklinks" data-accordion-body="" data-accordion-body-mobile="" id="accordion-linklist-3">
+<li><a href="/account">My Account</a></li>
+<li><a href="https://formuland.com/pages/customer-portal">Track My Order</a></li>
+<li><a href="/account">Manage Subscription</a></li>
+<li><a href="/pages/points-rewards">Points &amp; Rewards</a></li>
+<li><a href="/pages/affiliate-program">Affiliate Program</a></li>
+<li><a href="/blogs/parenting-tips">Blog</a></li>
+<li><a href="/pages/formuland-faqs">FAQs</a></li>
+<li><a href="/pages/formuland-reviews">Formuland Reviews</a></li>
+<li><a href="/pages/formuland-mighty-star-scholarship">Formuland Mighty Star Scholarship</a></li>
+<li><a href="/pages/nara-organics-formula-recall">Nara Organics Formula Recall</a></li>
+</ul>
+</div>
+<div class="grid__item medium-up--one-quarter footer__block">
+<p aria-controls="accordion-9c27e2bb-3d8c-4851-8d3d-30c219ee5e6e-4" aria-expanded="true" aria-haspopup="true" class="uppercase footer__title" data-accordion-trigger="accordion-9c27e2bb-3d8c-4851-8d3d-30c219ee5e6e-4">
+                  ABOUT FORMULAND
+                  <svg aria-hidden="true" class="icon icon-arrow-medium-right" focusable="false" role="presentation" viewbox="0 0 9 15"><path d="M6.875 7.066L.87 1.06 1.93 0l6.006 6.005L7.94 6 9 7.06l-.004.006.005.005-1.06 1.06-.006-.004-6.005 6.005-1.061-1.06 6.005-6.006z" fill-rule="evenodd"></path></svg>
+</p>
+<ul class="footer-quicklinks" data-accordion-body="" data-accordion-body-mobile="" id="accordion-9c27e2bb-3d8c-4851-8d3d-30c219ee5e6e-4">
+<li><a href="https://formuland.com/pages/contact">Contact Us</a></li>
+<li><a href="mailto:care@formuland.com">Send Us An Email: care@formuland.com</a></li>
+<li><a href="/pages/about-us">Our Company</a></li>
+<li><a href="/policies/refund-policy">Refund Policy</a></li>
+<li><a href="/policies/shipping-policy">Shipping and Returns</a></li>
+<li><a href="/policies/subscription-policy">Subscription Policy</a></li>
+<li><a href="/pages/accessibility">Accessibility</a></li>
+<li><a href="/policies/terms-of-service">Terms and Conditions</a></li>
+<li><a href="/policies/privacy-policy">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="grid footer-secondary-wrapper">
+<!-- Footer extras like social/payment/lang -->
+</div><div class="footer-bottom-bar">
+<p class="footer-bottom-bar__copyright">
+        © 2026 Formuland. All Rights Reserved.
+      </p>
+<div class="footer-bottom-bar__legal"></div>
+</div>
+</div>
+</footer>
+<script>
+  (function () {
+    var footer = document.querySelector('.site-footer-wrapper[data-section-id="footer"]');
+    if (!footer) return;
+    footer.querySelectorAll('.footer-quicklinks__toggle').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var parent = btn.closest('.footer-quicklinks__parent');
+        if (!parent) return;
+        var submenu = parent.querySelector('.footer-quicklinks__submenu');
+        if (!submenu) return;
+        var isOpen = !submenu.hasAttribute('hidden');
+        if (isOpen) {
+          submenu.setAttribute('hidden', '');
+          btn.setAttribute('aria-expanded', 'false');
+        } else {
+          submenu.removeAttribute('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // ===== Mobile-only reorder: move tagline/contact/app-download to sit
+    // after the accordion link columns. On desktop it stays inside
+    // .footer-brand, under the logo. Reparenting via JS instead of CSS
+    // order/grid-area avoids recreating the multi-row grid-spanning bug
+    // (uneven row heights) that affected this section previously.
+    var infoBlock = footer.querySelector('#FooterBrandInfo');
+    var brandWrap = footer.querySelector('.footer-brand');
+    var navGrid = footer.querySelector('#FooterNavGrid');
+    if (infoBlock && brandWrap && navGrid) {
+      var mq = window.matchMedia('(max-width: 749px)');
+      var placeInfoBlock = function () {
+        if (mq.matches) {
+          if (infoBlock.previousElementSibling !== navGrid) {
+            navGrid.insertAdjacentElement('afterend', infoBlock);
+          }
+        } else {
+          if (infoBlock.parentElement !== brandWrap) {
+            brandWrap.appendChild(infoBlock);
+          }
+        }
+      };
+      placeInfoBlock();
+      if (mq.addEventListener) {
+        mq.addEventListener('change', placeInfoBlock);
+      } else if (mq.addListener) {
+        mq.addListener(placeInfoBlock);
+      }
+    }
+  })();
+</script>
+</div>
+</div>
+{% schema %}
+{
+  "name": "Formuland Footer",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Formuland Footer"
+    }
+  ]
+}
+{% endschema %}
