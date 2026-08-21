@@ -951,15 +951,11 @@
      It stays directly below the announcement bar in the DOM, so with
      height:0 + overflow visible it paints on top of the next section. */
   .fhd--transparent {
+    height: 0;
     overflow: visible;
     position: relative;
     z-index: 100;
   }
-  {% unless request.page_type == 'index' %}
-  .fhd--transparent {    
-    height: 0;
-  }
-{% endunless %}
 
   .fhd--transparent .fhd__header {
   }
@@ -971,8 +967,18 @@
      Reversion to the color logo is handled in the solid-trigger blocks below. */
   .fhd--transparent .fhd__header .header__logo:not(.header__logo--has-transparent) .logo__img--color {
     display: block;
-    filter: none;
   }
+
+  
+
+  {% unless request.page_type == 'index' %}
+  .fhd--transparent {    
+    height: 0;
+  }
+  .fhd--transparent .fhd__header .header__logo:not(.header__logo--has-transparent) .logo__img--color {    
+    filter: brightness(0) invert(1);
+  }
+{% endunless %}
 
   /* SOLID triggers, all viewports: scrolled or mega open.
      Fully opaque white — no blur, no shadow, no translucency. */
