@@ -2,7 +2,7 @@
 @charset "UTF-8";
 
 
-root {
+:root {
 /* ================ Spinner ================ */
 --SPINNER: url(//formuland.com/cdn/shop/t/167/assets/spinner.gif?v=74017169589876499871785846604);
 
