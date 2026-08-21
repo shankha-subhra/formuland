@@ -25881,6 +25881,16 @@ select {
   margin: 20px 0
 }
 
+.product__grid__price {
+    overflow: hidden;
+    margin: 3px 0;
+    font-size: calc(var(--font-3) * var(--FONT-ADJUST-BODY));
+}
+
+.text-center .product__grid__price {
+    justify-content: flex-start;
+}
+
 .image-column-title:before,
 .image-column-title:after {
   content: "";
