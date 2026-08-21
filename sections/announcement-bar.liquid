@@ -1,35 +1,149 @@
+<div
+  id="shopify-section-announcement"
+  class="shopify-section"
+>
+  <div
+    class="announcement__wrapper"
+    data-announcement-wrapper
+    data-section-id="announcement"
+    data-section-type="announcement"
+  >
+
+    <div class="announcement__font font--4">
+
+      <div
+        class="announcement__bar-outer"
+        data-bar
+        style="
+          --bg: var(--COLOR-ANNOUNCEMENT-BG);
+          --text: var(--COLOR-ANNOUNCEMENT-TEXT);
+        "
+      >
+
+        <div
+          class="announcement__bar-holder"
+          data-announcement-slider
+          data-slider-speed="8000"
+        >
+
+          <!-- Slide 1 -->
+          <div
+            class="announcement__bar is-selected"
+            data-slide
+            data-slide-index="0"
+          >
+            <div
+              data-ticker-frame
+              class="announcement__message"
+            >
+              <div
+                data-ticker-scale
+                class="announcement__scale"
+              >
+                <div
+                  data-ticker-text
+                  class="announcement__text"
+                >
+                  <p>
+                    ⚡ Fast and Free Shipping on 4/6/8/12
+                    <br>
+                    Packs.
+
+                    <a href="/collections/goat-milk-formula">
+                      <strong>Shop Now</strong>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Slide 2 -->
+          <div
+            class="announcement__bar"
+            data-slide
+            data-slide-index="1"
+          >
+            <div
+              data-ticker-frame
+              class="announcement__message"
+            >
+              <div
+                data-ticker-scale
+                class="announcement__scale"
+              >
+                <div
+                  data-ticker-text
+                  class="announcement__text"
+                >
+                  <p>
+                    🏆 Shop our Best Selling European Baby
+                    <br>
+                    Formulas.
+
+                    <a href="/collections">
+                      <strong>Shop Now</strong>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
 <style>
-  #announcement-slider-{{ section.id }} {
+  #shopify-section-announcement {
+    position: relative;
+    z-index: 200;
+  }
+
+  #shopify-section-announcement * {
+    box-sizing: border-box;
+  }
+
+  #shopify-section-announcement
+  .announcement__bar-outer {
+    width: 100%;
+    background-color: #e6f28d;
+    color: #13322b;
+    overflow: hidden;
+  }
+
+  #shopify-section-announcement
+  .announcement__bar-holder {
     position: relative;
     width: 100%;
-    background: {{ section.settings.background_color }};
-    color: {{ section.settings.text_color }};
+    height: 36px;
     overflow: hidden;
-    z-index: 999;
     cursor: pointer;
   }
 
-  #announcement-slider-{{ section.id }} .fas-track {
-    position: relative;
-    min-height: {{ section.settings.height }}px;
-  }
-
-  #announcement-slider-{{ section.id }} .fas-slide {
+  #shopify-section-announcement
+  .announcement__bar {
     position: absolute;
     inset: 0;
+
+    width: 100%;
+    height: 100%;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 8px 20px;
-
-    text-align: center;
-
     opacity: 0;
     visibility: hidden;
 
-    transform: translateY(8px);
+    transform: translateX(30px);
 
     transition:
       opacity 0.35s ease,
@@ -37,69 +151,88 @@
       visibility 0.35s ease;
   }
 
-  #announcement-slider-{{ section.id }} .fas-slide.is-active {
-    position: relative;
-
+  #shopify-section-announcement
+  .announcement__bar.is-selected {
     opacity: 1;
     visibility: visible;
-
-    transform: translateY(0);
+    transform: translateX(0);
+    z-index: 2;
   }
 
-  #announcement-slider-{{ section.id }} .fas-message {
+  #shopify-section-announcement
+  .announcement__message {
+    width: 100%;
+    text-align: center;
+  }
+
+  #shopify-section-announcement
+  .announcement__text {
+    width: 100%;
+    text-align: center;
+  }
+
+  #shopify-section-announcement
+  .announcement__text p {
     margin: 0;
 
-    font-family: inherit;
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
 
-    font-size: {{ section.settings.font_size }}px;
-    font-weight: {{ section.settings.font_weight }};
-    line-height: 1.4;
-
-    color: inherit;
+    color: #13322b;
   }
 
-  #announcement-slider-{{ section.id }} .fas-icon {
-    margin-right: 4px;
-  }
-
-  #announcement-slider-{{ section.id }} .fas-link {
-    display: inline-block;
-
-    margin-left: 5px;
-
-    color: inherit;
-
-    font-weight: 600;
-
+  #shopify-section-announcement
+  .announcement__text a {
+    color: #13322b;
     text-decoration: underline;
     text-underline-offset: 2px;
-
-    cursor: pointer;
+    margin-left: 2px;
   }
 
-  #announcement-slider-{{ section.id }} .fas-link:hover {
-    opacity: 0.75;
+  #shopify-section-announcement
+  .announcement__text strong {
+    font-weight: 600;
   }
 
-  @media (max-width: 767px) {
 
-    #announcement-slider-{{ section.id }} .fas-track {
-      min-height: {{ section.settings.mobile_height }}px;
+  /*
+   * Remove any Flickity arrows
+   * if the theme generates them.
+   */
+  #shopify-section-announcement
+  .flickity-prev-next-button,
+  #shopify-section-announcement
+  .flickity-button {
+    display: none !important;
+  }
+
+
+  @media screen and (max-width: 767px) {
+
+    #shopify-section-announcement
+    .announcement__bar-holder {
+      height: 48px;
     }
 
-    #announcement-slider-{{ section.id }} .fas-slide {
-      padding: 7px 15px;
+    #shopify-section-announcement
+    .announcement__bar {
+      padding: 5px 15px;
     }
 
-    #announcement-slider-{{ section.id }} .fas-message {
-      font-size: {{ section.settings.mobile_font_size }}px;
+    #shopify-section-announcement
+    .announcement__text p {
+      font-size: 12px;
+      line-height: 16px;
     }
 
   }
+
 
   @media (prefers-reduced-motion: reduce) {
 
-    #announcement-slider-{{ section.id }} .fas-slide {
+    #shopify-section-announcement
+    .announcement__bar {
       transition: none;
     }
 
@@ -107,70 +240,18 @@
 </style>
 
 
-<div
-  id="announcement-slider-{{ section.id }}"
-  class="formuland-announcement-slider"
-  data-announcement-slider
-  data-autoplay="{{ section.settings.autoplay }}"
-  data-speed="{{ section.settings.autoplay_speed | times: 1000 }}"
->
-
-  <div class="fas-track">
-
-    {% for block in section.blocks %}
-
-      <div
-        class="fas-slide{% if forloop.first %} is-active{% endif %}"
-        data-announcement-slide
-        data-index="{{ forloop.index0 }}"
-        {{ block.shopify_attributes }}
-      >
-
-        <p class="fas-message">
-
-          {% if block.settings.icon != blank %}
-            <span class="fas-icon">
-              {{ block.settings.icon }}
-            </span>
-          {% endif %}
-
-          <span class="fas-text">
-            {{ block.settings.text }}
-          </span>
-
-          {% if block.settings.link_text != blank and block.settings.link != blank %}
-
-            <a
-              href="{{ block.settings.link }}"
-              class="fas-link"
-            >
-              {{ block.settings.link_text }}
-            </a>
-
-          {% endif %}
-
-        </p>
-
-      </div>
-
-    {% endfor %}
-
-  </div>
-
-</div>
-
-
 <script>
 (function () {
 
-  var slider = document.getElementById(
-    'announcement-slider-{{ section.id }}'
+  var slider = document.querySelector(
+    '#shopify-section-announcement [data-announcement-slider]'
   );
 
   if (!slider) return;
 
+
   var slides = slider.querySelectorAll(
-    '[data-announcement-slide]'
+    '[data-slide]'
   );
 
   if (!slides.length) return;
@@ -178,18 +259,17 @@
 
   var current = 0;
 
-  var autoplay =
-    slider.getAttribute('data-autoplay') === 'true';
-
-  var speed =
-    parseInt(
-      slider.getAttribute('data-speed'),
-      10
-    ) || 4000;
+  var speed = parseInt(
+    slider.getAttribute('data-slider-speed'),
+    10
+  ) || 8000;
 
   var timer = null;
 
 
+  /*
+   * Show slide
+   */
   function showSlide(index) {
 
     if (index >= slides.length) {
@@ -202,20 +282,26 @@
 
 
     slides.forEach(function (slide) {
-      slide.classList.remove('is-active');
+
+      slide.classList.remove(
+        'is-selected'
+      );
+
     });
 
 
     slides[index].classList.add(
-      'is-active'
+      'is-selected'
     );
 
 
     current = index;
-
   }
 
 
+  /*
+   * Next announcement
+   */
   function nextSlide() {
 
     showSlide(
@@ -225,7 +311,10 @@
   }
 
 
-  function stopAutoplay() {
+  /*
+   * Stop autoplay
+   */
+  function stopSlider() {
 
     if (timer) {
 
@@ -238,15 +327,14 @@
   }
 
 
-  function startAutoplay() {
+  /*
+   * Start autoplay
+   */
+  function startSlider() {
 
-    stopAutoplay();
+    stopSlider();
 
-
-    if (
-      !autoplay ||
-      slides.length <= 1
-    ) {
+    if (slides.length <= 1) {
       return;
     }
 
@@ -264,11 +352,10 @@
 
 
   /*
-   * Click anywhere on announcement bar
-   * to show the next announcement.
+   * Click announcement bar
+   * = next announcement
    *
-   * If user clicks Shop Now or another link,
-   * allow the link to open normally.
+   * Clicking Shop Now still opens link.
    */
   slider.addEventListener(
     'click',
@@ -283,45 +370,40 @@
 
       nextSlide();
 
-
-      /*
-       * Reset autoplay timer
-       * after manual slide change.
-       */
-      startAutoplay();
+      startSlider();
 
     }
   );
 
 
   /*
-   * Pause autoplay on hover
+   * Pause on hover
    */
   slider.addEventListener(
     'mouseenter',
     function () {
 
-      stopAutoplay();
+      stopSlider();
 
     }
   );
 
 
   /*
-   * Restart autoplay
+   * Restart on mouse leave
    */
   slider.addEventListener(
     'mouseleave',
     function () {
 
-      startAutoplay();
+      startSlider();
 
     }
   );
 
 
   /*
-   * Pause when browser tab is hidden.
+   * Pause when browser tab hidden
    */
   document.addEventListener(
     'visibilitychange',
@@ -329,11 +411,11 @@
 
       if (document.hidden) {
 
-        stopAutoplay();
+        stopSlider();
 
       } else {
 
-        startAutoplay();
+        startSlider();
 
       }
 
@@ -341,171 +423,9 @@
   );
 
 
-  /*
-   * Initialize slider
-   */
   showSlide(0);
 
-  startAutoplay();
+  startSlider();
 
 })();
 </script>
-
-
-{% schema %}
-{
-  "name": "Announcement Slider",
-  "settings": [
-    {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background color",
-      "default": "#13322B"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text color",
-      "default": "#FFFFFF"
-    },
-    {
-      "type": "range",
-      "id": "height",
-      "label": "Desktop height",
-      "min": 30,
-      "max": 80,
-      "step": 2,
-      "default": 42,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "mobile_height",
-      "label": "Mobile height",
-      "min": 30,
-      "max": 100,
-      "step": 2,
-      "default": 46,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "font_size",
-      "label": "Desktop font size",
-      "min": 10,
-      "max": 20,
-      "step": 1,
-      "default": 13,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "mobile_font_size",
-      "label": "Mobile font size",
-      "min": 10,
-      "max": 18,
-      "step": 1,
-      "default": 12,
-      "unit": "px"
-    },
-    {
-      "type": "select",
-      "id": "font_weight",
-      "label": "Font weight",
-      "options": [
-        {
-          "value": "400",
-          "label": "Regular"
-        },
-        {
-          "value": "500",
-          "label": "Medium"
-        },
-        {
-          "value": "600",
-          "label": "Semi Bold"
-        },
-        {
-          "value": "700",
-          "label": "Bold"
-        }
-      ],
-      "default": "400"
-    },
-    {
-      "type": "checkbox",
-      "id": "autoplay",
-      "label": "Auto rotate",
-      "default": true
-    },
-    {
-      "type": "range",
-      "id": "autoplay_speed",
-      "label": "Change slide every",
-      "min": 2,
-      "max": 10,
-      "step": 1,
-      "default": 4,
-      "unit": "s"
-    }
-  ],
-
-  "blocks": [
-    {
-      "type": "announcement",
-      "name": "Announcement",
-      "settings": [
-        {
-          "type": "text",
-          "id": "icon",
-          "label": "Icon / emoji",
-          "default": "⚡"
-        },
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Announcement",
-          "default": "Fast and Free Shipping on 4/6/8/12 Packs."
-        },
-        {
-          "type": "text",
-          "id": "link_text",
-          "label": "Link text",
-          "default": "Shop Now"
-        },
-        {
-          "type": "url",
-          "id": "link",
-          "label": "Link"
-        }
-      ]
-    }
-  ],
-
-  "max_blocks": 10,
-
-  "presets": [
-    {
-      "name": "Announcement Slider",
-      "blocks": [
-        {
-          "type": "announcement",
-          "settings": {
-            "icon": "⚡",
-            "text": "Fast and Free Shipping on 4/6/8/12 Packs.",
-            "link_text": "Shop Now"
-          }
-        },
-        {
-          "type": "announcement",
-          "settings": {
-            "icon": "🏆",
-            "text": "Shop our Best Selling European Baby Formulas.",
-            "link_text": "Shop Now"
-          }
-        }
-      ]
-    }
-  ]
-}
-{% endschema %}
