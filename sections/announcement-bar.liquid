@@ -6,6 +6,7 @@
     color: {{ section.settings.text_color }};
     overflow: hidden;
     z-index: 999;
+    cursor: pointer;
   }
 
   #announcement-slider-{{ section.id }} .fas-track {
@@ -16,12 +17,14 @@
   #announcement-slider-{{ section.id }} .fas-slide {
     position: absolute;
     inset: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
 
-    padding: 8px 45px;
+    padding: 8px 20px;
+
+    text-align: center;
 
     opacity: 0;
     visibility: hidden;
@@ -29,77 +32,53 @@
     transform: translateY(8px);
 
     transition:
-      opacity .35s ease,
-      transform .35s ease,
-      visibility .35s ease;
+      opacity 0.35s ease,
+      transform 0.35s ease,
+      visibility 0.35s ease;
   }
 
   #announcement-slider-{{ section.id }} .fas-slide.is-active {
+    position: relative;
+
     opacity: 1;
     visibility: visible;
+
     transform: translateY(0);
-    position: relative;
   }
 
   #announcement-slider-{{ section.id }} .fas-message {
     margin: 0;
 
+    font-family: inherit;
+
     font-size: {{ section.settings.font_size }}px;
-    line-height: 1.4;
     font-weight: {{ section.settings.font_weight }};
+    line-height: 1.4;
 
     color: inherit;
+  }
+
+  #announcement-slider-{{ section.id }} .fas-icon {
+    margin-right: 4px;
   }
 
   #announcement-slider-{{ section.id }} .fas-link {
-    color: inherit;
-    text-decoration: underline;
-    text-underline-offset: 2px;
+    display: inline-block;
 
     margin-left: 5px;
 
+    color: inherit;
+
     font-weight: 600;
+
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    cursor: pointer;
   }
 
   #announcement-slider-{{ section.id }} .fas-link:hover {
-    opacity: .75;
-  }
-
-  #announcement-slider-{{ section.id }} .fas-arrow {
-    position: absolute;
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    width: 32px;
-    height: 32px;
-
-    border: 0;
-    padding: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: transparent;
-    color: inherit;
-
-    cursor: pointer;
-
-    z-index: 5;
-  }
-
-  #announcement-slider-{{ section.id }} .fas-prev {
-    left: 10px;
-  }
-
-  #announcement-slider-{{ section.id }} .fas-next {
-    right: 10px;
-  }
-
-  #announcement-slider-{{ section.id }} .fas-arrow svg {
-    width: 14px;
-    height: 14px;
+    opacity: 0.75;
   }
 
   @media (max-width: 767px) {
@@ -109,16 +88,11 @@
     }
 
     #announcement-slider-{{ section.id }} .fas-slide {
-      padding: 7px 38px;
+      padding: 7px 15px;
     }
 
     #announcement-slider-{{ section.id }} .fas-message {
       font-size: {{ section.settings.mobile_font_size }}px;
-    }
-
-    #announcement-slider-{{ section.id }} .fas-arrow {
-      width: 28px;
-      height: 28px;
     }
 
   }
@@ -146,7 +120,7 @@
     {% for block in section.blocks %}
 
       <div
-        class="fas-slide {% if forloop.first %}is-active{% endif %}"
+        class="fas-slide{% if forloop.first %} is-active{% endif %}"
         data-announcement-slide
         data-index="{{ forloop.index0 }}"
         {{ block.shopify_attributes }}
@@ -160,13 +134,15 @@
             </span>
           {% endif %}
 
-          {{ block.settings.text }}
+          <span class="fas-text">
+            {{ block.settings.text }}
+          </span>
 
-          {% if block.settings.link_text != blank %}
+          {% if block.settings.link_text != blank and block.settings.link != blank %}
 
             <a
-              class="fas-link"
               href="{{ block.settings.link }}"
+              class="fas-link"
             >
               {{ block.settings.link_text }}
             </a>
@@ -180,56 +156,6 @@
     {% endfor %}
 
   </div>
-
-
-  {% if section.blocks.size > 1 %}
-
-    {% if section.settings.show_arrows %}
-
-      <button
-        type="button"
-        class="fas-arrow fas-prev"
-        data-announcement-prev
-      >
-        <svg
-          viewBox="0 0 10 16"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M8 2L2 8L8 14"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </button>
-
-
-      <button
-        type="button"
-        class="fas-arrow fas-next"
-        data-announcement-next
-      >
-        <svg
-          viewBox="0 0 10 16"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M2 2L8 8L2 14"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </button>
-
-    {% endif %}
-
-  {% endif %}
 
 </div>
 
@@ -248,15 +174,6 @@
   );
 
   if (!slides.length) return;
-
-
-  var prev = slider.querySelector(
-    '[data-announcement-prev]'
-  );
-
-  var next = slider.querySelector(
-    '[data-announcement-next]'
-  );
 
 
   var current = 0;
@@ -283,31 +200,39 @@
       index = slides.length - 1;
     }
 
+
     slides.forEach(function (slide) {
       slide.classList.remove('is-active');
     });
 
-    slides[index].classList.add('is-active');
+
+    slides[index].classList.add(
+      'is-active'
+    );
+
 
     current = index;
+
   }
 
 
   function nextSlide() {
-    showSlide(current + 1);
-  }
 
+    showSlide(
+      current + 1
+    );
 
-  function prevSlide() {
-    showSlide(current - 1);
   }
 
 
   function stopAutoplay() {
 
     if (timer) {
+
       clearInterval(timer);
+
       timer = null;
+
     }
 
   }
@@ -317,6 +242,7 @@
 
     stopAutoplay();
 
+
     if (
       !autoplay ||
       slides.length <= 1
@@ -324,70 +250,102 @@
       return;
     }
 
+
     timer = setInterval(
-      nextSlide,
-      speed
-    );
-  }
-
-
-  if (next) {
-
-    next.addEventListener(
-      'click',
       function () {
 
         nextSlide();
-        startAutoplay();
 
-      }
+      },
+      speed
     );
 
   }
 
 
-  if (prev) {
+  /*
+   * Click anywhere on announcement bar
+   * to show the next announcement.
+   *
+   * If user clicks Shop Now or another link,
+   * allow the link to open normally.
+   */
+  slider.addEventListener(
+    'click',
+    function (event) {
 
-    prev.addEventListener(
-      'click',
-      function () {
-
-        prevSlide();
-        startAutoplay();
-
+      if (
+        event.target.closest('a')
+      ) {
+        return;
       }
-    );
-
-  }
 
 
+      nextSlide();
+
+
+      /*
+       * Reset autoplay timer
+       * after manual slide change.
+       */
+      startAutoplay();
+
+    }
+  );
+
+
+  /*
+   * Pause autoplay on hover
+   */
   slider.addEventListener(
     'mouseenter',
-    stopAutoplay
+    function () {
+
+      stopAutoplay();
+
+    }
   );
 
 
+  /*
+   * Restart autoplay
+   */
   slider.addEventListener(
     'mouseleave',
-    startAutoplay
+    function () {
+
+      startAutoplay();
+
+    }
   );
 
 
+  /*
+   * Pause when browser tab is hidden.
+   */
   document.addEventListener(
     'visibilitychange',
     function () {
 
       if (document.hidden) {
+
         stopAutoplay();
+
       } else {
+
         startAutoplay();
+
       }
 
     }
   );
 
 
+  /*
+   * Initialize slider
+   */
   showSlide(0);
+
   startAutoplay();
 
 })();
@@ -427,7 +385,7 @@
       "min": 30,
       "max": 100,
       "step": 2,
-      "default": 48,
+      "default": 46,
       "unit": "px"
     },
     {
@@ -466,15 +424,13 @@
         {
           "value": "600",
           "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
         }
       ],
       "default": "400"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_arrows",
-      "label": "Show arrows",
-      "default": false
     },
     {
       "type": "checkbox",
@@ -502,7 +458,8 @@
         {
           "type": "text",
           "id": "icon",
-          "label": "Icon / emoji"
+          "label": "Icon / emoji",
+          "default": "⚡"
         },
         {
           "type": "text",
@@ -524,6 +481,8 @@
       ]
     }
   ],
+
+  "max_blocks": 10,
 
   "presets": [
     {
