@@ -963,7 +963,7 @@
     transition: background-color .28s ease, color .28s ease;
   }
 
-  {% unless request.page_type == 'index' %}
+  {% if request.page_type == 'index' %}
   .fhd--transparent {    
     height: 0;
   }
@@ -974,7 +974,7 @@
     background: transparent;
     color: var(--COLOR-NAV-TEXT-TRANSPARENT);
   }
-{% endunless %}
+{% endif %}
   .fhd--transparent .fhd__header .logo__img--color { display: none; }
   .fhd--transparent .fhd__header .logo__img--transparent { display: block; }
   .fhd--transparent .fhd__header .header__logo__text { color: var(--COLOR-NAV-TEXT-TRANSPARENT); }
