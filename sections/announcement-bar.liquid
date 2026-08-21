@@ -8,7 +8,9 @@
     z-index: 100;
   }
 
-  #custom-announcement-{{ section.id }} * {
+  #custom-announcement-{{ section.id }} *,
+  #custom-announcement-{{ section.id }} *::before,
+  #custom-announcement-{{ section.id }} *::after {
     box-sizing: border-box;
   }
 
@@ -17,6 +19,10 @@
     width: 100%;
     height: {{ section.settings.height }}px;
     overflow: hidden;
+
+    touch-action: pan-y;
+    -webkit-user-select: none;
+    user-select: none;
   }
 
   #custom-announcement-{{ section.id }} .custom-announcement__slide {
@@ -86,18 +92,15 @@
     margin-left: 3px;
 
     color: {{ section.settings.text_color }};
+    font-weight: 600;
 
     text-decoration: underline;
     text-underline-offset: 2px;
   }
 
-  #custom-announcement-{{ section.id }} .custom-announcement__link strong {
-    font-weight: 600;
-  }
-
-  /* ==============================
-     PREVIOUS / NEXT BUTTONS
-     ============================== */
+  /* =====================================
+     PREVIOUS / NEXT
+     ===================================== */
 
   #custom-announcement-{{ section.id }} .custom-announcement__arrow {
     position: absolute;
@@ -142,12 +145,11 @@
     opacity: 0.65;
   }
 
-  /* ==============================
+  /* =====================================
      MOBILE
-     ============================== */
+     ===================================== */
 
   @media screen and (max-width: 767px) {
-
     #custom-announcement-{{ section.id }} .custom-announcement__holder {
       height: {{ section.settings.mobile_height }}px;
     }
@@ -195,7 +197,6 @@
   >
 
     {% for block in section.blocks %}
-
       <div
         class="custom-announcement__slide{% if forloop.first %} is-selected{% endif %}"
         data-custom-announcement-slide
@@ -208,7 +209,6 @@
           <div class="custom-announcement__text">
 
             {% if block.settings.text != blank %}
-
               <p>
 
                 {% if block.settings.icon != blank %}
@@ -222,20 +222,15 @@
                 </span>
 
                 {% if block.settings.link_text != blank and block.settings.link != blank %}
-
                   <a
                     href="{{ block.settings.link }}"
                     class="custom-announcement__link"
                   >
-                    <strong>
-                      {{ block.settings.link_text }}
-                    </strong>
+                    {{ block.settings.link_text }}
                   </a>
-
                 {% endif %}
 
               </p>
-
             {% endif %}
 
           </div>
@@ -243,7 +238,6 @@
         </div>
 
       </div>
-
     {% endfor %}
 
 
@@ -337,9 +331,9 @@
   var currentIndex = 0;
 
 
-  /* ==============================
+  /* =====================================
      SHOW SLIDE
-     ============================== */
+     ===================================== */
 
   function showSlide(index) {
 
@@ -354,30 +348,22 @@
 
     slides.forEach(function (slide, slideIndex) {
 
-      if (slideIndex === index) {
-
-        slide.classList.add(
-          'is-selected'
-        );
-
-      } else {
-
-        slide.classList.remove(
-          'is-selected'
-        );
-
-      }
+      slide.classList.toggle(
+        'is-selected',
+        slideIndex === index
+      );
 
     });
 
 
     currentIndex = index;
+
   }
 
 
-  /* ==============================
+  /* =====================================
      NEXT
-     ============================== */
+     ===================================== */
 
   function nextSlide() {
 
@@ -388,9 +374,9 @@
   }
 
 
-  /* ==============================
+  /* =====================================
      PREVIOUS
-     ============================== */
+     ===================================== */
 
   function previousSlide() {
 
@@ -401,9 +387,9 @@
   }
 
 
-  /* ==============================
-     NEXT BUTTON CLICK
-     ============================== */
+  /* =====================================
+     NEXT CLICK
+     ===================================== */
 
   if (nextButton) {
 
@@ -422,9 +408,9 @@
   }
 
 
-  /* ==============================
-     PREVIOUS BUTTON CLICK
-     ============================== */
+  /* =====================================
+     PREVIOUS CLICK
+     ===================================== */
 
   if (previousButton) {
 
@@ -443,17 +429,161 @@
   }
 
 
-  /* ==============================
+  /* =====================================
+     MOBILE TOUCH / SWIPE
+     ===================================== */
+
+  var touchStartX = 0;
+  var touchStartY = 0;
+
+  var touchCurrentX = 0;
+  var touchCurrentY = 0;
+
+  var isTouching = false;
+
+  var SWIPE_THRESHOLD = 40;
+
+
+  slider.addEventListener(
+    'touchstart',
+    function (event) {
+
+      if (!event.touches.length) return;
+
+      touchStartX =
+        event.touches[0].clientX;
+
+      touchStartY =
+        event.touches[0].clientY;
+
+      touchCurrentX =
+        touchStartX;
+
+      touchCurrentY =
+        touchStartY;
+
+      isTouching = true;
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+  slider.addEventListener(
+    'touchmove',
+    function (event) {
+
+      if (!isTouching) return;
+
+      if (!event.touches.length) return;
+
+
+      touchCurrentX =
+        event.touches[0].clientX;
+
+      touchCurrentY =
+        event.touches[0].clientY;
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+  slider.addEventListener(
+    'touchend',
+    function () {
+
+      if (!isTouching) return;
+
+      isTouching = false;
+
+
+      var differenceX =
+        touchCurrentX - touchStartX;
+
+      var differenceY =
+        touchCurrentY - touchStartY;
+
+
+      /*
+       * Vertical movement is stronger,
+       * so allow normal page scrolling.
+       */
+      if (
+        Math.abs(differenceY) >
+        Math.abs(differenceX)
+      ) {
+        return;
+      }
+
+
+      /*
+       * Ignore tiny finger movement.
+       */
+      if (
+        Math.abs(differenceX) <
+        SWIPE_THRESHOLD
+      ) {
+        return;
+      }
+
+
+      /*
+       * Swipe LEFT
+       * = NEXT
+       */
+      if (differenceX < 0) {
+
+        nextSlide();
+
+      }
+
+      /*
+       * Swipe RIGHT
+       * = PREVIOUS
+       */
+      else {
+
+        previousSlide();
+
+      }
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+  slider.addEventListener(
+    'touchcancel',
+    function () {
+
+      isTouching = false;
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+  /* =====================================
      SHOPIFY THEME EDITOR
-     ============================== */
+     ===================================== */
 
   document.addEventListener(
     'shopify:block:select',
     function (event) {
 
-      var selectedSlide = event.target.closest(
-        '[data-custom-announcement-slide]'
-      );
+      var selectedSlide =
+        event.target.closest(
+          '[data-custom-announcement-slide]'
+        );
 
       if (!selectedSlide) return;
 
@@ -462,9 +592,9 @@
       }
 
 
-      var index = slides.indexOf(
-        selectedSlide
-      );
+      var index =
+        slides.indexOf(selectedSlide);
+
 
       if (index === -1) return;
 
@@ -475,9 +605,9 @@
   );
 
 
-  /* ==============================
-     INITIAL SLIDE
-     ============================== */
+  /* =====================================
+     INITIALIZE
+     ===================================== */
 
   showSlide(0);
 
