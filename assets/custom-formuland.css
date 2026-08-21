@@ -2,8 +2,165 @@
 @charset "UTF-8";
 
 
-:root{--rb-smart-search-quick-view-product-title-color:#232323;--rb-smart-search-quick-view-product-price-color:#535353;--rb-smart-search-quick-view-product-price-sale-color:#44BE70;--rb-smart-search-quick-view-product-price-compare-at-color:#9a9a9a;--rb-smart-search-quick-view-button-text-color:#ffffff;--rb-smart-search-quick-view-button-background-color:#006240;--rb-smart-search-quick-view-button-border-color:#006240;--rb-smart-search-quick-view-button-border-width:2px;--rb-smart-search-quick-view-button-radius:5px;--rb-smart-search-quick-view-reviews-background-color:#E5E5E5;--rb-smart-search-quick-view-reviews-foreground-color:#FBCA10;--rb-smart-search-quick-view-reviews-text-color:#535353;--rb-smart-search-results-product-title-color:#232323;--rb-smart-search-results-product-price-color:#535353;--rb-smart-search-results-product-price-sale-color:#44BE70;--rb-smart-search-results-product-price-compare-at-color:#9a9a9a;--rb-smart-search-results-button-text-color:#ffffff;--rb-smart-search-results-button-background-color:#006240;--rb-smart-search-results-button-border-color:#006240;--rb-smart-search-results-button-border-width:2px;--rb-smart-search-results-button-radius:5px;--rb-smart-search-results-reviews-background-color:#E5E5E5;--rb-smart-search-results-reviews-foreground-color:#FBCA10;--rb-smart-search-results-reviews-text-color:#535353;--rb-smart-search-results-content-inactive-tab-color:#546b7d;--rb-smart-search-results-content-active-tab-color:#335eea;--rb-smart-search-results-content-heading-color:#000;--rb-smart-search-results-content-description-color:#405768;--rb-smart-search-results-pagination-button-text-color:#ffffff;--rb-smart-search-results-pagination-button-background-color:#006240;--rb-smart-search-results-pagination-button-border-color:#006240;--rb-smart-search-results-pagination-button-border-width:2px;--rb-smart-search-results-pagination-button-radius:5px;--rb-smart-collections-product-title-color:#232323;--rb-smart-collections-product-price-color:#535353;--rb-smart-collections-product-price-sale-color:#44BE70;--rb-smart-collections-product-price-compare-at-color:#9a9a9a;--rb-smart-collections-button-text-color:#ffffff;--rb-smart-collections-button-background-color:#006240;--rb-smart-collections-button-border-color:#006240;--rb-smart-collections-button-border-width:2px;--rb-smart-collections-button-radius:5px;--rb-smart-collections-reviews-background-color:#E5E5E5;--rb-smart-collections-reviews-foreground-color:#FBCA10;--rb-smart-collections-reviews-text-color:#535353;--rb-smart-collections-pagination-button-text-color:#ffffff;--rb-smart-collections-pagination-button-background:#006240;--rb-smart-collections-pagination-button-border-color:#006240}:root{--rb-widget-input-border-color:#cccccc;--rb-widget-input-border-focus-color:#006240;--rb-widget-option-background:transparent;--rb-widget-option-border-color:var(--rb-widget-input-border-color);--rb-widget-option-selected-background:transparent;--rb-widget-option-selected-color:var(--rb-widget-input-border-focus-color);--rb-widget-progress-bar-fill:var(--rb-widget-option-selected-color);--rb-widget-progress-bar-track:#ececec}.rebuy-loader{border-bottom-color:#006240}.rebuy-widget .super-title{color:#535353}.rebuy-widget .primary-title{color:#232323}.rebuy-widget .description{color:#535353}.rebuy-widget .rebuy-product-title,.rebuy-widget .rebuy-product-title-link,.rebuy-modal__product-title{color:#232323}.rebuy-widget .rebuy-product-description,.rebuy-modal__product-option-title{color:#535353}.rebuy-product-vendor{color:#535353}.rebuy-money,.rebuy-widget .rebuy-money{color:#535353}.rebuy-money.sale,.rebuy-widget .rebuy-money.sale,.rebuy-cart__flyout-subtotal-final-amount,.rebuy-reorder-cart-total-price-final-amount,[data-rebuy-component="cart-subtotal"] .rebuy-cart__flyout-subtotal-final-amount,[data-rebuy-component="cart-subtotal"] .rebuy-reorder-cart-total-price-final-amount{color:#44BE70}.rebuy-money.compare-at,.rebuy-widget .rebuy-money.compare-at{color:#9a9a9a}.rebuy-underline,.rebuy-widget .rebuy-underline{border-color:#006240}.rebuy-checkbox .checkbox-input:focus,.rebuy-widget .rebuy-checkbox .checkbox-input:focus,.rebuy-radio .radio-input:focus,.rebuy-widget .rebuy-radio .radio-input:focus{border-color:#006240}.rebuy-checkbox .checkbox-input:checked,.rebuy-widget .rebuy-checkbox .checkbox-input:checked,.rebuy-radio .radio-input:checked,.rebuy-widget .rebuy-radio .radio-input:checked{background:#006240;border-color:#006240}.rebuy-select,.rebuy-widget .rebuy-select,select.rebuy-select,.rebuy-widget select.rebuy-select{color:#232323;background-color:#fff;border-color:#ccc;border-radius:5px}.rebuy-select{background-image:linear-gradient(45deg,transparent 50%,#cccccc 50%),linear-gradient(135deg,#cccccc 50%,transparent 50%),linear-gradient(to right,#cccccc,#cccccc)}.rebuy-select:focus,.rebuy-widget .rebuy-select:focus,select.rebuy-select:focus,.rebuy-widget select.rebuy-select:focus{border-color:#006240}.rebuy-input,.rebuy-widget .rebuy-input,input.rebuy-input,.rebuy-widget input.rebuy-input{color:#232323;background-color:#fff;border-color:#ccc;border-radius:5px}.rebuy-input:focus,.rebuy-widget .rebuy-input:focus,input.rebuy-input:focus,.rebuy-widget input.rebuy-input:focus{border-color:#006240}.rebuy-button,.rebuy-widget .rebuy-button,.rebuy-cart__flyout-empty-cart a,[data-rebuy-component=progress-bar] .rebuy-cart__progress-gift-variant-readd,.rebuy-cart__progress-free-product-variant-select-container{color:#fff;background:#006240;border-color:#006240;border-width:2px;border-radius:5px}.rebuy-button.outline,.rebuy-widget .rebuy-button.outline,.rebuy-button.secondary,.rebuy-widget .rebuy-button.secondary{color:#006240;background:#fff;border-color:#006240}.rebuy-button.decline,.rebuy-widget .rebuy-button.decline{color:#232323;background:#fff0;border-color:#e3e3e3}.rebuy-button.dark,.rebuy-widget .rebuy-button.dark{background-color:#5E6670;color:#fff;border-color:#fff}.rebuy-option-button{color:#006240;border-color:#006240;border-radius:5px;background:#fff}.rebuy-option-button.is-active{color:#fff;background:#006240}.rebuy-radio,.rebuy-checkbox,.rebuy-widget .rebuy-radio,.rebuy-widget .rebuy-checkbox{border-color:#ccc}.rebuy-radio:focus,.rebuy-checkbox:focus,.rebuy-widget .rebuy-radio:focus,.rebuy-widget .rebuy-checkbox:focus{border-color:#006240}.rebuy-radio:checked,.rebuy-checkbox:checked,.rebuy-widget .rebuy-radio:checked,.rebuy-widget .rebuy-checkbox:checked{color:#fff;background:#006240;border-color:#006240}.rebuy-textarea{color:#232323;background-color:#fff;border-color:#ccc;border-radius:5px}.rebuy-widget .rebuy-carousel__arrows .rebuy-carousel__arrow,.rebuy-widget .flickity-button{color:#000;background:#fff}.rebuy-widget .rebuy-carousel__arrows .rebuy-carousel__arrow svg,.rebuy-widget .rebuy-carousel__arrows .rebuy-carousel__arrow:hover:not(:disabled) svg{fill:#000}.rebuy-widget .rebuy-carousel__pagination .rebuy-carousel__page,.rebuy-widget .flickity-page-dots .dot{background:#000}.rebuy-widget.rebuy-widget,.rebuy-widget .checkout-promotion-wrapper,.rebuy-widget.rebuy-cart-subscription{background:#fff0}.rsf-modal{--rsf-modal-bg-color:#fff}.rebuy-widget .checkout-promotion-header{border-color:#e3e3e3}.rebuy-widget .checkout-promotion-header .promo-title{color:#232323}.rebuy-widget .checkout-promotion-header .promo-subtitle{color:#535353}.rebuy-widget .checkout-promotion-body h1,.rebuy-widget .checkout-promotion-body h2,.rebuy-widget .checkout-promotion-body h3,.rebuy-widget .checkout-promotion-body h4{color:#232323}.rebuy-widget .checkout-promotion-footer{border-color:#e3e3e3}.rebuy-widget .checkout-promotion-product+.checkout-promotion-product,.rebuy-widget .rebuy-product-block+.rebuy-product-block{border-color:#e3e3e3}.rebuy-widget .checkout-promotion-product .promotion-info .product-title{color:#232323}.rebuy-widget .checkout-promotion-product .promotion-info .variant-title{color:#535353}.rebuy-widget .checkout-promotion-product .promotion-info .product-description{color:#535353}.rebuy-widget .rebuy-product-review .rebuy-star-rating .rebuy-star-rating-foreground{background-image:url('data:image/svg+xml;charset=UTF-8, %3Csvg%20width%3D%22100%22%20height%3D%2220%22%20viewBox%3D%220%200%2080%2014%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22%23FBCA10%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M71.996%2011.368l-3.94%202.42c-.474.292-.756.096-.628-.443l1.074-4.53-3.507-3.022c-.422-.363-.324-.693.24-.74l4.602-.37%201.778-4.3c.21-.51.55-.512.762%200l1.78%204.3%204.602.37c.552.046.666.37.237.74l-3.507%203.02%201.075%204.532c.127.536-.147.74-.628.444l-3.94-2.422zM55.996%2011.368l-3.94%202.42c-.474.292-.756.096-.628-.443l1.074-4.53-3.507-3.022c-.422-.363-.324-.693.24-.74l4.602-.37%201.778-4.3c.21-.51.55-.512.762%200l1.78%204.3%204.602.37c.552.046.666.37.237.74l-3.507%203.02%201.075%204.532c.127.536-.147.74-.628.444l-3.94-2.422zM40.123%2011.368l-3.94%202.42c-.475.292-.756.096-.63-.443l1.076-4.53-3.508-3.022c-.422-.363-.324-.693.24-.74l4.602-.37%201.778-4.3c.21-.51.55-.512.762%200l1.778%204.3%204.603.37c.554.046.667.37.24.74l-3.508%203.02%201.075%204.532c.127.536-.147.74-.628.444l-3.94-2.422zM24.076%2011.368l-3.94%202.42c-.475.292-.757.096-.63-.443l1.076-4.53-3.507-3.022c-.422-.363-.324-.693.238-.74l4.603-.37%201.78-4.3c.21-.51.55-.512.76%200l1.78%204.3%204.602.37c.554.046.667.37.24.74l-3.508%203.02%201.074%204.532c.127.536-.146.74-.628.444l-3.94-2.422zM8.123%2011.368l-3.94%202.42c-.475.292-.756.096-.63-.443l1.076-4.53L1.12%205.792c-.422-.363-.324-.693.24-.74l4.602-.37%201.778-4.3c.21-.51.55-.512.762%200l1.778%204.3%204.603.37c.554.046.667.37.24.74l-3.508%203.02%201.075%204.532c.127.536-.147.74-.628.444l-3.94-2.422z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E')}.rebuy-widget .rebuy-product-review .rebuy-star-rating .rebuy-star-rating-background{background-image:url('data:image/svg+xml;charset=UTF-8, %3Csvg%20width%3D%22100%22%20height%3D%2220%22%20viewBox%3D%220%200%2080%2014%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22%23E5E5E5%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M71.996%2011.368l-3.94%202.42c-.474.292-.756.096-.628-.443l1.074-4.53-3.507-3.022c-.422-.363-.324-.693.24-.74l4.602-.37%201.778-4.3c.21-.51.55-.512.762%200l1.78%204.3%204.602.37c.552.046.666.37.237.74l-3.507%203.02%201.075%204.532c.127.536-.147.74-.628.444l-3.94-2.422zM55.996%2011.368l-3.94%202.42c-.474.292-.756.096-.628-.443l1.074-4.53-3.507-3.022c-.422-.363-.324-.693.24-.74l4.602-.37%201.778-4.3c.21-.51.55-.512.762%200l1.78%204.3%204.602.37c.552.046.666.37.237.74l-3.507%203.02%201.075%204.532c.127.536-.147.74-.628.444l-3.94-2.422zM40.123%2011.368l-3.94%202.42c-.475.292-.756.096-.63-.443l1.076-4.53-3.508-3.022c-.422-.363-.324-.693.24-.74l4.602-.37%201.778-4.3c.21-.51.55-.512.762%200l1.778%204.3%204.603.37c.554.046.667.37.24.74l-3.508%203.02%201.075%204.532c.127.536-.147.74-.628.444l-3.94-2.422zM24.076%2011.368l-3.94%202.42c-.475.292-.757.096-.63-.443l1.076-4.53-3.507-3.022c-.422-.363-.324-.693.238-.74l4.603-.37%201.78-4.3c.21-.51.55-.512.76%200l1.78%204.3%204.602.37c.554.046.667.37.24.74l-3.508%203.02%201.074%204.532c.127.536-.146.74-.628.444l-3.94-2.422zM8.123%2011.368l-3.94%202.42c-.475.292-.756.096-.63-.443l1.076-4.53L1.12%205.792c-.422-.363-.324-.693.24-.74l4.602-.37%201.778-4.3c.21-.51.55-.512.762%200l1.778%204.3%204.603.37c.554.046.667.37.24.74l-3.508%203.02%201.075%204.532c.127.536-.147.74-.628.444l-3.94-2.422z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E')}.rebuy-widget .rebuy-product-review .rebuy-review-count{color:#535353}.rebuy-widget .rebuy-timer{background:#fff0}.rebuy-widget .rebuy-timer-minutes,.rebuy-widget .rebuy-timer-seconds{color:red}.rebuy-notification-modal .rebuy-notification-dialog{background:#fff}.rebuy-notification-modal .rebuy-notification-dialog-header{color:#232323}.rebuy-notification-modal .rebuy-notification-dialog-content{color:#535353}.rebuy-notification-modal .rebuy-notification-dialog-actions{border-color:#e3e3e3}.rebuy-modal__container-header{color:#232323}.rebuy-modal__spinner{border-color:#fff;border-top-color:#006240}.rebuy-modal__spinner:empty{display:block}.rebuy-product-description,.rebuy-modal__product-description-toggle-label,.rebuy-modal__product-description-toggle-icon{color:#535353}.rebuy-cart__flyout-header{border-color:#e3e3e3}.rebuy-cart__flyout-title,.rebuy-cart__title{color:#232323}.rebuy-cart__flyout-close{color:#232323}.rebuy-cart__flyout-announcement-bar,[data-rebuy-component="announcement-bar"]{color:#232323;background-color:#eee}.rebuy-cart__flyout-shipping-bar.has-free-shipping{background-color:rgb(0 98 64 / .2)}.rebuy-cart__flyout-shipping-bar-meter{background-color:#eee}.rebuy-cart__flyout-shipping-bar-meter-fill,.rebuy-cart__progress-bar-meter-fill,.complete .rebuy-cart__progress-step-icon,[data-rebuy-component="progress-bar"] .rebuy-cart__progress-bar-meter-fill,[data-rebuy-component="progress-bar"] .rebuy-cart__progress-step.complete .rebuy-cart__progress-step-icon{color:#fff;background:#006240}.rebuy-cart__progress-free-product-variant-select:active+.rebuy-cart__progress-free-product-variant-select-prompt,.rebuy-cart__progress-free-product-variant-select:focus+.rebuy-cart__progress-free-product-variant-select-prompt,[data-rebuy-component="progress-bar"] .rebuy-cart__progress-free-product-variant-select:active+.rebuy-cart__progress-free-product-variant-select-prompt,[data-rebuy-component="progress-bar"] .rebuy-cart__progress-free-product-variant-select:focus+.rebuy-cart__progress-free-product-variant-select-prompt,[data-rebuy-component="progress-bar"] .rebuy-cart__progress-gift-variant-select:active+.rebuy-cart__progress-gift-variant-select-prompt,[data-rebuy-component="progress-bar"] .rebuy-cart__progress-gift-variant-select:focus+.rebuy-cart__progress-gift-variant-select-prompt{color:#006240;background:#fff;border-color:#006240}.rebuy-cart__progress-free-product-variant-select:not(:focus)+.rebuy-cart__progress-free-product-variant-select-prompt,.rebuy-cart__progress-free-product-variant-select:not(:active)+.rebuy-cart__progress-free-product-variant-select-prompt,[data-rebuy-component="progress-bar"] .rebuy-cart__progress-free-product-variant-select:not(:focus)+.rebuy-cart__progress-free-product-variant-select-prompt,[data-rebuy-component="progress-bar"] .rebuy-cart__progress-free-product-variant-select:not(:active)+.rebuy-cart__progress-free-product-variant-select-prompt,[data-rebuy-component="progress-bar"] .rebuy-cart__progress-gift-variant-select:not(:focus)+.rebuy-cart__progress-gift-variant-select-prompt,[data-rebuy-component="progress-bar"] .rebuy-cart__progress-gift-variant-select:not(:active)+.rebuy-cart__progress-gift-variant-select-prompt{color:#fff;background:#006240;border-color:#006240;border-radius:5px}.rebuy-cart__flyout-items,[data-rebuy-component="cart-items"]>ul{border-color:#e3e3e3}.rebuy-cart__flyout-item+.rebuy-cart__flyout-item,[data-rebuy-component="cart-items"] .rebuy-cart__flyout-item+.rebuy-cart__flyout-item{border-top-color:#e3e3e3}.rebuy-cart__flyout-item-remove,[data-rebuy-component="cart-items"] .rebuy-cart__flyout-item-remove{color:#999}.rebuy-cart__flyout-item-product-title,.rebuy-cart__flyout-item-product-title:hover,.rebuy-cart__flyout-item-product-title:active,.rebuy-cart__flyout-item-product-title:visited,[data-rebuy-component="cart-items"] .rebuy-cart__flyout-item-product-title,[data-rebuy-component="cart-items"] .rebuy-cart__flyout-item-product-title:hover,[data-rebuy-component="cart-items"] .rebuy-cart__flyout-item-product-title:active,[data-rebuy-component="cart-items"] .rebuy-cart__flyout-item-product-title:visited{color:#232323}.rebuy-cart__flyout-item-variant-title,[data-rebuy-component="cart-items"] .rebuy-cart__flyout-item-variant-title{color:#535353}.rebuy-cart__flyout-item-property,[data-rebuy-component="cart-items"] .rebuy-cart__flyout-item-property{color:#535353}.rebuy-cart__flyout-item-price .rebuy-money,[data-rebuy-component="cart-items"] .rebuy-cart__flyout-item-price .rebuy-money{color:#535353}.rebuy-cart__flyout-item-price .rebuy-money.sale,[data-rebuy-component="cart-items"] .rebuy-cart__flyout-item-price .rebuy-money.sale{color:#44BE70}.rebuy-cart__flyout-item-price .rebuy-money.compare-at,[data-rebuy-component="cart-items"] .rebuy-cart__flyout-item-price .rebuy-money.compare-at{color:#9a9a9a}.rebuy-cart__flyout-item-quantity-widget,[data-rebuy-component="cart-items"] .rebuy-cart__flyout-item-quantity-widget{border-color:#e3e3e3}.rebuy-cart__flyout-item-quantity-widget-label,[data-rebuy-component="cart-items"] .rebuy-cart__flyout-item-quantity-widget-label{border-color:#e3e3e3}.rebuy-cart__flyout-item-quantity-widget-button,.rebuy-cart__flyout-item-quantity-widget-label,[data-rebuy-component="cart-items"] .rebuy-cart__flyout-item-quantity-widget-button,[data-rebuy-component="cart-items"] .rebuy-cart__flyout-item-quantity-widget-label{color:#232323}.rebuy-cart__flyout-recommendations{background:#fafafa;border-color:#e3e3e3}.rebuy-cart__flyout-recommendations .rebuy-widget .rebuy-product-grid.large-style-line .rebuy-product-block,.rebuy-cart__flyout-recommendations .rebuy-widget .rebuy-product-grid.medium-style-line .rebuy-product-block,.rebuy-cart__flyout-recommendations .rebuy-widget .rebuy-product-grid.small-style-line .rebuy-product-block{border-color:#e3e3e3}.rebuy-cart__flyout-footer{border-color:#e3e3e3}.rebuy-cart .rebuy-checkbox:checked{background:#006240;border-color:#006240}.rebuy-cart .rebuy-checkbox:focus{border-color:#006240}.rebuy-cart__flyout-subtotal,[data-rebuy-component="cart-subtotal"] .rebuy-cart__flyout-subtotal{color:#232323}.rebuy-cart__flyout-installments,[data-rebuy-component="checkout-area"] .rebuy-cart__flyout-installments{color:#232323}.rebuy-cart__flyout-discount-amount,[data-rebuy-component="discount-input"] .rebuy-cart__discount-amount{color:#232323}.rebuy-cart__flyout-item-discount-message,[data-rebuy-component="discount-input"] .rebuy-cart__flyout-item-discount-message{color:#44BE70}.rebuy-cart__column--secondary{background-color:rgb(0 98 64 / .2)!important}.rebuy-reorder__item-shipping-bar.has-free-shipping{background-color:rgb(0 98 64 / .2)}.rebuy-reorder__item-shipping-bar-meter-fill{color:#fff;background:#006240}.rebuy-reorder__item-quantity-widget{border-color:#e3e3e3}.rebuy-reorder__item-quantity-widget-label{border-color:#e3e3e3}.rebuy-reorder__item-quantity-widget-button,.rebuy-reorder__item-quantity-widget-label{color:#232323}.rebuy-reorder__announcement-bar{background:#006240;color:#fff}.rebuy-reorder-cart-count{background-color:#006240}.rebuy-reorder-cart-count-head{background-color:rgb(0 98 64 / .2);color:#232323}.rebuy-reactivate-landing__gift{box-shadow:0 0 5px 1px #006240}.rebuy-reactivate-landing__modal-addresses-list--active{border-color:#006240}.rebuy-reactivate-landing__modal-addresses-list .rebuy-radio:checked,.rebuy-reactivate-landing__modal-addresses-list .rebuy-checkbox:checked{background:#006240;border-color:#006240}.rebuy-smart-banner{background:#006240;border-color:#006240;border-width:2px}.rebuy-smart-banner .rebuy-smart-banner_message,.rebuy-smart-banner .rebuy-smart-banner_close{color:#fff}.rebuy-cart a:focus-visible,.rebuy-cart button:focus-visible,.rebuy-cart select:focus-visible,.rebuy-cart input:focus-visible,.rebuy-cart__progress-free-product-variant-select:focus-visible{outline:2px solid #2491C4!important}.rebuy-cart .rebuy-input:focus-visible{border-color:#2491C4!important;outline:0}.rebuy-preview-highlight .rebuy-cart__flyout,.rebuy-preview-highlight .rebuy-widget,.rebuy-preview-highlight .rebuy-quick-view-dropdown__container,.rebuy-preview-highlight .rebuy-quick-view__overlay,.rebuy-preview-highlight #rebuy-smart-search-results-dropdown,.rebuy-preview-highlight #rebuy-quick-view-flyout-search,.rebuy-preview-highlight #rebuy-smart-search-results-sidebar,.rebuy-preview-highlight #rebuy-smart-search-results-sidebar-flyout-filter,.rebuy-preview-highlight #rebuy-smart-collection-dropdown,.rebuy-preview-highlight #rebuy-smart-collection-sidebar{border:2px solid #2491C4!important}.rebuy-bundle-builder__progress-bar-meter-fill,.rebuy-bundle-builder__progress-step.complete .rebuy-bundle-builder__progress-step-icon{color:#fff;background:#006240}.super-title{font-family:Avenir Next,serif}.primary-title{font-family:Avenir Next,serif}.rebuy-product-title{font-family:Avenir Next,serif}
+root {
+/* ================ Spinner ================ */
+--SPINNER: url(//formuland.com/cdn/shop/t/167/assets/spinner.gif?v=74017169589876499871785846604);
 
+/* ================ Product video ================ */
+
+--COLOR-VIDEO-BG: #f2f2f2;
+
+
+/* ================ Color Variables ================ */
+
+/* === Backgrounds ===*/
+--COLOR-BG: #ffffff;
+--COLOR-BG-ACCENT: #ffffff;
+
+/* === Text colors ===*/
+--COLOR-TEXT-DARK: #00160e;
+--COLOR-TEXT: #006240;
+--COLOR-TEXT-LIGHT: #4d9179;
+
+/* === Bright color ===*/
+--COLOR-PRIMARY: #1e2e00;
+--COLOR-PRIMARY-HOVER: #000000;
+--COLOR-PRIMARY-FADE: rgba(30, 46, 0, 0.05);
+--COLOR-PRIMARY-FADE-HOVER: rgba(30, 46, 0, 0.1);--COLOR-PRIMARY-OPPOSITE: #ffffff;
+
+/* === Secondary/link Color ===*/
+--COLOR-SECONDARY: #1e2e00;
+--COLOR-SECONDARY-HOVER: #000000;
+--COLOR-SECONDARY-FADE: rgba(30, 46, 0, 0.05);
+--COLOR-SECONDARY-FADE-HOVER: rgba(30, 46, 0, 0.1);--COLOR-SECONDARY-OPPOSITE: #ffffff;
+
+/* === Shades of grey ===*/
+--COLOR-A5:  rgba(0, 98, 64, 0.05);
+--COLOR-A10: rgba(0, 98, 64, 0.1);
+--COLOR-A20: rgba(0, 98, 64, 0.2);
+--COLOR-A35: rgba(0, 98, 64, 0.35);
+--COLOR-A50: rgba(0, 98, 64, 0.5);
+--COLOR-A80: rgba(0, 98, 64, 0.8);
+--COLOR-A90: rgba(0, 98, 64, 0.9);
+--COLOR-A95: rgba(0, 98, 64, 0.95);
+
+
+/* ================ Inverted Color Variables ================ */
+
+--INVERSE-BG: #333333;
+--INVERSE-BG-ACCENT: #191008;
+
+/* === Text colors ===*/
+--INVERSE-TEXT-DARK: #ffffff;
+--INVERSE-TEXT: #FFFFFF;
+--INVERSE-TEXT-LIGHT: #c2c2c2;
+
+/* === Bright color ===*/
+--INVERSE-PRIMARY: #ffe5da;
+--INVERSE-PRIMARY-HOVER: #ffaf8e;
+--INVERSE-PRIMARY-FADE: rgba(255, 229, 218, 0.05);
+--INVERSE-PRIMARY-FADE-HOVER: rgba(255, 229, 218, 0.1);--INVERSE-PRIMARY-OPPOSITE: #000000;
+
+
+/* === Second Color ===*/
+--INVERSE-SECONDARY: #dff3fd;
+--INVERSE-SECONDARY-HOVER: #91dbff;
+--INVERSE-SECONDARY-FADE: rgba(223, 243, 253, 0.05);
+--INVERSE-SECONDARY-FADE-HOVER: rgba(223, 243, 253, 0.1);--INVERSE-SECONDARY-OPPOSITE: #000000;
+
+
+/* === Shades of grey ===*/
+--INVERSE-A5:  rgba(255, 255, 255, 0.05);
+--INVERSE-A10: rgba(255, 255, 255, 0.1);
+--INVERSE-A20: rgba(255, 255, 255, 0.2);
+--INVERSE-A35: rgba(255, 255, 255, 0.3);
+--INVERSE-A80: rgba(255, 255, 255, 0.8);
+--INVERSE-A90: rgba(255, 255, 255, 0.9);
+--INVERSE-A95: rgba(255, 255, 255, 0.95);
+
+
+/* === Account Bar ===*/
+--COLOR-ANNOUNCEMENT-BG: #f5f1ff;
+--COLOR-ANNOUNCEMENT-TEXT: #1e2e00;
+
+/* === Nav and dropdown link background ===*/
+--COLOR-NAV: #ffffff;
+--COLOR-NAV-TEXT: #364f07;
+--COLOR-NAV-BORDER: #f8f0e7;
+--COLOR-NAV-A10: rgba(54, 79, 7, 0.1);
+--COLOR-NAV-A50: rgba(54, 79, 7, 0.5);
+--COLOR-HIGHLIGHT-LINK: #ff0000;
+
+/* === Site Footer ===*/
+--COLOR-FOOTER-BG: #006240;
+--COLOR-FOOTER-TEXT: #fffcf9;
+--COLOR-FOOTER-A5: rgba(255, 252, 249, 0.05);
+--COLOR-FOOTER-A15: rgba(255, 252, 249, 0.15);
+--COLOR-FOOTER-A90: rgba(255, 252, 249, 0.9);
+
+/* === Products ===*/
+--PRODUCT-GRID-ASPECT-RATIO: 100%;
+
+/* === Product badges ===*/
+--COLOR-BADGE: #ffffff;
+--COLOR-BADGE-TEXT: #656565;
+
+/* === disabled form colors ===*/
+--COLOR-DISABLED-BG: #e6efec;
+--COLOR-DISABLED-TEXT: #a6c8bc;
+
+--INVERSE-DISABLED-BG: #474747;
+--INVERSE-DISABLED-TEXT: #7a7a7a;
+
+/* === Button Radius === */
+--BUTTON-RADIUS: 0px;
+
+
+/* ================ Typography ================ */
+
+--FONT-STACK-BODY: Inter, sans-serif;
+--FONT-STYLE-BODY: normal;
+--FONT-WEIGHT-BODY: 400;
+--FONT-WEIGHT-BODY-BOLD: 500;
+--FONT-ADJUST-BODY: 1.0;
+
+--FONT-STACK-HEADING: Inter, sans-serif;
+--FONT-STYLE-HEADING: normal;
+--FONT-WEIGHT-HEADING: 400;
+--FONT-WEIGHT-HEADING-BOLD: 500;
+--FONT-ADJUST-HEADING: 1.15;
+
+  --FONT-HEADING-SPACE: initial;
+  --FONT-HEADING-CAPS: initial;
+
+
+--FONT-STACK-ACCENT: Inter, sans-serif;
+--FONT-STYLE-ACCENT: normal;
+--FONT-WEIGHT-ACCENT: 400;
+--FONT-WEIGHT-ACCENT-BOLD: 500;
+--FONT-ADJUST-ACCENT: 0.95;
+
+--ICO-SELECT: url('//formuland.com/cdn/shop/t/167/assets/ico-select.svg?v=6511190357154599821785846636');
+
+--URL-ZOOM: url('//formuland.com/cdn/shop/t/167/assets/cursor-zoom.svg?v=48015137628854879751785846637');
+--URL-ZOOM-2X: url('//formuland.com/cdn/shop/t/167/assets/cursor-zoom-2x.svg?v=80191640935517031785846636');
+
+/* ================ Photo correction ================ */
+--PHOTO-CORRECTION: 100%;
+
+
+  
+
+--COLOR-TEXT-DARK: #000000;
+--COLOR-TEXT:#00160e;
+--COLOR-TEXT-LIGHT: #006240;
+
+--INVERSE-TEXT-DARK: #ffffff;
+--INVERSE-TEXT: #ffffff;
+--INVERSE-TEXT-LIGHT: #FFFFFF;
+
+
+}
 
 /*! ============================================================================
   Pipeline Theme | (c) Groupthought Themes
