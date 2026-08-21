@@ -962,6 +962,16 @@
     transition: background-color .28s ease, color .28s ease;
   }
 
+  .fhd--transparent .fhd__header .logo__img--color { display: none; }
+  .fhd--transparent .fhd__header .logo__img--transparent { display: block; }
+  .fhd--transparent .fhd__header .header__logo__text { color: var(--COLOR-NAV-TEXT-TRANSPARENT); }
+
+  /* No white logo uploaded? Auto-invert the color logo while transparent.
+     Reversion to the color logo is handled in the solid-trigger blocks below. */
+  .fhd--transparent .fhd__header .header__logo:not(.header__logo--has-transparent) .logo__img--color {
+    display: block;
+    filter: none
+  }
   {% if request.page_type == 'index' %}
   .fhd--transparent {    
     height: 0;
@@ -974,16 +984,6 @@
     color: var(--COLOR-NAV-TEXT-TRANSPARENT);
   }
 {% endif %}
-  .fhd--transparent .fhd__header .logo__img--color { display: none; }
-  .fhd--transparent .fhd__header .logo__img--transparent { display: block; }
-  .fhd--transparent .fhd__header .header__logo__text { color: var(--COLOR-NAV-TEXT-TRANSPARENT); }
-
-  /* No white logo uploaded? Auto-invert the color logo while transparent.
-     Reversion to the color logo is handled in the solid-trigger blocks below. */
-  .fhd--transparent .fhd__header .header__logo:not(.header__logo--has-transparent) .logo__img--color {
-    display: block;
-    filter: brightness(0) invert(1);
-  }
 
   /* SOLID triggers, all viewports: scrolled or mega open.
      Fully opaque white — no blur, no shadow, no translucency. */
