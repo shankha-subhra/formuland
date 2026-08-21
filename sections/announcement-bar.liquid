@@ -1,8 +1,4 @@
 <style>
-  #shopify-section-{{ section.id }} {
-    background: {{ section.settings.background_color }};
-  }
-
   #custom-announcement-{{ section.id }} {
     position: relative;
     width: 100%;
@@ -16,44 +12,39 @@
     box-sizing: border-box;
   }
 
-  #custom-announcement-{{ section.id }} .custom-announcement__outer {
-    position: relative;
-    width: 100%;
-    background: {{ section.settings.background_color }};
-    color: {{ section.settings.text_color }};
-    overflow: hidden;
-  }
-
   #custom-announcement-{{ section.id }} .custom-announcement__holder {
     position: relative;
     width: 100%;
-    min-height: {{ section.settings.height }}px;
+    height: {{ section.settings.height }}px;
     overflow: hidden;
   }
 
   #custom-announcement-{{ section.id }} .custom-announcement__slide {
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
 
     width: 100%;
-    min-height: {{ section.settings.height }}px;
+    height: 100%;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 5px 55px;
+    padding: 0 55px;
 
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 
-    transform: translateX(25px);
+    transform: translateX(30px);
 
     transition:
       opacity 0.35s ease,
       transform 0.35s ease,
       visibility 0.35s ease;
+
+    z-index: 1;
   }
 
   #custom-announcement-{{ section.id }} .custom-announcement__slide.is-selected {
@@ -104,10 +95,9 @@
     font-weight: 600;
   }
 
-
-  /* =========================================
+  /* ==============================
      PREVIOUS / NEXT BUTTONS
-     ========================================= */
+     ============================== */
 
   #custom-announcement-{{ section.id }} .custom-announcement__arrow {
     position: absolute;
@@ -131,7 +121,7 @@
 
     cursor: pointer;
 
-    z-index: 10;
+    z-index: 20;
   }
 
   #custom-announcement-{{ section.id }} .custom-announcement__arrow--prev {
@@ -144,7 +134,6 @@
 
   #custom-announcement-{{ section.id }} .custom-announcement__arrow svg {
     display: block;
-
     width: 10px;
     height: 18px;
   }
@@ -153,16 +142,14 @@
     opacity: 0.65;
   }
 
-
-  /* =========================================
+  /* ==============================
      MOBILE
-     ========================================= */
+     ============================== */
 
   @media screen and (max-width: 767px) {
 
-    #custom-announcement-{{ section.id }} .custom-announcement__holder,
-    #custom-announcement-{{ section.id }} .custom-announcement__slide {
-      min-height: {{ section.settings.mobile_height }}px;
+    #custom-announcement-{{ section.id }} .custom-announcement__holder {
+      height: {{ section.settings.mobile_height }}px;
     }
 
     #custom-announcement-{{ section.id }} .custom-announcement__slide {
@@ -187,16 +174,12 @@
     #custom-announcement-{{ section.id }} .custom-announcement__arrow--next {
       right: 3px;
     }
-
   }
 
-
   @media (prefers-reduced-motion: reduce) {
-
     #custom-announcement-{{ section.id }} .custom-announcement__slide {
       transition: none;
     }
-
   }
 </style>
 
@@ -204,130 +187,112 @@
 <div
   id="custom-announcement-{{ section.id }}"
   class="custom-announcement"
-  data-custom-announcement
 >
 
-  <div class="custom-announcement__outer">
+  <div
+    class="custom-announcement__holder"
+    data-custom-announcement-slider
+  >
 
-    <div
-      class="custom-announcement__holder"
-      data-custom-announcement-slider
-      data-slider-speed="{{ section.settings.slider_speed | times: 1000 }}"
-      data-autoplay="{{ section.settings.autoplay }}"
-    >
+    {% for block in section.blocks %}
 
-      {% for block in section.blocks %}
+      <div
+        class="custom-announcement__slide{% if forloop.first %} is-selected{% endif %}"
+        data-custom-announcement-slide
+        data-custom-slide-index="{{ forloop.index0 }}"
+        {{ block.shopify_attributes }}
+      >
 
-        <div
-          class="custom-announcement__slide{% if forloop.first %} is-selected{% endif %}"
-          data-custom-announcement-slide
-          data-custom-slide-index="{{ forloop.index0 }}"
-          {{ block.shopify_attributes }}
-        >
+        <div class="custom-announcement__message">
 
-          <div class="custom-announcement__message">
+          <div class="custom-announcement__text">
 
-            <div class="custom-announcement__text">
+            {% if block.settings.text != blank %}
 
-              {% if block.settings.text != blank %}
+              <p>
 
-                <p>
-
-                  {% if block.settings.icon != blank %}
-                    <span class="custom-announcement__icon">
-                      {{ block.settings.icon }}
-                    </span>
-                  {% endif %}
-
-                  <span>
-                    {{ block.settings.text }}
+                {% if block.settings.icon != blank %}
+                  <span class="custom-announcement__icon">
+                    {{ block.settings.icon }}
                   </span>
+                {% endif %}
 
+                <span>
+                  {{ block.settings.text }}
+                </span>
 
-                  {% if block.settings.link_text != blank and block.settings.link != blank %}
+                {% if block.settings.link_text != blank and block.settings.link != blank %}
 
-                    <a
-                      href="{{ block.settings.link }}"
-                      class="custom-announcement__link"
-                    >
-                      <strong>
-                        {{ block.settings.link_text }}
-                      </strong>
-                    </a>
+                  <a
+                    href="{{ block.settings.link }}"
+                    class="custom-announcement__link"
+                  >
+                    <strong>
+                      {{ block.settings.link_text }}
+                    </strong>
+                  </a>
 
-                  {% endif %}
+                {% endif %}
 
-                </p>
+              </p>
 
-              {% endif %}
-
-            </div>
+            {% endif %}
 
           </div>
 
         </div>
 
-      {% endfor %}
+      </div>
+
+    {% endfor %}
 
 
-      {% if section.blocks.size > 1 %}
+    {% if section.blocks.size > 1 %}
 
-        <button
-          type="button"
-          class="
-            custom-announcement__arrow
-            custom-announcement__arrow--prev
-          "
-          data-custom-announcement-prev
-          aria-label="Previous announcement"
+      <button
+        type="button"
+        class="custom-announcement__arrow custom-announcement__arrow--prev"
+        data-custom-announcement-prev
+        aria-label="Previous announcement"
+      >
+        <svg
+          viewBox="0 0 12 20"
+          aria-hidden="true"
         >
-
-          <svg
-            viewBox="0 0 12 20"
-            aria-hidden="true"
-          >
-            <path
-              d="M10 2L2 10L10 18"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-
-        </button>
+          <path
+            d="M10 2L2 10L10 18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
 
 
-        <button
-          type="button"
-          class="
-            custom-announcement__arrow
-            custom-announcement__arrow--next
-          "
-          data-custom-announcement-next
-          aria-label="Next announcement"
+      <button
+        type="button"
+        class="custom-announcement__arrow custom-announcement__arrow--next"
+        data-custom-announcement-next
+        aria-label="Next announcement"
+      >
+        <svg
+          viewBox="0 0 12 20"
+          aria-hidden="true"
         >
+          <path
+            d="M2 2L10 10L2 18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
 
-          <svg
-            viewBox="0 0 12 20"
-            aria-hidden="true"
-          >
-            <path
-              d="M2 2L10 10L2 18"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-
-        </button>
-
-      {% endif %}
-
-    </div>
+    {% endif %}
 
   </div>
 
@@ -337,214 +302,108 @@
 <script>
 (function () {
 
-  var section =
-    document.getElementById(
-      'custom-announcement-{{ section.id }}'
-    );
+  var section = document.getElementById(
+    'custom-announcement-{{ section.id }}'
+  );
 
   if (!section) return;
 
 
-  /*
-   * Prevent duplicate initialization,
-   * especially inside Shopify Theme Editor.
-   */
-  if (section.dataset.customAnnouncementInitialized === 'true') {
-    return;
-  }
-
-  section.dataset.customAnnouncementInitialized = 'true';
-
-
-  var slider =
-    section.querySelector(
-      '[data-custom-announcement-slider]'
-    );
+  var slider = section.querySelector(
+    '[data-custom-announcement-slider]'
+  );
 
   if (!slider) return;
 
 
-  var slides =
+  var slides = Array.prototype.slice.call(
     slider.querySelectorAll(
       '[data-custom-announcement-slide]'
-    );
+    )
+  );
 
   if (!slides.length) return;
 
 
-  var previousButton =
-    slider.querySelector(
-      '[data-custom-announcement-prev]'
-    );
+  var previousButton = slider.querySelector(
+    '[data-custom-announcement-prev]'
+  );
 
-  var nextButton =
-    slider.querySelector(
-      '[data-custom-announcement-next]'
-    );
+  var nextButton = slider.querySelector(
+    '[data-custom-announcement-next]'
+  );
 
 
-  var current = 0;
-
-  var timer = null;
+  var currentIndex = 0;
 
 
-  var autoplay =
-    slider.getAttribute(
-      'data-autoplay'
-    ) === 'true';
-
-
-  var speed =
-    parseInt(
-      slider.getAttribute(
-        'data-slider-speed'
-      ),
-      10
-    ) || 8000;
-
-
-  /* =========================================
+  /* ==============================
      SHOW SLIDE
-     ========================================= */
+     ============================== */
 
   function showSlide(index) {
-
-    if (!slides.length) return;
-
 
     if (index >= slides.length) {
       index = 0;
     }
-
 
     if (index < 0) {
       index = slides.length - 1;
     }
 
 
-    slides.forEach(function (slide) {
+    slides.forEach(function (slide, slideIndex) {
 
-      slide.classList.remove(
-        'is-selected'
-      );
+      if (slideIndex === index) {
+
+        slide.classList.add(
+          'is-selected'
+        );
+
+      } else {
+
+        slide.classList.remove(
+          'is-selected'
+        );
+
+      }
 
     });
 
 
-    slides[index].classList.add(
-      'is-selected'
-    );
-
-
-    current = index;
-
+    currentIndex = index;
   }
 
 
-  /* =========================================
+  /* ==============================
      NEXT
-     ========================================= */
+     ============================== */
 
   function nextSlide() {
 
     showSlide(
-      current + 1
+      currentIndex + 1
     );
 
   }
 
 
-  /* =========================================
+  /* ==============================
      PREVIOUS
-     ========================================= */
+     ============================== */
 
   function previousSlide() {
 
     showSlide(
-      current - 1
+      currentIndex - 1
     );
 
   }
 
 
-  /* =========================================
-     STOP AUTOPLAY
-     ========================================= */
-
-  function stopAutoplay() {
-
-    if (!timer) return;
-
-
-    clearInterval(timer);
-
-    timer = null;
-
-  }
-
-
-  /* =========================================
-     START AUTOPLAY
-     ========================================= */
-
-  function startAutoplay() {
-
-    stopAutoplay();
-
-
-    if (!autoplay) {
-      return;
-    }
-
-
-    if (slides.length <= 1) {
-      return;
-    }
-
-
-    timer = setInterval(
-      function () {
-
-        nextSlide();
-
-      },
-      speed
-    );
-
-  }
-
-
-  /* =========================================
-     PREVIOUS BUTTON
-     ========================================= */
-
-  if (previousButton) {
-
-    previousButton.addEventListener(
-      'click',
-      function (event) {
-
-        event.preventDefault();
-        event.stopPropagation();
-
-
-        previousSlide();
-
-
-        /*
-         * Restart timer after manual action.
-         */
-        startAutoplay();
-
-      }
-    );
-
-  }
-
-
-  /* =========================================
-     NEXT BUTTON
-     ========================================= */
+  /* ==============================
+     NEXT BUTTON CLICK
+     ============================== */
 
   if (nextButton) {
 
@@ -555,14 +414,7 @@
         event.preventDefault();
         event.stopPropagation();
 
-
         nextSlide();
-
-
-        /*
-         * Restart timer after manual action.
-         */
-        startAutoplay();
 
       }
     );
@@ -570,94 +422,52 @@
   }
 
 
-  /* =========================================
-     PAUSE ON HOVER
-     ========================================= */
+  /* ==============================
+     PREVIOUS BUTTON CLICK
+     ============================== */
 
-  slider.addEventListener(
-    'mouseenter',
-    function () {
+  if (previousButton) {
 
-      stopAutoplay();
+    previousButton.addEventListener(
+      'click',
+      function (event) {
 
-    }
-  );
+        event.preventDefault();
+        event.stopPropagation();
 
+        previousSlide();
 
-  slider.addEventListener(
-    'mouseleave',
-    function () {
-
-      startAutoplay();
-
-    }
-  );
-
-
-  /* =========================================
-     VISIBILITY
-     ========================================= */
-
-  function visibilityHandler() {
-
-    if (document.hidden) {
-
-      stopAutoplay();
-
-    } else {
-
-      startAutoplay();
-
-    }
+      }
+    );
 
   }
 
 
-  document.addEventListener(
-    'visibilitychange',
-    visibilityHandler
-  );
-
-
-  /* =========================================
+  /* ==============================
      SHOPIFY THEME EDITOR
-     ========================================= */
+     ============================== */
 
   document.addEventListener(
     'shopify:block:select',
     function (event) {
 
-      var selectedBlock =
-        event.target.closest(
-          '[data-custom-announcement-slide]'
-        );
+      var selectedSlide = event.target.closest(
+        '[data-custom-announcement-slide]'
+      );
 
+      if (!selectedSlide) return;
 
-      if (!selectedBlock) {
+      if (!section.contains(selectedSlide)) {
         return;
       }
 
 
-      if (!section.contains(selectedBlock)) {
-        return;
-      }
+      var index = slides.indexOf(
+        selectedSlide
+      );
 
+      if (index === -1) return;
 
-      var index =
-        parseInt(
-          selectedBlock.getAttribute(
-            'data-custom-slide-index'
-          ),
-          10
-        );
-
-
-      if (isNaN(index)) {
-        return;
-      }
-
-
-      stopAutoplay();
 
       showSlide(index);
 
@@ -665,28 +475,11 @@
   );
 
 
-  document.addEventListener(
-    'shopify:block:deselect',
-    function (event) {
-
-      if (!section.contains(event.target)) {
-        return;
-      }
-
-
-      startAutoplay();
-
-    }
-  );
-
-
-  /* =========================================
-     INITIALIZE
-     ========================================= */
+  /* ==============================
+     INITIAL SLIDE
+     ============================== */
 
   showSlide(0);
-
-  startAutoplay();
 
 })();
 </script>
@@ -793,27 +586,6 @@
         }
       ],
       "default": "400"
-    },
-
-    {
-      "type": "header",
-      "content": "Slider"
-    },
-    {
-      "type": "checkbox",
-      "id": "autoplay",
-      "label": "Auto rotate",
-      "default": true
-    },
-    {
-      "type": "range",
-      "id": "slider_speed",
-      "label": "Change announcement every",
-      "min": 2,
-      "max": 12,
-      "step": 1,
-      "default": 8,
-      "unit": "s"
     }
   ],
 
