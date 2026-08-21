@@ -57,7 +57,7 @@
         "font_weight": "400",
         "show_arrows": false,
         "autoplay": true,
-        "autoplay_speed": 4
+        "autoplay_speed": 2
       }
     },
     "header": {
