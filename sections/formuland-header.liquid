@@ -1370,6 +1370,44 @@
         if (e.matches && mdrawer.classList.contains('is-open')) closeDrawer();
       });
     }
+
+    /* =====================================================
+       Cart drawer — force existing Pipeline drawer to open
+       from every custom header cart icon.
+       ===================================================== */
+    var cartDrawer = document.querySelector('[data-drawer="drawer-cart"]');
+    var cartOpeners = wrapper.querySelectorAll('.navlink--cart[data-drawer-toggle="drawer-cart"]');
+
+    if (cartDrawer && cartOpeners.length) {
+      cartOpeners.forEach(function (cartButton) {
+        cartButton.setAttribute('aria-controls', 'drawer-cart');
+        cartButton.setAttribute('aria-expanded', 'false');
+
+        cartButton.addEventListener('click', function (event) {
+          event.preventDefault();
+
+          /* Pipeline's cart drawer listens for this event on the drawer. */
+          cartDrawer.dispatchEvent(
+            new CustomEvent('theme:drawer:open', {
+              bubbles: false
+            })
+          );
+        });
+      });
+
+      /* Keep custom header aria state in sync with the drawer. */
+      document.addEventListener('theme:cart:open', function () {
+        cartOpeners.forEach(function (button) {
+          button.setAttribute('aria-expanded', 'true');
+        });
+      });
+
+      document.addEventListener('theme:drawer:close', function () {
+        cartOpeners.forEach(function (button) {
+          button.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
   })();
 </script>
 
