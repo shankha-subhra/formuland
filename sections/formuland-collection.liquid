@@ -103,186 +103,201 @@
   </noscript>
 </form> -->
 
-<form id="fcc2-filter-form-template--22974334501083__collection_custom_2_AGXiPQ" class="fcc2__filterbar__form" action="/collections/hipp-formula" method="get"><div class="fcc2__dropdown" data-fcc2-dropdown="">
-                  <button type="button" class="fcc2__dropdown__toggle" data-fcc2-dropdown-toggle="" aria-expanded="false" aria-haspopup="listbox">
-                    <span class="fcc2__dropdown__label">
-                      Age
-</span>
-                    <svg class="fcc2__dropdown__caret" viewBox="0 0 12 8" width="12" height="8" aria-hidden="true">
-                      <path d="M1 1l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                  </button>
+<form
+  id="fcc2-filter-form-{{ section.id }}"
+  class="fcc2__filterbar__form"
+  action="{{ collection.url }}"
+  method="get"
+  data-fcc2-filter-form
+>
+  {%- assign age_filter_found = false -%}
+  {%- assign formula_filter_found = false -%}
 
-                  <div class="fcc2__dropdown__panel" data-fcc2-dropdown-panel="" role="listbox">
-                    <ul class="fcc2__dropdown__list"><li class="fcc2__dropdown__item">
-                          <label class="fcc2__dropdown__option ">
-                            <span class="fcc2__dropdown__option__text">FROM 4 MONTHS</span>
-                            <input type="checkbox" class="fcc2__dropdown__checkbox" name="filter.p.m.my_fields.baby_age" value="From 4 Months" data-fcc2-filter-input="">
-                            <span class="fcc2__dropdown__box" aria-hidden="true">
-                              <svg viewBox="0 0 14 14" width="14" height="14">
-                                <polyline points="2,7 6,11 12,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                              </svg>
-                            </span>
-                          </label>
-                        </li><li class="fcc2__dropdown__item">
-                          <label class="fcc2__dropdown__option ">
-                            <span class="fcc2__dropdown__option__text">FROM 5 MONTHS</span>
-                            <input type="checkbox" class="fcc2__dropdown__checkbox" name="filter.p.m.my_fields.baby_age" value="From 5 Months" data-fcc2-filter-input="">
-                            <span class="fcc2__dropdown__box" aria-hidden="true">
-                              <svg viewBox="0 0 14 14" width="14" height="14">
-                                <polyline points="2,7 6,11 12,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                              </svg>
-                            </span>
-                          </label>
-                        </li><li class="fcc2__dropdown__item">
-                          <label class="fcc2__dropdown__option ">
-                            <span class="fcc2__dropdown__option__text">FROM 6 MONTHS</span>
-                            <input type="checkbox" class="fcc2__dropdown__checkbox" name="filter.p.m.my_fields.baby_age" value="From 6 Months" data-fcc2-filter-input="">
-                            <span class="fcc2__dropdown__box" aria-hidden="true">
-                              <svg viewBox="0 0 14 14" width="14" height="14">
-                                <polyline points="2,7 6,11 12,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                              </svg>
-                            </span>
-                          </label>
-                        </li><li class="fcc2__dropdown__item">
-                          <label class="fcc2__dropdown__option ">
-                            <span class="fcc2__dropdown__option__text">FROM 8 MONTHS</span>
-                            <input type="checkbox" class="fcc2__dropdown__checkbox" name="filter.p.m.my_fields.baby_age" value="From 8 Months" data-fcc2-filter-input="">
-                            <span class="fcc2__dropdown__box" aria-hidden="true">
-                              <svg viewBox="0 0 14 14" width="14" height="14">
-                                <polyline points="2,7 6,11 12,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                              </svg>
-                            </span>
-                          </label>
-                        </li><li class="fcc2__dropdown__item">
-                          <label class="fcc2__dropdown__option ">
-                            <span class="fcc2__dropdown__option__text">FROM 10 MONTHS</span>
-                            <input type="checkbox" class="fcc2__dropdown__checkbox" name="filter.p.m.my_fields.baby_age" value="From 10 Months" data-fcc2-filter-input="">
-                            <span class="fcc2__dropdown__box" aria-hidden="true">
-                              <svg viewBox="0 0 14 14" width="14" height="14">
-                                <polyline points="2,7 6,11 12,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                              </svg>
-                            </span>
-                          </label>
-                        </li><li class="fcc2__dropdown__item">
-                          <label class="fcc2__dropdown__option ">
-                            <span class="fcc2__dropdown__option__text">FROM 12 MONTHS</span>
-                            <input type="checkbox" class="fcc2__dropdown__checkbox" name="filter.p.m.my_fields.baby_age" value="From 12 Months" data-fcc2-filter-input="">
-                            <span class="fcc2__dropdown__box" aria-hidden="true">
-                              <svg viewBox="0 0 14 14" width="14" height="14">
-                                <polyline points="2,7 6,11 12,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                              </svg>
-                            </span>
-                          </label>
-                        </li><li class="fcc2__dropdown__item">
-                          <label class="fcc2__dropdown__option ">
-                            <span class="fcc2__dropdown__option__text">FROM 24 MONTHS</span>
-                            <input type="checkbox" class="fcc2__dropdown__checkbox" name="filter.p.m.my_fields.baby_age" value="From 24 Months" data-fcc2-filter-input="">
-                            <span class="fcc2__dropdown__box" aria-hidden="true">
-                              <svg viewBox="0 0 14 14" width="14" height="14">
-                                <polyline points="2,7 6,11 12,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                              </svg>
-                            </span>
-                          </label>
-                        </li><li class="fcc2__dropdown__item">
-                          <label class="fcc2__dropdown__option ">
-                            <span class="fcc2__dropdown__option__text">FROM BIRTH</span>
-                            <input type="checkbox" class="fcc2__dropdown__checkbox" name="filter.p.m.my_fields.baby_age" value="From Birth" data-fcc2-filter-input="">
-                            <span class="fcc2__dropdown__box" aria-hidden="true">
-                              <svg viewBox="0 0 14 14" width="14" height="14">
-                                <polyline points="2,7 6,11 12,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                              </svg>
-                            </span>
-                          </label>
-                        </li><li class="fcc2__dropdown__item">
-                          <label class="fcc2__dropdown__option ">
-                            <span class="fcc2__dropdown__option__text">MATERNAL CARE PRODUCT</span>
-                            <input type="checkbox" class="fcc2__dropdown__checkbox" name="filter.p.m.my_fields.baby_age" value="Maternal care product" data-fcc2-filter-input="">
-                            <span class="fcc2__dropdown__box" aria-hidden="true">
-                              <svg viewBox="0 0 14 14" width="14" height="14">
-                                <polyline points="2,7 6,11 12,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                              </svg>
-                            </span>
-                          </label>
-                        </li><li class="fcc2__dropdown__item">
-                          <label class="fcc2__dropdown__option ">
-                            <span class="fcc2__dropdown__option__text">PREGNANT AND POSTPARTUM WOMEN</span>
-                            <input type="checkbox" class="fcc2__dropdown__checkbox" name="filter.p.m.my_fields.baby_age" value="Pregnant and postpartum women" data-fcc2-filter-input="">
-                            <span class="fcc2__dropdown__box" aria-hidden="true">
-                              <svg viewBox="0 0 14 14" width="14" height="14">
-                                <polyline points="2,7 6,11 12,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                              </svg>
-                            </span>
-                          </label>
-                        </li></ul>
-                  </div>
-                </div><div class="fcc2__dropdown" data-fcc2-dropdown="">
-                  <button type="button" class="fcc2__dropdown__toggle" data-fcc2-dropdown-toggle="" aria-expanded="false" aria-haspopup="listbox">
-                    <span class="fcc2__dropdown__label">
-                      Formula Type
-</span>
-                    <svg class="fcc2__dropdown__caret" viewBox="0 0 12 8" width="12" height="8" aria-hidden="true">
-                      <path d="M1 1l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                  </button>
+  {%- for filter in collection.filters -%}
 
-                  <div class="fcc2__dropdown__panel" data-fcc2-dropdown-panel="" role="listbox">
-                    <ul class="fcc2__dropdown__list"><li class="fcc2__dropdown__item">
-                          <label class="fcc2__dropdown__option ">
-                            <span class="fcc2__dropdown__option__text">BABY CARE</span>
-                            <input type="checkbox" class="fcc2__dropdown__checkbox" name="filter.p.product_type" value="Baby Care" data-fcc2-filter-input="">
-                            <span class="fcc2__dropdown__box" aria-hidden="true">
-                              <svg viewBox="0 0 14 14" width="14" height="14">
-                                <polyline points="2,7 6,11 12,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                              </svg>
-                            </span>
-                          </label>
-                        </li><li class="fcc2__dropdown__item">
-                          <label class="fcc2__dropdown__option ">
-                            <span class="fcc2__dropdown__option__text">BABY CEREAL</span>
-                            <input type="checkbox" class="fcc2__dropdown__checkbox" name="filter.p.product_type" value="Baby Cereal" data-fcc2-filter-input="">
-                            <span class="fcc2__dropdown__box" aria-hidden="true">
-                              <svg viewBox="0 0 14 14" width="14" height="14">
-                                <polyline points="2,7 6,11 12,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                              </svg>
-                            </span>
-                          </label>
-                        </li><li class="fcc2__dropdown__item">
-                          <label class="fcc2__dropdown__option ">
-                            <span class="fcc2__dropdown__option__text">BABY FORMULA</span>
-                            <input type="checkbox" class="fcc2__dropdown__checkbox" name="filter.p.product_type" value="Baby Formula" data-fcc2-filter-input="">
-                            <span class="fcc2__dropdown__box" aria-hidden="true">
-                              <svg viewBox="0 0 14 14" width="14" height="14">
-                                <polyline points="2,7 6,11 12,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                              </svg>
-                            </span>
-                          </label>
-                        </li><li class="fcc2__dropdown__item">
-                          <label class="fcc2__dropdown__option ">
-                            <span class="fcc2__dropdown__option__text">MOM CARE</span>
-                            <input type="checkbox" class="fcc2__dropdown__checkbox" name="filter.p.product_type" value="Mom Care" data-fcc2-filter-input="">
-                            <span class="fcc2__dropdown__box" aria-hidden="true">
-                              <svg viewBox="0 0 14 14" width="14" height="14">
-                                <polyline points="2,7 6,11 12,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                              </svg>
-                            </span>
-                          </label>
-                        </li><li class="fcc2__dropdown__item">
-                          <label class="fcc2__dropdown__option ">
-                            <span class="fcc2__dropdown__option__text">READY TO FEED</span>
-                            <input type="checkbox" class="fcc2__dropdown__checkbox" name="filter.p.product_type" value="Ready to Feed" data-fcc2-filter-input="">
-                            <span class="fcc2__dropdown__box" aria-hidden="true">
-                              <svg viewBox="0 0 14 14" width="14" height="14">
-                                <polyline points="2,7 6,11 12,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
-                              </svg>
-                            </span>
-                          </label>
-                        </li></ul>
-                  </div>
-                </div><input type="hidden" name="sort_by" value="manual"><noscript>
-              <button type="submit" class="fcc2__filterbar__submit">Filter</button>
-            </noscript>
-          </form>
+    {%- if filter.param_name == 'filter.p.m.my_fields.baby_age' -%}
+      {%- assign age_filter_found = true -%}
+
+      <div class="fcc2__dropdown" data-fcc2-dropdown>
+        <button
+          type="button"
+          class="fcc2__dropdown__toggle"
+          data-fcc2-dropdown-toggle
+          aria-expanded="false"
+          aria-haspopup="listbox"
+        >
+          <span class="fcc2__dropdown__label">
+            {{ section.settings.age_filter_label | default: 'Age' }}
+          </span>
+
+          <svg
+            class="fcc2__dropdown__caret"
+            viewBox="0 0 12 8"
+            width="12"
+            height="8"
+            aria-hidden="true"
+          >
+            <path
+              d="M1 1l5 5 5-5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+
+        <div
+          class="fcc2__dropdown__panel"
+          data-fcc2-dropdown-panel
+          role="listbox"
+        >
+          <ul class="fcc2__dropdown__list">
+            {%- for value in filter.values -%}
+              <li class="fcc2__dropdown__item">
+                <label class="fcc2__dropdown__option{% if value.count == 0 and value.active == false %} fcc2__dropdown__option--disabled{% endif %}">
+                  <span class="fcc2__dropdown__option__text">
+                    {{ value.label | upcase }}
+                  </span>
+
+                  <input
+                    type="checkbox"
+                    class="fcc2__dropdown__checkbox"
+                    name="{{ value.param_name }}"
+                    value="{{ value.value }}"
+                    {% if value.active %}checked{% endif %}
+                    {% if value.count == 0 and value.active == false %}disabled{% endif %}
+                    data-fcc2-filter-input
+                  >
+
+                  <span class="fcc2__dropdown__box" aria-hidden="true">
+                    <svg viewBox="0 0 14 14" width="14" height="14">
+                      <polyline
+                        points="2,7 6,11 12,3"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </label>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </div>
+    {%- endif -%}
+
+
+    {%- if filter.param_name == 'filter.p.product_type' -%}
+      {%- assign formula_filter_found = true -%}
+
+      <div class="fcc2__dropdown" data-fcc2-dropdown>
+        <button
+          type="button"
+          class="fcc2__dropdown__toggle"
+          data-fcc2-dropdown-toggle
+          aria-expanded="false"
+          aria-haspopup="listbox"
+        >
+          <span class="fcc2__dropdown__label">
+            {{ section.settings.formula_type_filter_label | default: 'Formula Type' }}
+          </span>
+
+          <svg
+            class="fcc2__dropdown__caret"
+            viewBox="0 0 12 8"
+            width="12"
+            height="8"
+            aria-hidden="true"
+          >
+            <path
+              d="M1 1l5 5 5-5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+
+        <div
+          class="fcc2__dropdown__panel"
+          data-fcc2-dropdown-panel
+          role="listbox"
+        >
+          <ul class="fcc2__dropdown__list">
+            {%- for value in filter.values -%}
+              <li class="fcc2__dropdown__item">
+                <label class="fcc2__dropdown__option{% if value.count == 0 and value.active == false %} fcc2__dropdown__option--disabled{% endif %}">
+                  <span class="fcc2__dropdown__option__text">
+                    {{ value.label | upcase }}
+                  </span>
+
+                  <input
+                    type="checkbox"
+                    class="fcc2__dropdown__checkbox"
+                    name="{{ value.param_name }}"
+                    value="{{ value.value }}"
+                    {% if value.active %}checked{% endif %}
+                    {% if value.count == 0 and value.active == false %}disabled{% endif %}
+                    data-fcc2-filter-input
+                  >
+
+                  <span class="fcc2__dropdown__box" aria-hidden="true">
+                    <svg viewBox="0 0 14 14" width="14" height="14">
+                      <polyline
+                        points="2,7 6,11 12,3"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </label>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </div>
+    {%- endif -%}
+
+  {%- endfor -%}
+
+
+  {%- assign current_sort = collection.sort_by | default: collection.default_sort_by -%}
+  {%- if current_sort != blank -%}
+    <input type="hidden" name="sort_by" value="{{ current_sort }}">
+  {%- endif -%}
+
+
+  {%- assign has_active_filters = false -%}
+  {%- for filter in collection.filters -%}
+    {%- if filter.active_values.size > 0 -%}
+      {%- assign has_active_filters = true -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if has_active_filters -%}
+    <a
+      class="fcc2__clear-filters"
+      href="{{ collection.url }}{% if current_sort != blank %}?sort_by={{ current_sort | url_encode }}{% endif %}"
+    >
+      Clear filters
+    </a>
+  {%- endif -%}
+
+
+  <noscript>
+    <button type="submit" class="fcc2__filterbar__submit">Filter</button>
+  </noscript>
+</form>
           
 </div><div class="fcc2__content">
   <div class="fcc2__products" data-fcc2-products-grid="">
@@ -737,68 +752,69 @@
     var root = document.querySelector('[data-section-id="{{ section.id }}"]');
     if (!root) return;
 
-    var collectionUrl = root.getAttribute('data-fcc2-collection-url') || '{{ collection.url }}';
+    var form = root.querySelector('[data-fcc2-filter-form]');
+    if (!form) return;
+
     var dropdowns = root.querySelectorAll('[data-fcc2-dropdown]');
 
-    dropdowns.forEach(function (dd) {
-      var toggle = dd.querySelector('[data-fcc2-dropdown-toggle]');
+    function closeDropdown(dropdown) {
+      if (!dropdown) return;
+
+      dropdown.removeAttribute('data-fcc2-open');
+
+      var toggle = dropdown.querySelector('[data-fcc2-dropdown-toggle]');
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    function closeAllDropdowns(exceptDropdown) {
+      dropdowns.forEach(function (dropdown) {
+        if (dropdown !== exceptDropdown) {
+          closeDropdown(dropdown);
+        }
+      });
+    }
+
+    dropdowns.forEach(function (dropdown) {
+      var toggle = dropdown.querySelector('[data-fcc2-dropdown-toggle]');
       if (!toggle) return;
 
-      toggle.addEventListener('click', function (e) {
-        e.stopPropagation();
-        var isOpen = dd.getAttribute('data-fcc2-open') === 'true';
+      toggle.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
 
-        dropdowns.forEach(function (other) {
-          if (other !== dd) {
-            other.removeAttribute('data-fcc2-open');
-            var otherToggle = other.querySelector('[data-fcc2-dropdown-toggle]');
-            if (otherToggle) otherToggle.setAttribute('aria-expanded', 'false');
-          }
-        });
+        var isOpen = dropdown.getAttribute('data-fcc2-open') === 'true';
+
+        closeAllDropdowns(dropdown);
 
         if (isOpen) {
-          dd.removeAttribute('data-fcc2-open');
-          toggle.setAttribute('aria-expanded', 'false');
+          closeDropdown(dropdown);
         } else {
-          dd.setAttribute('data-fcc2-open', 'true');
+          dropdown.setAttribute('data-fcc2-open', 'true');
           toggle.setAttribute('aria-expanded', 'true');
         }
       });
     });
 
-    document.addEventListener('click', function (e) {
-      if (!root.contains(e.target)) {
-        dropdowns.forEach(function (dd) {
-          dd.removeAttribute('data-fcc2-open');
-          var toggle = dd.querySelector('[data-fcc2-dropdown-toggle]');
-          if (toggle) toggle.setAttribute('aria-expanded', 'false');
-        });
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('[data-fcc2-dropdown]')) {
+        closeAllDropdowns();
       }
     });
 
-    function buildCollectionUrl() {
-      var selectedTagInput = root.querySelector('[data-fcc2-tag-input]:checked');
-      var selectedTag = selectedTagInput ? selectedTagInput.getAttribute('data-tag-handle') : '';
+    form.addEventListener('change', function (event) {
+      if (!event.target.matches('[data-fcc2-filter-input]')) return;
 
-      var sortInput = root.querySelector('[data-fcc2-sort-input]:checked');
-      var sortValue = sortInput ? sortInput.value : '';
-
-      var url = collectionUrl.replace(/\/$/, '');
-
-      if (selectedTag) {
-        url += '/' + selectedTag;
+      /*
+       * Shopify storefront filtering is GET based.
+       * Submitting the form keeps every checked Age / Formula Type value.
+       */
+      if (typeof form.requestSubmit === 'function') {
+        form.requestSubmit();
+      } else {
+        form.submit();
       }
-
-      if (sortValue) {
-        url += '?sort_by=' + encodeURIComponent(sortValue);
-      }
-
-      return url;
-    }
-
-    root.addEventListener('change', function (e) {
-      if (!e.target.matches('[data-fcc2-tag-input], [data-fcc2-sort-input]')) return;
-      window.location.href = buildCollectionUrl();
     });
   })();
 </script>
@@ -2916,9 +2932,15 @@
     },
     {
       "type": "text",
-      "id": "tag_filter_label",
-      "label": "Tag filter label",
-      "default": "Filter by Tag"
+      "id": "age_filter_label",
+      "label": "Age filter label",
+      "default": "Age"
+    },
+    {
+      "type": "text",
+      "id": "formula_type_filter_label",
+      "label": "Formula Type filter label",
+      "default": "Formula Type"
     },
     {
       "type": "range",
