@@ -1,250 +1,326 @@
-<div
-  id="shopify-section-announcement"
-  class="shopify-section"
->
-  <div
-    class="announcement__wrapper"
-    data-announcement-wrapper
-    data-section-id="announcement"
-    data-section-type="announcement"
-  >
-
-    <div class="announcement__font font--4">
-
-      <div
-        class="announcement__bar-outer"
-        data-bar
-        style="
-          --bg: var(--COLOR-ANNOUNCEMENT-BG);
-          --text: var(--COLOR-ANNOUNCEMENT-TEXT);
-        "
-      >
-
-        <div
-          class="announcement__bar-holder"
-          data-announcement-slider
-          data-slider-speed="8000"
-        >
-
-          <!-- Slide 1 -->
-          <div
-            class="announcement__bar is-selected"
-            data-slide
-            data-slide-index="0"
-          >
-            <div
-              data-ticker-frame
-              class="announcement__message"
-            >
-              <div
-                data-ticker-scale
-                class="announcement__scale"
-              >
-                <div
-                  data-ticker-text
-                  class="announcement__text"
-                >
-                  <p>
-                    ⚡ Fast and Free Shipping on 4/6/8/12
-                    <br>
-                    Packs.
-
-                    <a href="/collections/goat-milk-formula">
-                      <strong>Shop Now</strong>
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <!-- Slide 2 -->
-          <div
-            class="announcement__bar"
-            data-slide
-            data-slide-index="1"
-          >
-            <div
-              data-ticker-frame
-              class="announcement__message"
-            >
-              <div
-                data-ticker-scale
-                class="announcement__scale"
-              >
-                <div
-                  data-ticker-text
-                  class="announcement__text"
-                >
-                  <p>
-                    🏆 Shop our Best Selling European Baby
-                    <br>
-                    Formulas.
-
-                    <a href="/collections">
-                      <strong>Shop Now</strong>
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-</div>
-
-
 <style>
-  #shopify-section-announcement {
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.background_color }};
+  }
+
+  #announcement-{{ section.id }} {
     position: relative;
-    z-index: 200;
-  }
-
-  #shopify-section-announcement * {
-    box-sizing: border-box;
-  }
-
-  #shopify-section-announcement
-  .announcement__bar-outer {
     width: 100%;
-    background-color: #e6f28d;
-    color: #13322b;
+    background: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
     overflow: hidden;
   }
 
-  #shopify-section-announcement
-  .announcement__bar-holder {
+  #announcement-{{ section.id }} .announcement__bar-holder {
     position: relative;
     width: 100%;
-    height: 36px;
+    min-height: {{ section.settings.height }}px;
     overflow: hidden;
-    cursor: pointer;
   }
 
-  #shopify-section-announcement
-  .announcement__bar {
+  #announcement-{{ section.id }} .announcement__bar {
     position: absolute;
     inset: 0;
 
     width: 100%;
-    height: 100%;
+    min-height: {{ section.settings.height }}px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    padding: 5px 55px;
+
     opacity: 0;
     visibility: hidden;
 
-    transform: translateX(30px);
+    transform: translateX(25px);
 
     transition:
       opacity 0.35s ease,
       transform 0.35s ease,
       visibility 0.35s ease;
+
+    pointer-events: none;
   }
 
-  #shopify-section-announcement
-  .announcement__bar.is-selected {
+  #announcement-{{ section.id }} .announcement__bar.is-selected {
     opacity: 1;
     visibility: visible;
     transform: translateX(0);
+    pointer-events: auto;
     z-index: 2;
   }
 
-  #shopify-section-announcement
-  .announcement__message {
+  #announcement-{{ section.id }} .announcement__message {
     width: 100%;
     text-align: center;
   }
 
-  #shopify-section-announcement
-  .announcement__text {
-    width: 100%;
+  #announcement-{{ section.id }} .announcement__text {
     text-align: center;
   }
 
-  #shopify-section-announcement
-  .announcement__text p {
+  #announcement-{{ section.id }} .announcement__text p {
     margin: 0;
 
-    font-size: 13px;
-    line-height: 18px;
-    font-weight: 400;
+    font-size: {{ section.settings.font_size }}px;
+    font-weight: {{ section.settings.font_weight }};
+    line-height: 1.4;
 
-    color: #13322b;
+    color: {{ section.settings.text_color }};
   }
 
-  #shopify-section-announcement
-  .announcement__text a {
-    color: #13322b;
+  #announcement-{{ section.id }} .announcement__text a {
+    color: {{ section.settings.text_color }};
     text-decoration: underline;
     text-underline-offset: 2px;
-    margin-left: 2px;
   }
 
-  #shopify-section-announcement
-  .announcement__text strong {
+  #announcement-{{ section.id }} .announcement__text strong {
     font-weight: 600;
   }
 
 
-  /*
-   * Remove any Flickity arrows
-   * if the theme generates them.
-   */
-  #shopify-section-announcement
-  .flickity-prev-next-button,
-  #shopify-section-announcement
-  .flickity-button {
-    display: none !important;
+  /* ================================
+     PREVIOUS / NEXT
+     ================================ */
+
+  #announcement-{{ section.id }} .announcement-arrow {
+    position: absolute;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    background: transparent;
+    border: 0;
+
+    color: {{ section.settings.text_color }};
+
+    cursor: pointer;
+
+    z-index: 10;
+  }
+
+  #announcement-{{ section.id }} .announcement-prev {
+    left: 12px;
+  }
+
+  #announcement-{{ section.id }} .announcement-next {
+    right: 12px;
+  }
+
+  #announcement-{{ section.id }} .announcement-arrow svg {
+    width: 11px;
+    height: 18px;
+    display: block;
+  }
+
+  #announcement-{{ section.id }} .announcement-arrow:hover {
+    opacity: 0.65;
   }
 
 
+  /* ================================
+     MOBILE
+     ================================ */
+
   @media screen and (max-width: 767px) {
 
-    #shopify-section-announcement
-    .announcement__bar-holder {
-      height: 48px;
+    #announcement-{{ section.id }} .announcement__bar-holder,
+    #announcement-{{ section.id }} .announcement__bar {
+      min-height: {{ section.settings.mobile_height }}px;
     }
 
-    #shopify-section-announcement
-    .announcement__bar {
-      padding: 5px 15px;
+    #announcement-{{ section.id }} .announcement__bar {
+      padding-left: 42px;
+      padding-right: 42px;
     }
 
-    #shopify-section-announcement
-    .announcement__text p {
-      font-size: 12px;
-      line-height: 16px;
+    #announcement-{{ section.id }} .announcement__text p {
+      font-size: {{ section.settings.mobile_font_size }}px;
+      line-height: 1.35;
+    }
+
+    #announcement-{{ section.id }} .announcement-arrow {
+      width: 32px;
+      height: 32px;
+    }
+
+    #announcement-{{ section.id }} .announcement-prev {
+      left: 4px;
+    }
+
+    #announcement-{{ section.id }} .announcement-next {
+      right: 4px;
     }
 
   }
 
 
   @media (prefers-reduced-motion: reduce) {
-
-    #shopify-section-announcement
-    .announcement__bar {
+    #announcement-{{ section.id }} .announcement__bar {
       transition: none;
     }
-
   }
 </style>
+
+
+<div
+  id="announcement-{{ section.id }}"
+  class="announcement__wrapper"
+  data-announcement-wrapper
+  data-section-id="{{ section.id }}"
+  data-section-type="announcement"
+>
+
+  <div class="announcement__font font--4">
+
+    <div class="announcement__bar-outer">
+
+      <div
+        class="announcement__bar-holder"
+        data-announcement-slider
+        data-slider-speed="{{ section.settings.slider_speed | times: 1000 }}"
+        data-autoplay="{{ section.settings.autoplay }}"
+      >
+
+        {% for block in section.blocks %}
+
+          <div
+            class="announcement__bar{% if forloop.first %} is-selected{% endif %}"
+            data-slide
+            data-slide-index="{{ forloop.index0 }}"
+            {{ block.shopify_attributes }}
+          >
+
+            <div
+              data-ticker-frame
+              class="announcement__message"
+            >
+
+              <div
+                data-ticker-scale
+                class="announcement__scale"
+              >
+
+                <div
+                  data-ticker-text
+                  class="announcement__text"
+                >
+
+                  {% if block.settings.text != blank %}
+
+                    <p>
+
+                      {% if block.settings.icon != blank %}
+                        {{ block.settings.icon }}
+                      {% endif %}
+
+                      {{ block.settings.text }}
+
+                      {% if block.settings.link_text != blank and block.settings.link != blank %}
+
+                        <a href="{{ block.settings.link }}">
+                          <strong>
+                            {{ block.settings.link_text }}
+                          </strong>
+                        </a>
+
+                      {% endif %}
+
+                    </p>
+
+                  {% endif %}
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        {% endfor %}
+
+
+        {% if section.blocks.size > 1 %}
+
+          <button
+            type="button"
+            class="announcement-arrow announcement-prev"
+            data-announcement-prev
+            aria-label="Previous announcement"
+          >
+            <svg
+              viewBox="0 0 12 20"
+              aria-hidden="true"
+            >
+              <path
+                d="M10 2L2 10L10 18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+
+          <button
+            type="button"
+            class="announcement-arrow announcement-next"
+            data-announcement-next
+            aria-label="Next announcement"
+          >
+            <svg
+              viewBox="0 0 12 20"
+              aria-hidden="true"
+            >
+              <path
+                d="M2 2L10 10L2 18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
 
 <script>
 (function () {
 
-  var slider = document.querySelector(
-    '#shopify-section-announcement [data-announcement-slider]'
+  var section = document.getElementById(
+    'announcement-{{ section.id }}'
+  );
+
+  if (!section) return;
+
+
+  var slider = section.querySelector(
+    '[data-announcement-slider]'
   );
 
   if (!slider) return;
@@ -257,19 +333,33 @@
   if (!slides.length) return;
 
 
+  var previousButton = slider.querySelector(
+    '[data-announcement-prev]'
+  );
+
+  var nextButton = slider.querySelector(
+    '[data-announcement-next]'
+  );
+
+
   var current = 0;
 
-  var speed = parseInt(
-    slider.getAttribute('data-slider-speed'),
-    10
-  ) || 8000;
+  var autoplay =
+    slider.getAttribute('data-autoplay') === 'true';
+
+  var speed =
+    parseInt(
+      slider.getAttribute('data-slider-speed'),
+      10
+    ) || 8000;
 
   var timer = null;
 
 
-  /*
-   * Show slide
-   */
+  /* ================================
+     SHOW SLIDE
+     ================================ */
+
   function showSlide(index) {
 
     if (index >= slides.length) {
@@ -282,11 +372,7 @@
 
 
     slides.forEach(function (slide) {
-
-      slide.classList.remove(
-        'is-selected'
-      );
-
+      slide.classList.remove('is-selected');
     });
 
 
@@ -296,12 +382,14 @@
 
 
     current = index;
+
   }
 
 
-  /*
-   * Next announcement
-   */
+  /* ================================
+     NEXT
+     ================================ */
+
   function nextSlide() {
 
     showSlide(
@@ -311,10 +399,24 @@
   }
 
 
-  /*
-   * Stop autoplay
-   */
-  function stopSlider() {
+  /* ================================
+     PREVIOUS
+     ================================ */
+
+  function previousSlide() {
+
+    showSlide(
+      current - 1
+    );
+
+  }
+
+
+  /* ================================
+     AUTOPLAY
+     ================================ */
+
+  function stopAutoplay() {
 
     if (timer) {
 
@@ -327,14 +429,15 @@
   }
 
 
-  /*
-   * Start autoplay
-   */
-  function startSlider() {
+  function startAutoplay() {
 
-    stopSlider();
+    stopAutoplay();
 
-    if (slides.length <= 1) {
+
+    if (
+      !autoplay ||
+      slides.length <= 1
+    ) {
       return;
     }
 
@@ -351,71 +454,81 @@
   }
 
 
-  /*
-   * Click announcement bar
-   * = next announcement
-   *
-   * Clicking Shop Now still opens link.
-   */
-  slider.addEventListener(
-    'click',
-    function (event) {
+  /* ================================
+     NEXT BUTTON
+     ================================ */
 
-      if (
-        event.target.closest('a')
-      ) {
-        return;
+  if (nextButton) {
+
+    nextButton.addEventListener(
+      'click',
+      function (event) {
+
+        event.preventDefault();
+
+        nextSlide();
+
+        startAutoplay();
+
       }
+    );
+
+  }
 
 
-      nextSlide();
+  /* ================================
+     PREVIOUS BUTTON
+     ================================ */
 
-      startSlider();
+  if (previousButton) {
 
-    }
-  );
+    previousButton.addEventListener(
+      'click',
+      function (event) {
+
+        event.preventDefault();
+
+        previousSlide();
+
+        startAutoplay();
+
+      }
+    );
+
+  }
 
 
-  /*
-   * Pause on hover
-   */
+  /* ================================
+     PAUSE ON HOVER
+     ================================ */
+
   slider.addEventListener(
     'mouseenter',
-    function () {
-
-      stopSlider();
-
-    }
+    stopAutoplay
   );
 
 
-  /*
-   * Restart on mouse leave
-   */
   slider.addEventListener(
     'mouseleave',
-    function () {
-
-      startSlider();
-
-    }
+    startAutoplay
   );
 
 
-  /*
-   * Pause when browser tab hidden
-   */
+  /* ================================
+     TAB VISIBILITY
+     ================================ */
+
   document.addEventListener(
     'visibilitychange',
     function () {
 
       if (document.hidden) {
 
-        stopSlider();
+        stopAutoplay();
 
       } else {
 
-        startSlider();
+        startAutoplay();
 
       }
 
@@ -423,9 +536,221 @@
   );
 
 
+  /* ================================
+     THEME EDITOR BLOCK SELECT
+     ================================ */
+
+  document.addEventListener(
+    'shopify:block:select',
+    function (event) {
+
+      var selectedBlock =
+        event.target.closest('[data-slide]');
+
+      if (!selectedBlock) return;
+
+      if (!section.contains(selectedBlock)) {
+        return;
+      }
+
+      var index = parseInt(
+        selectedBlock.getAttribute(
+          'data-slide-index'
+        ),
+        10
+      );
+
+      if (!isNaN(index)) {
+
+        stopAutoplay();
+
+        showSlide(index);
+
+      }
+
+    }
+  );
+
+
+  document.addEventListener(
+    'shopify:block:deselect',
+    function () {
+
+      startAutoplay();
+
+    }
+  );
+
+
+  /* ================================
+     INIT
+     ================================ */
+
   showSlide(0);
 
-  startSlider();
+  startAutoplay();
 
 })();
 </script>
+
+
+{% schema %}
+{
+  "name": "Announcement Slider",
+  "tag": "section",
+  "class": "formuland-announcement-section",
+
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#E6F28D"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#13322B"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "label": "Desktop height",
+      "min": 30,
+      "max": 70,
+      "step": 2,
+      "default": 36,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "label": "Mobile height",
+      "min": 36,
+      "max": 80,
+      "step": 2,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Desktop font size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "default": 13,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_font_size",
+      "label": "Mobile font size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "default": 12,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "Font weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto rotate",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "slider_speed",
+      "label": "Slide speed",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 8,
+      "unit": "s"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "Announcement",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon / emoji",
+          "default": "⚡"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Fast and Free Shipping on 4/6/8/12 Packs."
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+
+  "max_blocks": 10,
+
+  "presets": [
+    {
+      "name": "Announcement Slider",
+      "blocks": [
+        {
+          "type": "announcement",
+          "settings": {
+            "icon": "⚡",
+            "text": "Fast and Free Shipping on 4/6/8/12 Packs.",
+            "link_text": "Shop Now"
+          }
+        },
+        {
+          "type": "announcement",
+          "settings": {
+            "icon": "🏆",
+            "text": "Shop our Best Selling European Baby Formulas.",
+            "link_text": "Shop Now"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
