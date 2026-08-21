@@ -11,7 +11,10 @@
   "sections": {
     "custom_home": {
       "type": "formuland-home",
-      "settings": {}
+      "settings": {
+        "base_collection": "baby-formula",
+        "collection_tags": "Hipp, Holle, Kendamil, Jovie, Aptamil, Kabrita, Lebenswert, Nannycare"
+      }
     }
   },
   "order": [
