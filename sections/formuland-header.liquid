@@ -1374,40 +1374,81 @@
     }
 
     /* =====================================================
-       Cart drawer — force existing Pipeline drawer to open
-       from every custom header cart icon.
+       Custom cart drawer
+       data-drawer-toggle="drawer-cart" -> #fcd-drawer + #fcd-overlay
        ===================================================== */
-    var cartDrawer = document.querySelector('[data-drawer="drawer-cart"]');
-    var cartOpeners = wrapper.querySelectorAll('.navlink--cart[data-drawer-toggle="drawer-cart"]');
+    var fcdDrawer = document.getElementById('fcd-drawer');
+    var fcdOverlay = document.getElementById('fcd-overlay');
+    var fcdClose = document.getElementById('fcd-close');
+    var cartOpeners = document.querySelectorAll('[data-drawer-toggle="drawer-cart"]');
 
-    if (cartDrawer && cartOpeners.length) {
+    function openFcdCart(event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      if (!fcdDrawer || !fcdOverlay) return;
+
+      /* Close mobile menu first if it is open. */
+      var mobileDrawer = document.querySelector('[data-fhd-drawer]');
+      if (mobileDrawer && mobileDrawer.classList.contains('is-open')) {
+        mobileDrawer.classList.remove('is-open');
+        mobileDrawer.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('fhd-drawer-open');
+      }
+
+      fcdDrawer.classList.add('is_open');
+      fcdOverlay.classList.add('is_open');
+      fcdDrawer.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('fcd-cart-open');
+
+      cartOpeners.forEach(function (button) {
+        button.setAttribute('aria-expanded', 'true');
+      });
+    }
+
+    function closeFcdCart(event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      if (fcdDrawer) {
+        fcdDrawer.classList.remove('is_open');
+        fcdDrawer.setAttribute('aria-hidden', 'true');
+      }
+
+      if (fcdOverlay) {
+        fcdOverlay.classList.remove('is_open');
+      }
+
+      document.body.classList.remove('fcd-cart-open');
+
+      cartOpeners.forEach(function (button) {
+        button.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    if (fcdDrawer && fcdOverlay) {
+      fcdDrawer.setAttribute('aria-hidden', 'true');
+
       cartOpeners.forEach(function (cartButton) {
-        cartButton.setAttribute('aria-controls', 'drawer-cart');
+        cartButton.setAttribute('aria-controls', 'fcd-drawer');
         cartButton.setAttribute('aria-expanded', 'false');
-
-        cartButton.addEventListener('click', function (event) {
-          event.preventDefault();
-
-          /* Pipeline's cart drawer listens for this event on the drawer. */
-          cartDrawer.dispatchEvent(
-            new CustomEvent('theme:drawer:open', {
-              bubbles: false
-            })
-          );
-        });
+        cartButton.addEventListener('click', openFcdCart);
       });
 
-      /* Keep custom header aria state in sync with the drawer. */
-      document.addEventListener('theme:cart:open', function () {
-        cartOpeners.forEach(function (button) {
-          button.setAttribute('aria-expanded', 'true');
-        });
-      });
+      if (fcdClose) {
+        fcdClose.addEventListener('click', closeFcdCart);
+      }
 
-      document.addEventListener('theme:drawer:close', function () {
-        cartOpeners.forEach(function (button) {
-          button.setAttribute('aria-expanded', 'false');
-        });
+      fcdOverlay.addEventListener('click', closeFcdCart);
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && fcdDrawer.classList.contains('is_open')) {
+          closeFcdCart(event);
+        }
       });
     }
   })();
