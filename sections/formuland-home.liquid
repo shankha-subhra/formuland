@@ -947,125 +947,66 @@
   }
 </style><section aria-label="Our Organic Baby Formula Collections" class="fct" id="fct-template--22898945491163__collection_tabs_home_YCgw3G">
 <div class="fct__wrapper">
-<h2 class="fct__heading">Our Organic Baby Formula Collections</h2><div aria-label="Formula brands" class="fct__tabs" role="tablist"><button aria-controls="fct-panel-template--22898945491163__collection_tabs_home_YCgw3G-0" aria-selected="true" class="fct__tab" data-fct-tab="0" id="fct-tab-template--22898945491163__collection_tabs_home_YCgw3G-0" role="tab" type="button">Hipp</button><button aria-controls="fct-panel-template--22898945491163__collection_tabs_home_YCgw3G-1" aria-selected="false" class="fct__tab" data-fct-tab="1" id="fct-tab-template--22898945491163__collection_tabs_home_YCgw3G-1" role="tab" type="button">Holle</button><button aria-controls="fct-panel-template--22898945491163__collection_tabs_home_YCgw3G-2" aria-selected="false" class="fct__tab" data-fct-tab="2" id="fct-tab-template--22898945491163__collection_tabs_home_YCgw3G-2" role="tab" type="button">Kendamil</button><button aria-controls="fct-panel-template--22898945491163__collection_tabs_home_YCgw3G-3" aria-selected="false" class="fct__tab" data-fct-tab="3" id="fct-tab-template--22898945491163__collection_tabs_home_YCgw3G-3" role="tab" type="button">Jovie</button><button aria-controls="fct-panel-template--22898945491163__collection_tabs_home_YCgw3G-4" aria-selected="false" class="fct__tab" data-fct-tab="4" id="fct-tab-template--22898945491163__collection_tabs_home_YCgw3G-4" role="tab" type="button">Aptamil</button><button aria-controls="fct-panel-template--22898945491163__collection_tabs_home_YCgw3G-5" aria-selected="false" class="fct__tab" data-fct-tab="5" id="fct-tab-template--22898945491163__collection_tabs_home_YCgw3G-5" role="tab" type="button">Kabrita</button><button aria-controls="fct-panel-template--22898945491163__collection_tabs_home_YCgw3G-6" aria-selected="false" class="fct__tab" data-fct-tab="6" id="fct-tab-template--22898945491163__collection_tabs_home_YCgw3G-6" role="tab" type="button">Lebenswert</button><button aria-controls="fct-panel-template--22898945491163__collection_tabs_home_YCgw3G-7" aria-selected="false" class="fct__tab" data-fct-tab="7" id="fct-tab-template--22898945491163__collection_tabs_home_YCgw3G-7" role="tab" type="button">Nannycare</button></div><div class="fct__nav">
+<h2 class="fct__heading">Our Organic Baby Formula Collections</h2><div aria-label="Formula brands" class="fct__tabs" role="tablist">
+  {% assign tags_array = section.settings.collection_tags | split: ',' %}
+  {% for tag in tags_array %}
+    {% assign stripped_tag = tag | strip %}
+    <button aria-controls="fct-panel-{{ forloop.index0 }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" class="fct__tab" data-fct-tab="{{ forloop.index0 }}" id="fct-tab-{{ forloop.index0 }}" role="tab" type="button">{{ stripped_tag }}</button>
+  {% endfor %}
+</div><div class="fct__nav">
 <button aria-label="Previous products" class="fct__nav-btn" data-fct-prev="" type="button">
 <svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 12H5m0 0l6-6m-6 6l6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
 </button>
 <button aria-label="Next products" class="fct__nav-btn" data-fct-next="" type="button">
 <svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
 </button>
-</div><div aria-labelledby="fct-tab-template--22898945491163__collection_tabs_home_YCgw3G-0" class="fct__panel" data-fct-panel="0" id="fct-panel-template--22898945491163__collection_tabs_home_YCgw3G-0" role="tabpanel">
-<div class="fct__slider" data-fct-slider=""><a class="fct__card" href="/products/hipp-formula-stage-1">
-<div class="fct__card-media"><img alt="HiPP UK Organic Stage 1 from Birth (800g) - Formuland" height="640" loading="lazy" sizes="320px" src="//formuland.com/cdn/shop/files/hipp-uk-organic-stage-1-from-birth-800g-9332888.jpg?v=1768382830&amp;width=640" srcset="//formuland.com/cdn/shop/files/hipp-uk-organic-stage-1-from-birth-800g-9332888.jpg?v=1768382830&amp;width=320 320w, //formuland.com/cdn/shop/files/hipp-uk-organic-stage-1-from-birth-800g-9332888.jpg?v=1768382830&amp;width=640 640w" width="640"/>
 </div>
-<h3 class="fct__card-title">HiPP UK Organic Stage 1 from Birth (800g)</h3>
-<div class="fct__card-row"><span class="fct__rating">
-<span aria-label="Rated 4.91 out of 5 stars" class="fct__rating-stars" role="img"><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span></span>
-                      (95)
-                    </span><span class="fct__price">
-                    $49.99
-</span>
-</div>
-</a><a class="fct__card" href="/products/hipp-stage-2-organic-formula-follow-on-milk">
-<div class="fct__card-media"><img alt="HiPP UK Organic Stage 2 from 6 Months (800g) - Formuland" height="640" loading="lazy" sizes="320px" src="//formuland.com/cdn/shop/files/hipp-uk-organic-stage-2-from-6-months-800g-4291972.jpg?v=1768382830&amp;width=640" srcset="//formuland.com/cdn/shop/files/hipp-uk-organic-stage-2-from-6-months-800g-4291972.jpg?v=1768382830&amp;width=320 320w, //formuland.com/cdn/shop/files/hipp-uk-organic-stage-2-from-6-months-800g-4291972.jpg?v=1768382830&amp;width=640 640w" width="640"/>
-</div>
-<h3 class="fct__card-title">HiPP UK Organic Stage 2 from 6 Months (800g)</h3>
-<div class="fct__card-row"><span class="fct__rating">
-<span aria-label="Rated 4.91 out of 5 stars" class="fct__rating-stars" role="img"><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span></span>
-                      (103)
-                    </span><span class="fct__price">
-                    $49.99
-</span>
-</div>
-</a><a class="fct__card" href="/products/hipp-stage-3-organic-formula-toddler-milk-1-year">
-<div class="fct__card-media"><img alt="HiPP UK Stage 3 Organic Baby Formula from 1+ Year (800g) - Formuland" height="640" loading="lazy" sizes="320px" src="//formuland.com/cdn/shop/files/hipp-uk-stage-3-organic-baby-formula-from-1-year-800g-8852101.jpg?v=1768382710&amp;width=640" srcset="//formuland.com/cdn/shop/files/hipp-uk-stage-3-organic-baby-formula-from-1-year-800g-8852101.jpg?v=1768382710&amp;width=320 320w, //formuland.com/cdn/shop/files/hipp-uk-stage-3-organic-baby-formula-from-1-year-800g-8852101.jpg?v=1768382710&amp;width=640 640w" width="640"/>
-</div>
-<h3 class="fct__card-title">HiPP UK Stage 3 Organic Baby Formula from 1+ Year (800g)</h3>
-<div class="fct__card-row"><span class="fct__rating">
-<span aria-label="Rated 4.85 out of 5 stars" class="fct__rating-stars" role="img"><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span></span>
-                      (26)
-                    </span><span class="fct__price">
-                    $49.99
-</span>
-</div>
-</a><a class="fct__card" href="/products/hipp-dutch-stage-1">
-<div class="fct__card-media"><img alt="HiPP Dutch Stage 1 - Organic Combiotic Formula (800g) - Formuland" height="640" loading="lazy" sizes="320px" src="//formuland.com/cdn/shop/files/hipp-dutch-stage-1-organic-combiotic-formula-800g-1998521.jpg?v=1768382710&amp;width=640" srcset="//formuland.com/cdn/shop/files/hipp-dutch-stage-1-organic-combiotic-formula-800g-1998521.jpg?v=1768382710&amp;width=320 320w, //formuland.com/cdn/shop/files/hipp-dutch-stage-1-organic-combiotic-formula-800g-1998521.jpg?v=1768382710&amp;width=640 640w" width="640"/>
-</div>
-<h3 class="fct__card-title">HiPP Dutch Stage 1 - Organic Combiotic Formula (800g)</h3>
-<div class="fct__card-row"><span class="fct__rating">
-<span aria-label="Rated 4.87 out of 5 stars" class="fct__rating-stars" role="img"><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span></span>
-                      (254)
-                    </span><span class="fct__price">
-                    $49.99
-</span>
-</div>
-</a><a class="fct__card" href="/products/hipp-formula-dutch-2">
-<div class="fct__card-media"><img alt="HiPP Dutch Stage 2 - Organic Combiotic Formula (800g) - Formuland" height="640" loading="lazy" sizes="320px" src="//formuland.com/cdn/shop/files/hipp-dutch-stage-2-organic-combiotic-formula-800g-3359852.jpg?v=1768382710&amp;width=640" srcset="//formuland.com/cdn/shop/files/hipp-dutch-stage-2-organic-combiotic-formula-800g-3359852.jpg?v=1768382710&amp;width=320 320w, //formuland.com/cdn/shop/files/hipp-dutch-stage-2-organic-combiotic-formula-800g-3359852.jpg?v=1768382710&amp;width=640 640w" width="640"/>
-</div>
-<h3 class="fct__card-title">HiPP Dutch Stage 2 - Organic Combiotic Formula (800g)</h3>
-<div class="fct__card-row"><span class="fct__rating">
-<span aria-label="Rated 4.92 out of 5 stars" class="fct__rating-stars" role="img"><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span></span>
-                      (211)
-                    </span><span class="fct__price">
-                    $49.99
-</span>
-</div>
-</a><a class="fct__card" href="/products/hipp-formula-dutch-3">
-<div class="fct__card-media"><img alt="HiPP Dutch Stage 3 - Organic Combiotic Formula (800g) - Formuland" height="640" loading="lazy" sizes="320px" src="//formuland.com/cdn/shop/files/hipp-dutch-stage-3-organic-combiotic-formula-800g-8742999.jpg?v=1768382711&amp;width=640" srcset="//formuland.com/cdn/shop/files/hipp-dutch-stage-3-organic-combiotic-formula-800g-8742999.jpg?v=1768382711&amp;width=320 320w, //formuland.com/cdn/shop/files/hipp-dutch-stage-3-organic-combiotic-formula-800g-8742999.jpg?v=1768382711&amp;width=640 640w" width="640"/>
-</div>
-<h3 class="fct__card-title">HiPP Dutch Stage 3 - Organic Combiotic Formula (800g)</h3>
-<div class="fct__card-row"><span class="fct__rating">
-<span aria-label="Rated 4.83 out of 5 stars" class="fct__rating-stars" role="img"><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span></span>
-                      (89)
-                    </span><span class="fct__price">
-                    $49.99
-</span>
-</div>
-</a><a class="fct__card" href="/products/hipp-dutch-formula-organic-baby-milk-stage-4-900g">
-<div class="fct__card-media"><img alt="HiPP Dutch Stage 4 - Combiotic Formula (800g) - Formuland" height="640" loading="lazy" sizes="320px" src="//formuland.com/cdn/shop/files/hipp-dutch-stage-4-combiotic-formula-800g-1838674.jpg?v=1768382710&amp;width=640" srcset="//formuland.com/cdn/shop/files/hipp-dutch-stage-4-combiotic-formula-800g-1838674.jpg?v=1768382710&amp;width=320 320w, //formuland.com/cdn/shop/files/hipp-dutch-stage-4-combiotic-formula-800g-1838674.jpg?v=1768382710&amp;width=640 640w" width="640"/>
-</div>
-<h3 class="fct__card-title">HiPP Dutch Stage 4 - Combiotic Formula (800g)</h3>
-<div class="fct__card-row"><span class="fct__rating">
-<span aria-label="Rated 4.75 out of 5 stars" class="fct__rating-stars" role="img"><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span></span>
-                      (16)
-                    </span><span class="fct__price">
-                    $49.99
-</span>
-</div>
-</a><a class="fct__card" href="/products/hipp-bio-combiotik-stage-pre-600g-german-box-formulation">
-<div class="fct__card-media"><img alt="HiPP German Pre Organic Combiotik Formula from Birth (600g) - Formuland" height="640" loading="lazy" sizes="320px" src="//formuland.com/cdn/shop/files/hipp-german-pre-organic-combiotik-formula-from-birth-600g-2326620.jpg?v=1768051215&amp;width=640" srcset="//formuland.com/cdn/shop/files/hipp-german-pre-organic-combiotik-formula-from-birth-600g-2326620.jpg?v=1768051215&amp;width=320 320w, //formuland.com/cdn/shop/files/hipp-german-pre-organic-combiotik-formula-from-birth-600g-2326620.jpg?v=1768051215&amp;width=640 640w" width="640"/>
-</div>
-<h3 class="fct__card-title">HiPP German Pre Organic Combiotik Formula from Birth (600g)</h3>
-<div class="fct__card-row"><span class="fct__rating">
-<span aria-label="Rated 4.74 out of 5 stars" class="fct__rating-stars" role="img"><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span></span>
-                      (35)
-                    </span><span class="fct__price">
-                    $40.99
-</span>
-</div>
-</a><a class="fct__card" href="/products/hipp-formula-bio-combiotik-first-milk">
-<div class="fct__card-media"><img alt="HiPP Bio Combiotik Stage 1 German Organic Formula (600g) - Formuland" height="640" loading="lazy" sizes="320px" src="//formuland.com/cdn/shop/files/hipp-bio-combiotik-stage-1-german-organic-formula-600g-1251369.jpg?v=1768051216&amp;width=640" srcset="//formuland.com/cdn/shop/files/hipp-bio-combiotik-stage-1-german-organic-formula-600g-1251369.jpg?v=1768051216&amp;width=320 320w, //formuland.com/cdn/shop/files/hipp-bio-combiotik-stage-1-german-organic-formula-600g-1251369.jpg?v=1768051216&amp;width=640 640w" width="640"/>
-</div>
-<h3 class="fct__card-title">HiPP Bio Combiotik Stage 1 German Organic Formula (600g)</h3>
-<div class="fct__card-row"><span class="fct__rating">
-<span aria-label="Rated 4.8 out of 5 stars" class="fct__rating-stars" role="img"><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span></span>
-                      (45)
-                    </span><span class="fct__price">
-                    $40.99
-</span>
-</div>
-</a><a class="fct__card" href="/products/hipp-formula-bio-combiotik-stage-2">
-<div class="fct__card-media"><img alt="HiPP German Stage 2 Organic Combiotik Formula from 6+ (600g) - Formuland" height="640" loading="lazy" sizes="320px" src="//formuland.com/cdn/shop/files/hipp-german-stage-2-organic-combiotik-formula-from-6-600g-3015822.jpg?v=1768051216&amp;width=640" srcset="//formuland.com/cdn/shop/files/hipp-german-stage-2-organic-combiotik-formula-from-6-600g-3015822.jpg?v=1768051216&amp;width=320 320w, //formuland.com/cdn/shop/files/hipp-german-stage-2-organic-combiotik-formula-from-6-600g-3015822.jpg?v=1768051216&amp;width=640 640w" width="640"/>
-</div>
-<h3 class="fct__card-title">HiPP German Stage 2 Organic Combiotik Formula from 6+ (600g)</h3>
-<div class="fct__card-row"><span class="fct__rating">
-<span aria-label="Rated 4.72 out of 5 stars" class="fct__rating-stars" role="img"><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span><span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span></span>
-                      (29)
-                    </span><span class="fct__price">
-                    $40.99
-</span>
-</div>
-</a></div>
+{% assign tags_array = section.settings.collection_tags | split: ',' %}
+{% assign base_col = collections[section.settings.base_collection] %}
+{% for tag in tags_array %}
+  {% assign stripped_tag = tag | strip %}
+  <div aria-labelledby="fct-tab-{{ forloop.index0 }}" class="fct__panel" data-fct-panel="{{ forloop.index0 }}" {% unless forloop.first %}hidden=""{% endunless %} id="fct-panel-{{ forloop.index0 }}" role="tabpanel">
+    <div class="fct__slider" data-fct-slider="">
+      {% assign product_count = 0 %}
+      {% for product in base_col.products %}
+        {% if product.tags contains stripped_tag %}
+          {% if product_count < 10 %}
+            <a class="fct__card" href="{{ product.url }}">
+              <div class="fct__card-media">
+                {% if product.compare_at_price > product.price %}
+                  <span class="fct__badge">Sale</span>
+                {% endif %}
+                <img alt="{{ product.title | escape }}" height="640" loading="lazy" sizes="320px" src="{{ product.featured_image | img_url: '640x' }}" srcset="{{ product.featured_image | img_url: '320x' }} 320w, {{ product.featured_image | img_url: '640x' }} 640w" width="640"/>
+              </div>
+              <h3 class="fct__card-title">{{ product.title }}</h3>
+              <div class="fct__card-row">
+                <span class="fct__rating">
+                  <span class="fct__rating-stars" role="img">
+                    <span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span>
+                    <span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span>
+                    <span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span>
+                    <span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span>
+                    <span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span>
+                  </span>
+                </span>
+                <span class="fct__price">
+                  {{ product.price | money }}
+                  {% if product.compare_at_price > product.price %}
+                    <s>{{ product.compare_at_price | money }}</s>
+                  {% endif %}
+                </span>
+              </div>
+            </a>
+            {% assign product_count = product_count | plus: 1 %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      {% if product_count == 0 %}
+        <p>No products found in this collection with tag '{{ stripped_tag }}'.</p>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
 <div aria-hidden="true" class="fct__progress">
 <div class="fct__progress-thumb" data-fct-progress=""></div>
 </div>
@@ -2636,11 +2577,22 @@
 {% schema %}
 {
   "name": "Formuland Home",
-  "settings": [],
+  "settings": [
+    {
+      "type": "collection",
+      "id": "base_collection",
+      "label": "Base Collection"
+    },
+    {
+      "type": "text",
+      "id": "collection_tags",
+      "label": "Tags (comma separated)",
+      "default": "Hipp, Holle, Kendamil, Jovie, Aptamil, Kabrita, Lebenswert, Nannycare"
+    }
+  ],
   "presets": [
     {
       "name": "Formuland Home"
     }
   ]
-}
 {% endschema %}
