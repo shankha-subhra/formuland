@@ -14832,7 +14832,6 @@ body:not(.theme-animate-hover) .header__desktop__buttons--icons .header__desktop
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  background-color: var(--bg);
   color: var(--text)
 }
 
