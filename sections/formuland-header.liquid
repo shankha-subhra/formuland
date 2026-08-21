@@ -1238,152 +1238,338 @@
     var header = wrapper.querySelector('.fhd__header');
     var isTransparent = wrapper.classList.contains('fhd--transparent');
 
-    /* Publish the real rendered header height (desktop rows or mobile bar)
-       so the homepage hero can pad its text overlay below the header. */
+    /* Publish the real rendered header height */
     function setHeightVar() {
-      document.documentElement.style.setProperty('--fhd-header-height', header.offsetHeight + 'px');
+      document.documentElement.style.setProperty(
+        '--fhd-header-height',
+        header.offsetHeight + 'px'
+      );
     }
+
     window.addEventListener('load', setHeightVar);
     window.addEventListener('resize', setHeightVar);
     setHeightVar();
 
-    /* Transparent homepage: solid + fixed once the user scrolls past the hero top */
+    /* Transparent homepage header */
     if (isTransparent) {
       var THRESHOLD = 80;
       var ticking = false;
+
       function onScroll() {
         if (ticking) return;
+
         ticking = true;
+
         window.requestAnimationFrame(function () {
-          wrapper.classList.toggle('fhd--scrolled', window.scrollY > THRESHOLD);
+          wrapper.classList.toggle(
+            'fhd--scrolled',
+            window.scrollY > THRESHOLD
+          );
+
           ticking = false;
         });
       }
-      window.addEventListener('scroll', onScroll, { passive: true });
+
+      window.addEventListener('scroll', onScroll, {
+        passive: true
+      });
+
       onScroll();
     }
 
-    /* aria-expanded bookkeeping + mega-open class (keeps header solid while
-       the panel is hovered even if the pointer leaves the bar itself) */
-    var megaItems = wrapper.querySelectorAll('.fhd__nav-item--mega');
+    /* Mega menu */
+    var megaItems = wrapper.querySelectorAll(
+      '.fhd__nav-item--mega'
+    );
+
     megaItems.forEach(function (item) {
       var trigger = item.querySelector('.fhd__nav-link');
-      function open()  {
+
+      function open() {
         trigger.setAttribute('aria-expanded', 'true');
         wrapper.classList.add('fhd--mega-open');
       }
+
       function close() {
         trigger.setAttribute('aria-expanded', 'false');
         wrapper.classList.remove('fhd--mega-open');
       }
+
       item.addEventListener('mouseenter', open);
       item.addEventListener('mouseleave', close);
       item.addEventListener('focusin', open);
+
       item.addEventListener('focusout', function (e) {
-        if (!item.contains(e.relatedTarget)) close();
+        if (!item.contains(e.relatedTarget)) {
+          close();
+        }
       });
-      /* Escape closes the panel and returns focus to the trigger */
+
       item.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') { close(); trigger.focus(); }
+        if (e.key === 'Escape') {
+          close();
+          trigger.focus();
+        }
       });
     });
 
     /* =====================================================
-       Mobile / tablet drawer — open/close + 3-level panes
+       Mobile / tablet menu drawer
        ===================================================== */
-    var mdrawer = wrapper.querySelector('[data-fhd-drawer]');
-    var burger = wrapper.querySelector('[data-fhd-drawer-open]');
+
+    var mdrawer = wrapper.querySelector(
+      '[data-fhd-drawer]'
+    );
+
+    var burger = wrapper.querySelector(
+      '[data-fhd-drawer-open]'
+    );
+
     if (mdrawer && burger) {
-      var panes = mdrawer.querySelectorAll('[data-fhd-pane]');
+      var panes = mdrawer.querySelectorAll(
+        '[data-fhd-pane]'
+      );
+
       var activeId = 'root';
 
       function getPane(id) {
-        return mdrawer.querySelector('[data-fhd-pane="' + id + '"]');
+        return mdrawer.querySelector(
+          '[data-fhd-pane="' + id + '"]'
+        );
       }
 
       function showPane(id, direction) {
         var next = getPane(id);
         var current = getPane(activeId);
+
         if (!next || next === current) return;
+
         panes.forEach(function (p) {
-          p.classList.remove('fhd__pane--active', 'fhd__pane--left');
+          p.classList.remove(
+            'fhd__pane--active',
+            'fhd__pane--left'
+          );
         });
-        if (direction === 'forward' && current) current.classList.add('fhd__pane--left');
-        next.classList.add('fhd__pane--active');
+
+        if (direction === 'forward' && current) {
+          current.classList.add(
+            'fhd__pane--left'
+          );
+        }
+
+        next.classList.add(
+          'fhd__pane--active'
+        );
+
         next.scrollTop = 0;
         activeId = id;
       }
 
       function getAnnouncementEls() {
         return document.querySelectorAll(
-          '[id^="shopify-section"][id*="announcement" i], .announcement__wrapper, [data-section-type="announcement"]'
+          '[id^="shopify-section"][id*="announcement" i], ' +
+          '.announcement__wrapper, ' +
+          '[data-section-type="announcement"]'
         );
       }
 
       function openDrawer() {
         mdrawer.classList.add('is-open');
-        mdrawer.setAttribute('aria-hidden', 'false');
-        burger.setAttribute('aria-expanded', 'true');
-        document.body.classList.add('fhd-drawer-open');
-        getAnnouncementEls().forEach(function (el) { el.style.visibility = 'hidden'; });
+
+        mdrawer.setAttribute(
+          'aria-hidden',
+          'false'
+        );
+
+        burger.setAttribute(
+          'aria-expanded',
+          'true'
+        );
+
+        document.body.classList.add(
+          'fhd-drawer-open'
+        );
+
+        getAnnouncementEls().forEach(
+          function (el) {
+            el.style.visibility = 'hidden';
+          }
+        );
+
         showPane('root', 'back');
       }
+
       function closeDrawer() {
         mdrawer.classList.remove('is-open');
-        mdrawer.setAttribute('aria-hidden', 'true');
-        burger.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('fhd-drawer-open');
-        getAnnouncementEls().forEach(function (el) { el.style.visibility = ''; });
-        burger.focus();
+
+        mdrawer.setAttribute(
+          'aria-hidden',
+          'true'
+        );
+
+        burger.setAttribute(
+          'aria-expanded',
+          'false'
+        );
+
+        document.body.classList.remove(
+          'fhd-drawer-open'
+        );
+
+        getAnnouncementEls().forEach(
+          function (el) {
+            el.style.visibility = '';
+          }
+        );
       }
 
-      burger.addEventListener('click', openDrawer);
-      mdrawer.querySelectorAll('[data-fhd-drawer-close]').forEach(function (btn) {
-        btn.addEventListener('click', closeDrawer);
-      });
+      burger.addEventListener(
+        'click',
+        openDrawer
+      );
 
-      /* Opening the cart from inside the menu drawer: close the menu first
-         so the cart drawer isn't stacked underneath it */
-      mdrawer.querySelectorAll('[data-drawer-toggle="drawer-cart"]').forEach(function (btn) {
-        btn.addEventListener('click', function () { closeDrawer(); });
-      });
-
-      /* drill down */
-      mdrawer.querySelectorAll('[data-fhd-open]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          showPane(btn.getAttribute('data-fhd-open'), 'forward');
+      mdrawer
+        .querySelectorAll(
+          '[data-fhd-drawer-close]'
+        )
+        .forEach(function (btn) {
+          btn.addEventListener(
+            'click',
+            closeDrawer
+          );
         });
-      });
 
-      /* back */
-      mdrawer.querySelectorAll('[data-fhd-back]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var pane = btn.closest('[data-fhd-pane]');
-          var parent = pane ? pane.getAttribute('data-fhd-parent') : 'root';
-          showPane(parent || 'root', 'back');
+      /*
+       * When cart is opened from mobile menu,
+       * close mobile menu first.
+       */
+      mdrawer
+        .querySelectorAll(
+          '[data-drawer-toggle="drawer-cart"]'
+        )
+        .forEach(function (btn) {
+          btn.addEventListener(
+            'click',
+            function () {
+              closeDrawer();
+            }
+          );
         });
-      });
 
-      /* Escape closes the drawer */
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && mdrawer.classList.contains('is-open')) closeDrawer();
-      });
+      /* Drill down */
 
-      /* Close on breakpoint change so state can't get stuck */
-      var mq = window.matchMedia('(min-width: 1024px)');
-      (mq.addEventListener ? mq.addEventListener.bind(mq, 'change') : mq.addListener.bind(mq))(function (e) {
-        if (e.matches && mdrawer.classList.contains('is-open')) closeDrawer();
+      mdrawer
+        .querySelectorAll('[data-fhd-open]')
+        .forEach(function (btn) {
+          btn.addEventListener(
+            'click',
+            function () {
+              showPane(
+                btn.getAttribute(
+                  'data-fhd-open'
+                ),
+                'forward'
+              );
+            }
+          );
+        });
+
+      /* Back */
+
+      mdrawer
+        .querySelectorAll('[data-fhd-back]')
+        .forEach(function (btn) {
+          btn.addEventListener(
+            'click',
+            function () {
+              var pane = btn.closest(
+                '[data-fhd-pane]'
+              );
+
+              var parent = pane
+                ? pane.getAttribute(
+                    'data-fhd-parent'
+                  )
+                : 'root';
+
+              showPane(
+                parent || 'root',
+                'back'
+              );
+            }
+          );
+        });
+
+      /* Escape closes mobile drawer */
+
+      document.addEventListener(
+        'keydown',
+        function (e) {
+          if (
+            e.key === 'Escape' &&
+            mdrawer.classList.contains(
+              'is-open'
+            )
+          ) {
+            closeDrawer();
+          }
+        }
+      );
+
+      /* Breakpoint change */
+
+      var mq = window.matchMedia(
+        '(min-width: 1024px)'
+      );
+
+      (
+        mq.addEventListener
+          ? mq.addEventListener.bind(
+              mq,
+              'change'
+            )
+          : mq.addListener.bind(mq)
+      )(function (e) {
+        if (
+          e.matches &&
+          mdrawer.classList.contains(
+            'is-open'
+          )
+        ) {
+          closeDrawer();
+        }
       });
     }
 
     /* =====================================================
-       Custom cart drawer
-       data-drawer-toggle="drawer-cart" -> #fcd-drawer + #fcd-overlay
+       CUSTOM CART DRAWER
+       Click:
+       data-drawer-toggle="drawer-cart"
+
+       Opens:
+       #fcd-drawer
+       #fcd-overlay
        ===================================================== */
-    var fcdDrawer = document.getElementById('fcd-drawer');
-    var fcdOverlay = document.getElementById('fcd-overlay');
-    var fcdClose = document.getElementById('fcd-close');
-    var cartOpeners = document.querySelectorAll('[data-drawer-toggle="drawer-cart"]');
+
+    var fcdDrawer =
+      document.getElementById(
+        'fcd-drawer'
+      );
+
+    var fcdOverlay =
+      document.getElementById(
+        'fcd-overlay'
+      );
+
+    var fcdClose =
+      document.getElementById(
+        'fcd-close'
+      );
+
+    var cartOpeners =
+      document.querySelectorAll(
+        '[data-drawer-toggle="drawer-cart"]'
+      );
 
     function openFcdCart(event) {
       if (event) {
@@ -1391,24 +1577,47 @@
         event.stopPropagation();
       }
 
-      if (!fcdDrawer || !fcdOverlay) return;
-
-      /* Close mobile menu first if it is open. */
-      var mobileDrawer = document.querySelector('[data-fhd-drawer]');
-      if (mobileDrawer && mobileDrawer.classList.contains('is-open')) {
-        mobileDrawer.classList.remove('is-open');
-        mobileDrawer.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('fhd-drawer-open');
+      if (
+        !fcdDrawer ||
+        !fcdOverlay
+      ) {
+        return;
       }
 
-      fcdDrawer.classList.add('is_open');
-      fcdOverlay.classList.add('is_open');
-      fcdDrawer.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('fcd-cart-open');
+      /* Close mobile menu first */
+      var mobileDrawer =
+        document.querySelector(
+          '[data-fhd-drawer]'
+        );
 
-      cartOpeners.forEach(function (button) {
-        button.setAttribute('aria-expanded', 'true');
-      });
+      if (
+        mobileDrawer &&
+        mobileDrawer.classList.contains(
+          'is-open'
+        )
+      ) {
+        mobileDrawer.classList.remove(
+          'is-open'
+        );
+
+        document.body.classList.remove(
+          'fhd-drawer-open'
+        );
+      }
+
+      /* OPEN CUSTOM CART */
+
+      fcdDrawer.classList.add(
+        'is_open'
+      );
+
+      fcdOverlay.classList.add(
+        'is_open'
+      );
+
+      document.body.classList.add(
+        'fcd-cart-open'
+      );
     }
 
     function closeFcdCart(event) {
@@ -1418,42 +1627,68 @@
       }
 
       if (fcdDrawer) {
-        fcdDrawer.classList.remove('is_open');
-        fcdDrawer.setAttribute('aria-hidden', 'true');
+        fcdDrawer.classList.remove(
+          'is_open'
+        );
       }
 
       if (fcdOverlay) {
-        fcdOverlay.classList.remove('is_open');
+        fcdOverlay.classList.remove(
+          'is_open'
+        );
       }
 
-      document.body.classList.remove('fcd-cart-open');
-
-      cartOpeners.forEach(function (button) {
-        button.setAttribute('aria-expanded', 'false');
-      });
+      document.body.classList.remove(
+        'fcd-cart-open'
+      );
     }
 
-    if (fcdDrawer && fcdOverlay) {
-      fcdDrawer.setAttribute('aria-hidden', 'true');
+    /* Cart icons */
 
-      cartOpeners.forEach(function (cartButton) {
-        cartButton.setAttribute('aria-controls', 'fcd-drawer');
-        cartButton.setAttribute('aria-expanded', 'false');
-        cartButton.addEventListener('click', openFcdCart);
-      });
-
-      if (fcdClose) {
-        fcdClose.addEventListener('click', closeFcdCart);
+    cartOpeners.forEach(
+      function (cartButton) {
+        cartButton.addEventListener(
+          'click',
+          openFcdCart
+        );
       }
+    );
 
-      fcdOverlay.addEventListener('click', closeFcdCart);
+    /* Close button */
 
-      document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' && fcdDrawer.classList.contains('is_open')) {
-          closeFcdCart(event);
+    if (fcdClose) {
+      fcdClose.addEventListener(
+        'click',
+        closeFcdCart
+      );
+    }
+
+    /* Overlay */
+
+    if (fcdOverlay) {
+      fcdOverlay.addEventListener(
+        'click',
+        closeFcdCart
+      );
+    }
+
+    /* Escape */
+
+    document.addEventListener(
+      'keydown',
+      function (event) {
+        if (
+          event.key === 'Escape' &&
+          fcdDrawer &&
+          fcdDrawer.classList.contains(
+            'is_open'
+          )
+        ) {
+          closeFcdCart();
         }
-      });
-    }
+      }
+    );
+
   })();
 </script>
 
