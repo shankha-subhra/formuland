@@ -1608,11 +1608,11 @@
       /* OPEN CUSTOM CART */
 
       fcdDrawer.classList.add(
-        'is_open'
+        'is-open'
       );
 
       fcdOverlay.classList.add(
-        'is_open'
+        'is-open'
       );
 
       document.body.classList.add(
@@ -1628,13 +1628,13 @@
 
       if (fcdDrawer) {
         fcdDrawer.classList.remove(
-          'is_open'
+          'is-open'
         );
       }
 
       if (fcdOverlay) {
         fcdOverlay.classList.remove(
-          'is_open'
+          'is-open'
         );
       }
 
@@ -1681,7 +1681,7 @@
           event.key === 'Escape' &&
           fcdDrawer &&
           fcdDrawer.classList.contains(
-            'is_open'
+            'is-open'
           )
         ) {
           closeFcdCart();
