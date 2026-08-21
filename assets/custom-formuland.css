@@ -25891,7 +25891,7 @@ select {
     justify-content: flex-start;
 }
 
-.product__grid__price {
+.product__grid__price, .price {
     overflow: hidden;
     margin: 3px 0;
     font-size: 13px;
