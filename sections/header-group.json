@@ -18,7 +18,7 @@
           "type": "announcement",
           "settings": {
             "icon": "",
-            "text": "Free Shipping on orders over $100",
+            "text": "Free Shipping on orders over $101",
             "link_text": "Shop Now",
             "link": ""
           }
@@ -27,7 +27,7 @@
           "type": "announcement",
           "settings": {
             "icon": "",
-            "text": "Free Shipping on orders over $100",
+            "text": "Free Shipping on orders over $102",
             "link_text": "Shop Now",
             "link": ""
           }
@@ -36,7 +36,7 @@
           "type": "announcement",
           "settings": {
             "icon": "",
-            "text": "Free Shipping on orders over $100",
+            "text": "Free Shipping on orders over $103",
             "link_text": "Shop Now",
             "link": ""
           }
@@ -48,16 +48,13 @@
         "announcement_j8fcbz"
       ],
       "settings": {
-        "background_color": "#E6F28D",
-        "text_color": "#1E2E00",
+        "background_color": "#e6f28d",
+        "text_color": "#1e2e00",
         "height": 42,
-        "mobile_height": 48,
         "font_size": 13,
+        "mobile_height": 48,
         "mobile_font_size": 12,
-        "font_weight": "400",
-        "show_arrows": false,
-        "autoplay": true,
-        "autoplay_speed": 2
+        "font_weight": "400"
       }
     },
     "header": {
