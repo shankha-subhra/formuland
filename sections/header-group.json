@@ -20,13 +20,29 @@
             "text": "Free Shipping on orders over $100",
             "link": ""
           }
+        },
+        "announcement_bVp8Bj": {
+          "type": "announcement",
+          "settings": {
+            "text": "Free Shipping on orders over $100",
+            "link": ""
+          }
+        },
+        "announcement_j8fcbz": {
+          "type": "announcement",
+          "settings": {
+            "text": "Free Shipping on orders over $100",
+            "link": ""
+          }
         }
       },
       "block_order": [
-        "announcement-bar-0"
+        "announcement-bar-0",
+        "announcement_bVp8Bj",
+        "announcement_j8fcbz"
       ],
       "settings": {
-        "auto_rotate": false,
+        "auto_rotate": true,
         "change_slides_speed": 5,
         "color_scheme": "scheme-2",
         "show_line_separator": true,
