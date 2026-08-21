@@ -3,7 +3,20 @@
     background: {{ section.settings.background_color }};
   }
 
-  #announcement-{{ section.id }} {
+  #custom-announcement-{{ section.id }} {
+    position: relative;
+    width: 100%;
+    background: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+    overflow: hidden;
+    z-index: 100;
+  }
+
+  #custom-announcement-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #custom-announcement-{{ section.id }} .custom-announcement__outer {
     position: relative;
     width: 100%;
     background: {{ section.settings.background_color }};
@@ -11,14 +24,14 @@
     overflow: hidden;
   }
 
-  #announcement-{{ section.id }} .announcement__bar-holder {
+  #custom-announcement-{{ section.id }} .custom-announcement__holder {
     position: relative;
     width: 100%;
     min-height: {{ section.settings.height }}px;
     overflow: hidden;
   }
 
-  #announcement-{{ section.id }} .announcement__bar {
+  #custom-announcement-{{ section.id }} .custom-announcement__slide {
     position: absolute;
     inset: 0;
 
@@ -33,6 +46,7 @@
 
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
 
     transform: translateX(25px);
 
@@ -40,60 +54,69 @@
       opacity 0.35s ease,
       transform 0.35s ease,
       visibility 0.35s ease;
-
-    pointer-events: none;
   }
 
-  #announcement-{{ section.id }} .announcement__bar.is-selected {
+  #custom-announcement-{{ section.id }} .custom-announcement__slide.is-selected {
     opacity: 1;
     visibility: visible;
-    transform: translateX(0);
     pointer-events: auto;
+
+    transform: translateX(0);
+
     z-index: 2;
   }
 
-  #announcement-{{ section.id }} .announcement__message {
+  #custom-announcement-{{ section.id }} .custom-announcement__message {
     width: 100%;
     text-align: center;
   }
 
-  #announcement-{{ section.id }} .announcement__text {
+  #custom-announcement-{{ section.id }} .custom-announcement__text {
+    width: 100%;
     text-align: center;
   }
 
-  #announcement-{{ section.id }} .announcement__text p {
+  #custom-announcement-{{ section.id }} .custom-announcement__text p {
     margin: 0;
+
+    color: {{ section.settings.text_color }};
 
     font-size: {{ section.settings.font_size }}px;
     font-weight: {{ section.settings.font_weight }};
     line-height: 1.4;
-
-    color: {{ section.settings.text_color }};
   }
 
-  #announcement-{{ section.id }} .announcement__text a {
+  #custom-announcement-{{ section.id }} .custom-announcement__icon {
+    display: inline-block;
+    margin-right: 3px;
+  }
+
+  #custom-announcement-{{ section.id }} .custom-announcement__link {
+    margin-left: 3px;
+
     color: {{ section.settings.text_color }};
+
     text-decoration: underline;
     text-underline-offset: 2px;
   }
 
-  #announcement-{{ section.id }} .announcement__text strong {
+  #custom-announcement-{{ section.id }} .custom-announcement__link strong {
     font-weight: 600;
   }
 
 
-  /* ================================
-     PREVIOUS / NEXT
-     ================================ */
+  /* =========================================
+     PREVIOUS / NEXT BUTTONS
+     ========================================= */
 
-  #announcement-{{ section.id }} .announcement-arrow {
+  #custom-announcement-{{ section.id }} .custom-announcement__arrow {
     position: absolute;
     top: 50%;
 
     transform: translateY(-50%);
 
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
 
     display: flex;
     align-items: center;
@@ -101,8 +124,8 @@
 
     padding: 0;
 
-    background: transparent;
     border: 0;
+    background: transparent;
 
     color: {{ section.settings.text_color }};
 
@@ -111,196 +134,198 @@
     z-index: 10;
   }
 
-  #announcement-{{ section.id }} .announcement-prev {
-    left: 12px;
+  #custom-announcement-{{ section.id }} .custom-announcement__arrow--prev {
+    left: 10px;
   }
 
-  #announcement-{{ section.id }} .announcement-next {
-    right: 12px;
+  #custom-announcement-{{ section.id }} .custom-announcement__arrow--next {
+    right: 10px;
   }
 
-  #announcement-{{ section.id }} .announcement-arrow svg {
-    width: 11px;
-    height: 18px;
+  #custom-announcement-{{ section.id }} .custom-announcement__arrow svg {
     display: block;
+
+    width: 10px;
+    height: 18px;
   }
 
-  #announcement-{{ section.id }} .announcement-arrow:hover {
+  #custom-announcement-{{ section.id }} .custom-announcement__arrow:hover {
     opacity: 0.65;
   }
 
 
-  /* ================================
+  /* =========================================
      MOBILE
-     ================================ */
+     ========================================= */
 
   @media screen and (max-width: 767px) {
 
-    #announcement-{{ section.id }} .announcement__bar-holder,
-    #announcement-{{ section.id }} .announcement__bar {
+    #custom-announcement-{{ section.id }} .custom-announcement__holder,
+    #custom-announcement-{{ section.id }} .custom-announcement__slide {
       min-height: {{ section.settings.mobile_height }}px;
     }
 
-    #announcement-{{ section.id }} .announcement__bar {
+    #custom-announcement-{{ section.id }} .custom-announcement__slide {
       padding-left: 42px;
       padding-right: 42px;
     }
 
-    #announcement-{{ section.id }} .announcement__text p {
+    #custom-announcement-{{ section.id }} .custom-announcement__text p {
       font-size: {{ section.settings.mobile_font_size }}px;
       line-height: 1.35;
     }
 
-    #announcement-{{ section.id }} .announcement-arrow {
+    #custom-announcement-{{ section.id }} .custom-announcement__arrow {
       width: 32px;
       height: 32px;
     }
 
-    #announcement-{{ section.id }} .announcement-prev {
-      left: 4px;
+    #custom-announcement-{{ section.id }} .custom-announcement__arrow--prev {
+      left: 3px;
     }
 
-    #announcement-{{ section.id }} .announcement-next {
-      right: 4px;
+    #custom-announcement-{{ section.id }} .custom-announcement__arrow--next {
+      right: 3px;
     }
 
   }
 
 
   @media (prefers-reduced-motion: reduce) {
-    #announcement-{{ section.id }} .announcement__bar {
+
+    #custom-announcement-{{ section.id }} .custom-announcement__slide {
       transition: none;
     }
+
   }
 </style>
 
 
 <div
-  id="announcement-{{ section.id }}"
-  class="announcement__wrapper"
-  data-announcement-wrapper
-  data-section-id="{{ section.id }}"
-  data-section-type="announcement"
+  id="custom-announcement-{{ section.id }}"
+  class="custom-announcement"
+  data-custom-announcement
 >
 
-  <div class="announcement__font font--4">
+  <div class="custom-announcement__outer">
 
-    <div class="announcement__bar-outer">
+    <div
+      class="custom-announcement__holder"
+      data-custom-announcement-slider
+      data-slider-speed="{{ section.settings.slider_speed | times: 1000 }}"
+      data-autoplay="{{ section.settings.autoplay }}"
+    >
 
-      <div
-        class="announcement__bar-holder"
-        data-announcement-slider
-        data-slider-speed="{{ section.settings.slider_speed | times: 1000 }}"
-        data-autoplay="{{ section.settings.autoplay }}"
-      >
+      {% for block in section.blocks %}
 
-        {% for block in section.blocks %}
+        <div
+          class="custom-announcement__slide{% if forloop.first %} is-selected{% endif %}"
+          data-custom-announcement-slide
+          data-custom-slide-index="{{ forloop.index0 }}"
+          {{ block.shopify_attributes }}
+        >
 
-          <div
-            class="announcement__bar{% if forloop.first %} is-selected{% endif %}"
-            data-slide
-            data-slide-index="{{ forloop.index0 }}"
-            {{ block.shopify_attributes }}
-          >
+          <div class="custom-announcement__message">
 
-            <div
-              data-ticker-frame
-              class="announcement__message"
-            >
+            <div class="custom-announcement__text">
 
-              <div
-                data-ticker-scale
-                class="announcement__scale"
-              >
+              {% if block.settings.text != blank %}
 
-                <div
-                  data-ticker-text
-                  class="announcement__text"
-                >
+                <p>
 
-                  {% if block.settings.text != blank %}
+                  {% if block.settings.icon != blank %}
+                    <span class="custom-announcement__icon">
+                      {{ block.settings.icon }}
+                    </span>
+                  {% endif %}
 
-                    <p>
+                  <span>
+                    {{ block.settings.text }}
+                  </span>
 
-                      {% if block.settings.icon != blank %}
-                        {{ block.settings.icon }}
-                      {% endif %}
 
-                      {{ block.settings.text }}
+                  {% if block.settings.link_text != blank and block.settings.link != blank %}
 
-                      {% if block.settings.link_text != blank and block.settings.link != blank %}
-
-                        <a href="{{ block.settings.link }}">
-                          <strong>
-                            {{ block.settings.link_text }}
-                          </strong>
-                        </a>
-
-                      {% endif %}
-
-                    </p>
+                    <a
+                      href="{{ block.settings.link }}"
+                      class="custom-announcement__link"
+                    >
+                      <strong>
+                        {{ block.settings.link_text }}
+                      </strong>
+                    </a>
 
                   {% endif %}
 
-                </div>
+                </p>
 
-              </div>
+              {% endif %}
 
             </div>
 
           </div>
 
-        {% endfor %}
+        </div>
+
+      {% endfor %}
 
 
-        {% if section.blocks.size > 1 %}
+      {% if section.blocks.size > 1 %}
 
-          <button
-            type="button"
-            class="announcement-arrow announcement-prev"
-            data-announcement-prev
-            aria-label="Previous announcement"
+        <button
+          type="button"
+          class="
+            custom-announcement__arrow
+            custom-announcement__arrow--prev
+          "
+          data-custom-announcement-prev
+          aria-label="Previous announcement"
+        >
+
+          <svg
+            viewBox="0 0 12 20"
+            aria-hidden="true"
           >
-            <svg
-              viewBox="0 0 12 20"
-              aria-hidden="true"
-            >
-              <path
-                d="M10 2L2 10L10 18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
+            <path
+              d="M10 2L2 10L10 18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+        </button>
 
 
-          <button
-            type="button"
-            class="announcement-arrow announcement-next"
-            data-announcement-next
-            aria-label="Next announcement"
+        <button
+          type="button"
+          class="
+            custom-announcement__arrow
+            custom-announcement__arrow--next
+          "
+          data-custom-announcement-next
+          aria-label="Next announcement"
+        >
+
+          <svg
+            viewBox="0 0 12 20"
+            aria-hidden="true"
           >
-            <svg
-              viewBox="0 0 12 20"
-              aria-hidden="true"
-            >
-              <path
-                d="M2 2L10 10L2 18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
+            <path
+              d="M2 2L10 10L2 18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
 
-        {% endif %}
+        </button>
 
-      </div>
+      {% endif %}
 
     </div>
 
@@ -312,59 +337,85 @@
 <script>
 (function () {
 
-  var section = document.getElementById(
-    'announcement-{{ section.id }}'
-  );
+  var section =
+    document.getElementById(
+      'custom-announcement-{{ section.id }}'
+    );
 
   if (!section) return;
 
 
-  var slider = section.querySelector(
-    '[data-announcement-slider]'
-  );
+  /*
+   * Prevent duplicate initialization,
+   * especially inside Shopify Theme Editor.
+   */
+  if (section.dataset.customAnnouncementInitialized === 'true') {
+    return;
+  }
+
+  section.dataset.customAnnouncementInitialized = 'true';
+
+
+  var slider =
+    section.querySelector(
+      '[data-custom-announcement-slider]'
+    );
 
   if (!slider) return;
 
 
-  var slides = slider.querySelectorAll(
-    '[data-slide]'
-  );
+  var slides =
+    slider.querySelectorAll(
+      '[data-custom-announcement-slide]'
+    );
 
   if (!slides.length) return;
 
 
-  var previousButton = slider.querySelector(
-    '[data-announcement-prev]'
-  );
+  var previousButton =
+    slider.querySelector(
+      '[data-custom-announcement-prev]'
+    );
 
-  var nextButton = slider.querySelector(
-    '[data-announcement-next]'
-  );
+  var nextButton =
+    slider.querySelector(
+      '[data-custom-announcement-next]'
+    );
 
 
   var current = 0;
 
-  var autoplay =
-    slider.getAttribute('data-autoplay') === 'true';
-
-  var speed =
-    parseInt(
-      slider.getAttribute('data-slider-speed'),
-      10
-    ) || 8000;
-
   var timer = null;
 
 
-  /* ================================
+  var autoplay =
+    slider.getAttribute(
+      'data-autoplay'
+    ) === 'true';
+
+
+  var speed =
+    parseInt(
+      slider.getAttribute(
+        'data-slider-speed'
+      ),
+      10
+    ) || 8000;
+
+
+  /* =========================================
      SHOW SLIDE
-     ================================ */
+     ========================================= */
 
   function showSlide(index) {
+
+    if (!slides.length) return;
+
 
     if (index >= slides.length) {
       index = 0;
     }
+
 
     if (index < 0) {
       index = slides.length - 1;
@@ -372,7 +423,11 @@
 
 
     slides.forEach(function (slide) {
-      slide.classList.remove('is-selected');
+
+      slide.classList.remove(
+        'is-selected'
+      );
+
     });
 
 
@@ -386,9 +441,9 @@
   }
 
 
-  /* ================================
+  /* =========================================
      NEXT
-     ================================ */
+     ========================================= */
 
   function nextSlide() {
 
@@ -399,9 +454,9 @@
   }
 
 
-  /* ================================
+  /* =========================================
      PREVIOUS
-     ================================ */
+     ========================================= */
 
   function previousSlide() {
 
@@ -412,32 +467,37 @@
   }
 
 
-  /* ================================
-     AUTOPLAY
-     ================================ */
+  /* =========================================
+     STOP AUTOPLAY
+     ========================================= */
 
   function stopAutoplay() {
 
-    if (timer) {
+    if (!timer) return;
 
-      clearInterval(timer);
 
-      timer = null;
+    clearInterval(timer);
 
-    }
+    timer = null;
 
   }
 
+
+  /* =========================================
+     START AUTOPLAY
+     ========================================= */
 
   function startAutoplay() {
 
     stopAutoplay();
 
 
-    if (
-      !autoplay ||
-      slides.length <= 1
-    ) {
+    if (!autoplay) {
+      return;
+    }
+
+
+    if (slides.length <= 1) {
       return;
     }
 
@@ -454,31 +514,9 @@
   }
 
 
-  /* ================================
-     NEXT BUTTON
-     ================================ */
-
-  if (nextButton) {
-
-    nextButton.addEventListener(
-      'click',
-      function (event) {
-
-        event.preventDefault();
-
-        nextSlide();
-
-        startAutoplay();
-
-      }
-    );
-
-  }
-
-
-  /* ================================
+  /* =========================================
      PREVIOUS BUTTON
-     ================================ */
+     ========================================= */
 
   if (previousButton) {
 
@@ -487,9 +525,15 @@
       function (event) {
 
         event.preventDefault();
+        event.stopPropagation();
+
 
         previousSlide();
 
+
+        /*
+         * Restart timer after manual action.
+         */
         startAutoplay();
 
       }
@@ -498,82 +542,50 @@
   }
 
 
-  /* ================================
+  /* =========================================
+     NEXT BUTTON
+     ========================================= */
+
+  if (nextButton) {
+
+    nextButton.addEventListener(
+      'click',
+      function (event) {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+
+        nextSlide();
+
+
+        /*
+         * Restart timer after manual action.
+         */
+        startAutoplay();
+
+      }
+    );
+
+  }
+
+
+  /* =========================================
      PAUSE ON HOVER
-     ================================ */
+     ========================================= */
 
   slider.addEventListener(
     'mouseenter',
-    stopAutoplay
+    function () {
+
+      stopAutoplay();
+
+    }
   );
 
 
   slider.addEventListener(
     'mouseleave',
-    startAutoplay
-  );
-
-
-  /* ================================
-     TAB VISIBILITY
-     ================================ */
-
-  document.addEventListener(
-    'visibilitychange',
-    function () {
-
-      if (document.hidden) {
-
-        stopAutoplay();
-
-      } else {
-
-        startAutoplay();
-
-      }
-
-    }
-  );
-
-
-  /* ================================
-     THEME EDITOR BLOCK SELECT
-     ================================ */
-
-  document.addEventListener(
-    'shopify:block:select',
-    function (event) {
-
-      var selectedBlock =
-        event.target.closest('[data-slide]');
-
-      if (!selectedBlock) return;
-
-      if (!section.contains(selectedBlock)) {
-        return;
-      }
-
-      var index = parseInt(
-        selectedBlock.getAttribute(
-          'data-slide-index'
-        ),
-        10
-      );
-
-      if (!isNaN(index)) {
-
-        stopAutoplay();
-
-        showSlide(index);
-
-      }
-
-    }
-  );
-
-
-  document.addEventListener(
-    'shopify:block:deselect',
     function () {
 
       startAutoplay();
@@ -582,9 +594,95 @@
   );
 
 
-  /* ================================
-     INIT
-     ================================ */
+  /* =========================================
+     VISIBILITY
+     ========================================= */
+
+  function visibilityHandler() {
+
+    if (document.hidden) {
+
+      stopAutoplay();
+
+    } else {
+
+      startAutoplay();
+
+    }
+
+  }
+
+
+  document.addEventListener(
+    'visibilitychange',
+    visibilityHandler
+  );
+
+
+  /* =========================================
+     SHOPIFY THEME EDITOR
+     ========================================= */
+
+  document.addEventListener(
+    'shopify:block:select',
+    function (event) {
+
+      var selectedBlock =
+        event.target.closest(
+          '[data-custom-announcement-slide]'
+        );
+
+
+      if (!selectedBlock) {
+        return;
+      }
+
+
+      if (!section.contains(selectedBlock)) {
+        return;
+      }
+
+
+      var index =
+        parseInt(
+          selectedBlock.getAttribute(
+            'data-custom-slide-index'
+          ),
+          10
+        );
+
+
+      if (isNaN(index)) {
+        return;
+      }
+
+
+      stopAutoplay();
+
+      showSlide(index);
+
+    }
+  );
+
+
+  document.addEventListener(
+    'shopify:block:deselect',
+    function (event) {
+
+      if (!section.contains(event.target)) {
+        return;
+      }
+
+
+      startAutoplay();
+
+    }
+  );
+
+
+  /* =========================================
+     INITIALIZE
+     ========================================= */
 
   showSlide(0);
 
@@ -596,11 +694,15 @@
 
 {% schema %}
 {
-  "name": "Announcement Slider",
+  "name": "Custom Announcement",
   "tag": "section",
-  "class": "formuland-announcement-section",
+  "class": "custom-announcement-section",
 
   "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
     {
       "type": "color",
       "id": "background_color",
@@ -613,10 +715,15 @@
       "label": "Text color",
       "default": "#13322B"
     },
+
+    {
+      "type": "header",
+      "content": "Desktop"
+    },
     {
       "type": "range",
       "id": "height",
-      "label": "Desktop height",
+      "label": "Height",
       "min": 30,
       "max": 70,
       "step": 2,
@@ -625,33 +732,43 @@
     },
     {
       "type": "range",
+      "id": "font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 13,
+      "unit": "px"
+    },
+
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
       "id": "mobile_height",
-      "label": "Mobile height",
+      "label": "Height",
       "min": 36,
-      "max": 80,
+      "max": 90,
       "step": 2,
       "default": 48,
       "unit": "px"
     },
     {
       "type": "range",
-      "id": "font_size",
-      "label": "Desktop font size",
+      "id": "mobile_font_size",
+      "label": "Font size",
       "min": 10,
       "max": 18,
       "step": 1,
-      "default": 13,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "mobile_font_size",
-      "label": "Mobile font size",
-      "min": 10,
-      "max": 16,
-      "step": 1,
       "default": 12,
       "unit": "px"
+    },
+
+    {
+      "type": "header",
+      "content": "Typography"
     },
     {
       "type": "select",
@@ -677,6 +794,11 @@
       ],
       "default": "400"
     },
+
+    {
+      "type": "header",
+      "content": "Slider"
+    },
     {
       "type": "checkbox",
       "id": "autoplay",
@@ -686,7 +808,7 @@
     {
       "type": "range",
       "id": "slider_speed",
-      "label": "Slide speed",
+      "label": "Change announcement every",
       "min": 2,
       "max": 12,
       "step": 1,
@@ -709,7 +831,7 @@
         {
           "type": "textarea",
           "id": "text",
-          "label": "Text",
+          "label": "Announcement text",
           "default": "Fast and Free Shipping on 4/6/8/12 Packs."
         },
         {
@@ -731,7 +853,7 @@
 
   "presets": [
     {
-      "name": "Announcement Slider",
+      "name": "Custom Announcement",
       "blocks": [
         {
           "type": "announcement",
