@@ -25894,7 +25894,7 @@ select {
 .product__grid__price {
     overflow: hidden;
     margin: 3px 0;
-    font-size: calc(var(--font-3) * var(--FONT-ADJUST-BODY));
+    font-size: calc(13px * var(--FONT-ADJUST-BODY));
 }
 
 .image-column-title:before,
