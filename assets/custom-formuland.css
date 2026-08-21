@@ -14825,7 +14825,6 @@ body:not(.theme-animate-hover) .header__desktop__buttons--icons .header__desktop
   position: absolute;
   z-index: 201;
   width: 100%;
-  background-color: var(--bg)
 }
 
 .announcement__bar {
@@ -14864,7 +14863,6 @@ body:not(.theme-animate-hover) .header__desktop__buttons--icons .header__desktop
 }
 
 .announcement__bar-holder {
-  background-color: var(--bg)
 }
 
 .announcement__text {
