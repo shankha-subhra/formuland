@@ -21,7 +21,7 @@
     -----------
     This collection filter is driven entirely by Shopify product tags.
     Add/remove tags on products in Shopify Admin and the dropdown updates automatically.
-    Multiple selected tags use Shopify collection tag AND filtering.
+    Only one tag can be selected at a time (radio filter).
   {%- endcomment -%}
 
   {%- if collection.all_tags.size > 0 -%}
@@ -50,19 +50,16 @@
               <label class="fcc2__dropdown__option{% if tag_is_active %} is-active{% endif %}">
                 <span class="fcc2__dropdown__option__text">{{ tag }}</span>
                 <input
-                  class="fcc2__dropdown__checkbox"
+                  class="fcc2__dropdown__radio"
                   data-fcc2-tag-input
+                  name="fcc2_tag_{{ section.id }}"
                   data-tag="{{ tag | escape }}"
                   data-tag-handle="{{ tag | handleize }}"
-                  type="checkbox"
+                  type="radio"
                   value="{{ tag | escape }}"
                   {% if tag_is_active %}checked{% endif %}
                 >
-                <span aria-hidden="true" class="fcc2__dropdown__box">
-                  <svg height="14" viewBox="0 0 14 14" width="14">
-                    <polyline fill="none" points="2,7 6,11 12,3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
-                  </svg>
-                </span>
+                <span aria-hidden="true" class="fcc2__dropdown__radio-dot"></span>
               </label>
             </li>
           {%- endfor -%}
@@ -404,6 +401,37 @@
     color: #fff;
   }
 
+  /* Tag filter uses radio buttons: only one tag can be active */
+  .fcc2__dropdown__radio {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .fcc2__dropdown__radio-dot {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #1c1c1c;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #fff;
+    box-sizing: border-box;
+  }
+  .fcc2__dropdown__radio-dot::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #1c1c1c;
+    transform: scale(0);
+    transition: transform .12s ease;
+  }
+  .fcc2__dropdown__radio:checked + .fcc2__dropdown__radio-dot::after {
+    transform: scale(1);
+  }
+
   .fcc2__active-filters {
     display: flex;
     flex-wrap: wrap;
@@ -562,19 +590,16 @@
     });
 
     function buildCollectionUrl() {
-      var selectedTags = Array.prototype.slice.call(
-        root.querySelectorAll('[data-fcc2-tag-input]:checked')
-      ).map(function (input) {
-        return input.getAttribute('data-tag-handle');
-      }).filter(Boolean);
+      var selectedTagInput = root.querySelector('[data-fcc2-tag-input]:checked');
+      var selectedTag = selectedTagInput ? selectedTagInput.getAttribute('data-tag-handle') : '';
 
       var sortInput = root.querySelector('[data-fcc2-sort-input]:checked');
       var sortValue = sortInput ? sortInput.value : '';
 
       var url = collectionUrl.replace(/\/$/, '');
 
-      if (selectedTags.length) {
-        url += '/' + selectedTags.join('+');
+      if (selectedTag) {
+        url += '/' + selectedTag;
       }
 
       if (sortValue) {
