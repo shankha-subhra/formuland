@@ -83,18 +83,14 @@
             <label class="fcc2__dropdown__option{% if option.value == current_sort %} is-active{% endif %}">
               <span class="fcc2__dropdown__option__text">{{ option.name }}</span>
               <input
-                class="fcc2__dropdown__checkbox"
+                class="fcc2__dropdown__radio"
                 data-fcc2-sort-input
                 name="sort_by"
                 type="radio"
                 value="{{ option.value }}"
                 {% if option.value == current_sort %}checked{% endif %}
               >
-              <span aria-hidden="true" class="fcc2__dropdown__box">
-                <svg height="14" viewBox="0 0 14 14" width="14">
-                  <polyline fill="none" points="2,7 6,11 12,3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
-                </svg>
-              </span>
+              <span aria-hidden="true" class="fcc2__dropdown__radio-dot"></span>
             </label>
           </li>
         {%- endfor -%}
@@ -408,23 +404,27 @@
     pointer-events: none;
   }
   .fcc2__dropdown__radio-dot {
-    width: 18px;
-    height: 18px;
-    border: 1.5px solid #1c1c1c;
-    border-radius: 50%;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    border: 1.5px solid #1c1c1c !important;
+    border-radius: 50% !important;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    background: #fff;
-    box-sizing: border-box;
+    background: #fff !important;
+    box-sizing: border-box !important;
+    overflow: hidden;
   }
   .fcc2__dropdown__radio-dot::after {
     content: "";
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #1c1c1c;
+    display: block;
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: #1c1c1c !important;
     transform: scale(0);
     transition: transform .12s ease;
   }
