@@ -24,10 +24,87 @@
       "type": "collection-why-buy",
       "name": "Formula Collection Why Buy",
       "settings": {}
+    },
+    "collection_what_sets_apart_XPWhfk": {
+      "type": "collection-what-sets-apart",
+      "blocks": {
+        "list_item_hdUDd8": {
+          "type": "list_item",
+          "settings": {
+            "title": "HiPP Organic Seal",
+            "content": "<p>HiPP works directly with its network of organic farms and holds its suppliers to standards that exceed both statutory and international requirements. Every product bearing the HiPP Organic Seal has passed some of the industry’s most rigorous residue checks. Parents can trust that what’s on the label reflects what’s in the tin.</p>"
+          }
+        },
+        "list_item_DBpxnd": {
+          "type": "list_item",
+          "settings": {
+            "title": "Up to 260 Safety Checks Per Product",
+            "content": "<p>Every jar and tin of HiPP formula undergoes up to 260 individual safety checks, including tests by independent institutes. Few manufacturers in any food category can point to that level of scrutiny. For parents who want full confidence in what their baby consumes, it matters.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "list_item_hdUDd8",
+        "list_item_DBpxnd"
+      ],
+      "name": "Formula Collection What Sets Apart",
+      "settings": {
+        "heading_what_sets": "What Sets <em>HiPP Organic Formula Apart</em> vs Other Brands",
+        "description": "<p>Choosing the right formula is a big decision, and HiPP makes it easier by going well beyond standard organic requirements. We’ve highlighted the key factors that distinguish their formulas so you can feel confident in your choice.</p>"
+      }
+    },
+    "collection_nutritional_profile_YngAYN": {
+      "type": "collection-nutritional-profile",
+      "blocks": {
+        "include_item_Uk9aFC": {
+          "type": "include_item",
+          "settings": {
+            "title": "Organic Lactose",
+            "content": "<p>The primary carbohydrate source, mirroring the composition of breastmilk.</p>"
+          }
+        },
+        "include_item_Hia3Fm": {
+          "type": "include_item",
+          "settings": {
+            "title": "Combiotic® Prebiotics and Probiotics",
+            "content": "<p>HiPP's proprietary blend of live cultures and prebiotic fibers supports a balanced gut microbiome and a developing immune system.</p>"
+          }
+        },
+        "exclude_item_c4EAgW": {
+          "type": "exclude_item",
+          "settings": {
+            "title": "Corn Syrup and Added Sugars",
+            "content": "<p>No refined sugars are used. Lactose provides all necessary carbohydrates.</p>"
+          }
+        },
+        "exclude_item_7x7Pyn": {
+          "type": "exclude_item",
+          "settings": {
+            "title": "GMOs",
+            "content": "<p>All ingredients comply with EU organic standards, which prohibit genetically modified organisms.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "include_item_Uk9aFC",
+        "include_item_Hia3Fm",
+        "exclude_item_c4EAgW",
+        "exclude_item_7x7Pyn"
+      ],
+      "name": "Formula Nutritional Profile",
+      "settings": {
+        "heading_nutritional_profile": "Understanding <em>HiPP Organic Formula's</em> Nutritional Profile",
+        "tab_1_title": "What It Includes",
+        "tab_2_title": "What It Excludes",
+        "subheading_1": "What HiPP includes",
+        "subheading_2": "What HiPP excludes"
+      }
     }
   },
   "order": [
     "custom_collection",
-    "collection_why_buy_rxKQdm"
+    "collection_why_buy_rxKQdm",
+    "collection_what_sets_apart_XPWhfk",
+    "collection_nutritional_profile_YngAYN"
   ]
 }
