@@ -15,93 +15,6 @@
 </div>
 </div>
 <script async="" src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"></script></header><div class="fcc2__filterbar" data-fcc2-filterbar="">
-<!--<form action="{{ collection.url }}" class="fcc2__filterbar__form" id="fcc2-filter-form-{{ section.id }}" method="get" data-fcc2-tag-filter-form>
-
-
-  {%- if collection.all_tags.size > 0 -%}
-    <div class="fcc2__dropdown" data-fcc2-dropdown="">
-      <button
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        class="fcc2__dropdown__toggle"
-        data-fcc2-dropdown-toggle=""
-        type="button"
-      >
-        <span class="fcc2__dropdown__label">{{ section.settings.tag_filter_label | default: 'Filter by Tag' }}</span>
-        <svg aria-hidden="true" class="fcc2__dropdown__caret" height="8" viewBox="0 0 12 8" width="12">
-          <path d="M1 1l5 5 5-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
-        </svg>
-      </button>
-
-      <div class="fcc2__dropdown__panel" data-fcc2-dropdown-panel="" role="listbox">
-        <ul class="fcc2__dropdown__list">
-          {%- for tag in collection.all_tags -%}
-            {%- assign tag_is_active = false -%}
-            {%- if current_tags contains tag -%}
-              {%- assign tag_is_active = true -%}
-            {%- endif -%}
-            <li class="fcc2__dropdown__item">
-              <label class="fcc2__dropdown__option{% if tag_is_active %} is-active{% endif %}">
-                <span class="fcc2__dropdown__option__text">{{ tag }}</span>
-                <input
-                  class="fcc2__dropdown__radio"
-                  data-fcc2-tag-input
-                  name="fcc2_tag_{{ section.id }}"
-                  data-tag="{{ tag | escape }}"
-                  data-tag-handle="{{ tag | handleize }}"
-                  type="radio"
-                  value="{{ tag | escape }}"
-                  {% if tag_is_active %}checked{% endif %}
-                >
-                <span aria-hidden="true" class="fcc2__dropdown__radio-dot"></span>
-              </label>
-            </li>
-          {%- endfor -%}
-        </ul>
-      </div>
-    </div>
-  {%- endif -%}
-
-  <div class="fcc2__dropdown fcc2__dropdown--sort" data-fcc2-dropdown="">
-    <button aria-expanded="false" aria-haspopup="listbox" class="fcc2__dropdown__toggle" data-fcc2-dropdown-toggle="" type="button">
-      <span class="fcc2__dropdown__label">Sort</span>
-      <svg aria-hidden="true" class="fcc2__dropdown__caret" height="8" viewBox="0 0 12 8" width="12">
-        <path d="M1 1l5 5 5-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
-      </svg>
-    </button>
-    <div class="fcc2__dropdown__panel fcc2__dropdown__panel--right" data-fcc2-dropdown-panel="" role="listbox">
-      <ul class="fcc2__dropdown__list">
-        {%- assign current_sort = collection.sort_by | default: collection.default_sort_by -%}
-        {%- for option in collection.sort_options -%}
-          <li class="fcc2__dropdown__item">
-            <label class="fcc2__dropdown__option{% if option.value == current_sort %} is-active{% endif %}">
-              <span class="fcc2__dropdown__option__text">{{ option.name }}</span>
-              <input
-                class="fcc2__dropdown__radio"
-                data-fcc2-sort-input
-                name="sort_by"
-                type="radio"
-                value="{{ option.value }}"
-                {% if option.value == current_sort %}checked{% endif %}
-              >
-              <span aria-hidden="true" class="fcc2__dropdown__radio-dot"></span>
-            </label>
-          </li>
-        {%- endfor -%}
-      </ul>
-    </div>
-  </div>
-
-  {%- if current_tags.size > 0 -%}
-    <a class="fcc2__clear-filters" href="{{ collection.url }}{% if collection.sort_by != blank %}?sort_by={{ collection.sort_by | url_encode }}{% endif %}">
-      Clear filters
-    </a>
-  {%- endif -%}
-
-  <noscript>
-    <p class="fcc2__filterbar__noscript">Tag filtering requires JavaScript in this custom section.</p>
-  </noscript>
-</form> -->
 
 <form
   id="fcc2-filter-form-{{ section.id }}"
@@ -358,27 +271,20 @@
                   <div class="product__grid__title__wrapper">
                     <p class="product__grid__title">{{ product.title }}</p>
 
-                    {%- if product.metafields.reviews.rating.value != blank -%}
-                      {%- assign rating_value = product.metafields.reviews.rating.value.rating | default: product.metafields.reviews.rating.value -%}
-                      {%- assign rating_count = product.metafields.reviews.rating_count.value | default: 0 -%}
-                      <div class="rating__wrapper__grid">
-                        <div class="product__rating" role="img" aria-label="{{ rating_value }} out of 5 stars">
-                          <span aria-hidden="true" class="product__rating__value">{{ rating_value | round: 1 }}</span>
-                          <span aria-hidden="true" class="product__rating__star"></span>
-                          {%- if rating_count > 0 -%}<span aria-hidden="true" class="product__rating__count">({{ rating_count }})</span>{%- endif -%}
-                        </div>
-                      </div>
-                    {%- endif -%}
+                    {% assign judge_badge = product.metafields.judgeme.badge %}
 
-                      {%- assign rating_value = product.metafields.reviews.rating.value.rating | default: 5 -%}
-                      {%- assign rating_count = product.metafields.reviews.rating_count.value | default: 103 -%}
-                      <div class="rating__wrapper__grid">
-                        <div class="product__rating" role="img" aria-label="{{ rating_value }} out of 5 stars">
-                          <span aria-hidden="true" class="product__rating__value">{{ rating_value | round: 1 }}</span>
-                          <span aria-hidden="true" class="product__rating__star"></span>
-                          {%- if rating_count > 0 -%}<span aria-hidden="true" class="product__rating__count">({{ rating_count }})</span>{%- endif -%}
-                        </div>
+                    {% if judge_badge != blank %}
+                      <div class="jdgm-widget jdgm-preview-badge" data-id="{{ product.id }}">
+                        {{ judge_badge }}
                       </div>
+                    {% else %}
+                      <div class="jdgm-widget jdgm-preview-badge">
+                        <span class="jdgm-prev-badge__stars">
+                          ☆☆☆☆☆
+                        </span>
+                        <span class="jdgm-prev-badge__text">(0)</span>
+                      </div>
+                    {% endif %}
                     
                   </div>
 
