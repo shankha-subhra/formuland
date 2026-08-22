@@ -1,0 +1,335 @@
+<section class="shopify-section fcc-onp-section" id="shopify-section-{{ section.id }}">
+<style data-shopify="">
+  #fcc-onp-{{ section.id }} {
+    position: relative;
+    background-color: #efefe3;
+    overflow: hidden;
+  }
+  #fcc-onp-{{ section.id }} .fcc-onp__pattern {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  #fcc-onp-{{ section.id }} .fcc-onp__pattern img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 1.0;
+  }
+  #fcc-onp-{{ section.id }} .fcc-onp__wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 140px 24px 140px;
+  }
+  #fcc-onp-{{ section.id }} .fcc-onp__heading {
+    font-family: 'Libre Baskerville', serif !important;
+    font-weight: 400 !important;
+    font-size: 44px !important;
+    line-height: 1.35 !important;
+    color: #13322b;
+    text-align: center;
+    margin: 0 0 32px;
+  }
+  #fcc-onp-{{ section.id }} .fcc-onp__heading em {
+    font-style: italic;
+    color: inherit;
+  }
+  #fcc-onp-{{ section.id }} .fcc-onp__tablist {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin: 0 0 56px;
+  }
+  #fcc-onp-{{ section.id }} .fcc-onp__tab {
+    appearance: none;
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 12px 22px;
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 15px;
+    line-height: 1.3;
+    color: #13322b;
+    cursor: pointer;
+    text-align: center;
+    white-space: normal !important;
+  }
+  #fcc-onp-{{ section.id }} .fcc-onp__tab[aria-selected="true"] {
+    border-color: #13322b;
+    font-weight: 600;
+  }
+  #fcc-onp-{{ section.id }} .fcc-onp__row {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 80px;
+    align-items: start;
+  }
+  #fcc-onp-{{ section.id }} .fcc-onp__panel[hidden] { display: none; }
+  #fcc-onp-{{ section.id }} .fcc-onp__subheading {
+    font-family: 'Tenor Sans', sans-serif !important;
+    font-size: 24px !important;
+    line-height: 1.3 !important;
+    color: #13322b;
+    margin: 0 0 22px;
+  }
+  #fcc-onp-{{ section.id }} .fcc-onp__item {
+    border-bottom: 1px solid #c9cfc2;
+  }
+  #fcc-onp-{{ section.id }} .fcc-onp__item summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 0;
+    font-family: 'Tenor Sans', sans-serif !important;
+    font-size: 19px !important;
+    line-height: 1.3 !important;
+    color: #13322b;
+  }
+  #fcc-onp-{{ section.id }} .fcc-onp__item summary::-webkit-details-marker { display: none; }
+  #fcc-onp-{{ section.id }} .fcc-onp__chev {
+    flex: 0 0 auto;
+    width: 14px;
+    height: 14px;
+    transition: transform 0.25s ease;
+  }
+  #fcc-onp-{{ section.id }} .fcc-onp__item[open] .fcc-onp__chev { transform: rotate(180deg); }
+  #fcc-onp-{{ section.id }} .fcc-onp__answer {
+    margin: 0 0 18px;
+    padding: 2px 0 2px 18px;
+    border-left: 2px solid #13322b;
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #13322b;
+  }
+  #fcc-onp-{{ section.id }} .fcc-onp__answer p {
+    margin: 0 0 10px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+  #fcc-onp-{{ section.id }} .fcc-onp__answer p:last-child { margin-bottom: 0; }
+  #fcc-onp-{{ section.id }} .fcc-onp__media img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 1024px) {
+    #fcc-onp-{{ section.id }} .fcc-onp__wrap { padding: 72px 20px; }
+    #fcc-onp-{{ section.id }} .fcc-onp__heading { font-size: 30px !important; margin-bottom: 24px; }
+    #fcc-onp-{{ section.id }} .fcc-onp__tablist { margin-bottom: 32px; flex-wrap: wrap; }
+    #fcc-onp-{{ section.id }} .fcc-onp__row {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    #fcc-onp-{{ section.id }} .fcc-onp__media { order: -1; }
+    #fcc-onp-{{ section.id }} .fcc-onp__subheading { font-size: 20px !important; }
+  }
+</style>
+<section aria-labelledby="fcc-onp-heading-{{ section.id }}" class="fcc-onp" id="fcc-onp-{{ section.id }}"><div aria-hidden="true" class="fcc-onp__pattern">
+{%- if section.settings.bg_image_pattern != blank -%}
+  {{ section.settings.bg_image_pattern | image_url: width: 2400 | image_tag: 
+     loading: 'lazy',
+     sizes: '100vw',
+     widths: '1200, 1920, 2400',
+     style: 'object-position:53.418% 92.09%; width: 100%; height: 100%; object-fit: cover;'
+  }}
+{%- else -%}
+  <img alt="" height="1569" loading="lazy" src="//formuland.com/cdn/shop/files/Section_1.jpg?v=1786629242&amp;width=2400" srcset="//formuland.com/cdn/shop/files/Section_1.jpg?v=1786629242&amp;width=1200 1200w, //formuland.com/cdn/shop/files/Section_1.jpg?v=1786629242&amp;width=1920 1920w, //formuland.com/cdn/shop/files/Section_1.jpg?v=1786629242&amp;width=2400 2400w" style="object-position:53.418% 92.09%;" width="2400"/>
+{%- endif -%}
+</div><div class="fcc-onp__wrap"><h2 class="fcc-onp__heading" id="fcc-onp-heading-{{ section.id }}">{{ section.settings.heading_nutritional_profile }}</h2><div aria-label="Nutritional profile" class="fcc-onp__tablist" role="tablist">
+<button aria-controls="fcc-onp-panel-inc-{{ section.id }}" aria-selected="true" class="fcc-onp__tab" id="fcc-onp-tab-inc-{{ section.id }}" role="tab" type="button">{{ section.settings.tab_1_title }}</button>
+<button aria-controls="fcc-onp-panel-exc-{{ section.id }}" aria-selected="false" class="fcc-onp__tab" id="fcc-onp-tab-exc-{{ section.id }}" role="tab" type="button">{{ section.settings.tab_2_title }}</button>
+</div>
+<div class="fcc-onp__row">
+<div class="fcc-onp__content">
+<div aria-labelledby="fcc-onp-tab-inc-{{ section.id }}" class="fcc-onp__panel" id="fcc-onp-panel-inc-{{ section.id }}" role="tabpanel"><h3 class="fcc-onp__subheading">{{ section.settings.subheading_1 }}</h3>
+{%- assign first_include = true -%}
+{%- for block in section.blocks -%}
+  {%- if block.type == 'include_item' -%}
+    <details class="fcc-onp__item" {% if first_include %}open=""{% endif %} {{ block.shopify_attributes }}>
+    <summary>
+    <span>{{ block.settings.title }}</span>
+    <svg aria-hidden="true" class="fcc-onp__chev" fill="none" viewbox="0 0 14 14"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+    </summary>
+    <div class="fcc-onp__answer">{{ block.settings.content }}</div>
+    </details>
+    {%- assign first_include = false -%}
+  {%- endif -%}
+{%- endfor -%}
+</div>
+<div aria-labelledby="fcc-onp-tab-exc-{{ section.id }}" class="fcc-onp__panel" hidden="" id="fcc-onp-panel-exc-{{ section.id }}" role="tabpanel"><h3 class="fcc-onp__subheading">{{ section.settings.subheading_2 }}</h3>
+{%- assign first_exclude = true -%}
+{%- for block in section.blocks -%}
+  {%- if block.type == 'exclude_item' -%}
+    <details class="fcc-onp__item" {% if first_exclude %}open=""{% endif %} {{ block.shopify_attributes }}>
+    <summary>
+    <span>{{ block.settings.title }}</span>
+    <svg aria-hidden="true" class="fcc-onp__chev" fill="none" viewbox="0 0 14 14"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+    </summary>
+    <div class="fcc-onp__answer">{{ block.settings.content }}</div>
+    </details>
+    {%- assign first_exclude = false -%}
+  {%- endif -%}
+{%- endfor -%}
+</div>
+</div><div class="fcc-onp__media">
+{%- if section.settings.media_image != blank -%}
+  {{ section.settings.media_image | image_url: width: 1200 | image_tag: 
+     loading: 'lazy',
+     sizes: '(max-width: 1024px) 100vw, 50vw',
+     widths: '600, 900, 1200',
+     style: 'object-position:46.582% 13.477%; width: 100%; height: auto;'
+  }}
+{%- else -%}
+  <img alt="" height="1100" loading="lazy" src="//formuland.com/cdn/shop/files/image_6_12a23746-b559-40fd-aa6f-457185125ea7.png?v=1786560230&amp;width=1200" srcset="//formuland.com/cdn/shop/files/image_6_12a23746-b559-40fd-aa6f-457185125ea7.png?v=1786560230&amp;width=600 600w, //formuland.com/cdn/shop/files/image_6_12a23746-b559-40fd-aa6f-457185125ea7.png?v=1786560230&amp;width=900 900w, //formuland.com/cdn/shop/files/image_6_12a23746-b559-40fd-aa6f-457185125ea7.png?v=1786560230&amp;width=1200 1200w" style="object-position:46.582% 13.477%;" width="1200"/>
+{%- endif -%}
+</div></div>
+</div>
+</section>
+<script>
+  (function () {
+    var root = document.getElementById('fcc-onp-{{ section.id }}');
+    if (!root) return;
+    var tabs = root.querySelectorAll('.fcc-onp__tab');
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        tabs.forEach(function (t) {
+          var selected = t === tab;
+          t.setAttribute('aria-selected', selected ? 'true' : 'false');
+          var panel = document.getElementById(t.getAttribute('aria-controls'));
+          if (panel) panel.hidden = !selected;
+        });
+      });
+    });
+  })();
+</script>
+</section>
+{% schema %}
+{
+  "name": "Nutritional Profile",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image_pattern",
+      "label": "Background Pattern Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "media_image",
+      "label": "Media Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading_nutritional_profile",
+      "label": "Heading",
+      "default": "Understanding <em>HiPP Organic Formula's</em> Nutritional Profile"
+    },
+    {
+      "type": "text",
+      "id": "tab_1_title",
+      "label": "Tab 1 Title",
+      "default": "What It Includes"
+    },
+    {
+      "type": "text",
+      "id": "tab_2_title",
+      "label": "Tab 2 Title",
+      "default": "What It Excludes"
+    },
+    {
+      "type": "text",
+      "id": "subheading_1",
+      "label": "Subheading 1",
+      "default": "What HiPP includes"
+    },
+    {
+      "type": "text",
+      "id": "subheading_2",
+      "label": "Subheading 2",
+      "default": "What HiPP excludes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "include_item",
+      "name": "Include Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Item Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Description",
+          "default": "<p>Item description.</p>"
+        }
+      ]
+    },
+    {
+      "type": "exclude_item",
+      "name": "Exclude Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Item Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Description",
+          "default": "<p>Item description.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Formula Nutritional Profile",
+      "blocks": [
+        {
+          "type": "include_item",
+          "settings": {
+            "title": "Organic Lactose",
+            "content": "<p>The primary carbohydrate source, mirroring the composition of breastmilk.</p>"
+          }
+        },
+        {
+          "type": "include_item",
+          "settings": {
+            "title": "Combiotic® Prebiotics and Probiotics",
+            "content": "<p>HiPP's proprietary blend of live cultures and prebiotic fibers supports a balanced gut microbiome and a developing immune system.</p>"
+          }
+        },
+        {
+          "type": "exclude_item",
+          "settings": {
+            "title": "Corn Syrup and Added Sugars",
+            "content": "<p>No refined sugars are used. Lactose provides all necessary carbohydrates.</p>"
+          }
+        },
+        {
+          "type": "exclude_item",
+          "settings": {
+            "title": "GMOs",
+            "content": "<p>All ingredients comply with EU organic standards, which prohibit genetically modified organisms.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

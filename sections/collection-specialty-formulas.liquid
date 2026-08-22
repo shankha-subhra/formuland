@@ -1,0 +1,374 @@
+<section class="shopify-section fcc-sf-section" id="shopify-section-{{ section.id }}">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Libre+Franklin:wght@400;500;600&amp;family=Tenor+Sans&amp;display=swap" rel="stylesheet"/>
+<style data-shopify="">
+  #fcc-sf-{{ section.id }} {
+    background-color: #fbfbf8;
+    padding: 100px 24px 100px;
+    overflow: hidden;
+  }
+  #fcc-sf-{{ section.id }} .fcc-sf__wrap {
+    max-width: 1360px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  #fcc-sf-{{ section.id }} .fcc-sf__header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 48px;
+  }
+  #fcc-sf-{{ section.id }} .fcc-sf__heading {
+    font-family: 'Libre Baskerville', serif !important;
+    font-weight: 400 !important;
+    font-size: 40px !important;
+    line-height: 1.3 !important;
+    color: #13322b;
+    margin: 0 0 16px;
+  }
+  #fcc-sf-{{ section.id }} .fcc-sf__heading em {
+    font-style: italic;
+    color: inherit;
+  }
+  #fcc-sf-{{ section.id }} .fcc-sf__description {
+    font-family: 'Libre Franklin', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: clamp(16px, 1.4vw, 18px) !important;
+    line-height: 1.6 !important;
+    color: #13322b;
+    margin: 0;
+  }
+
+  /* Arrows */
+  #fcc-sf-{{ section.id }} .fcc-sf__controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  #fcc-sf-{{ section.id }} .fcc-sf__arrow {
+    background: transparent;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    color: #13322b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+    opacity: 1;
+  }
+  #fcc-sf-{{ section.id }} .fcc-sf__arrow[disabled] {
+    opacity: 0.3;
+    cursor: default;
+  }
+  #fcc-sf-{{ section.id }} .fcc-sf__arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Slider */
+  #fcc-sf-{{ section.id }} .fcc-sf__grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 24px;
+    scrollbar-width: none;
+  }
+  #fcc-sf-{{ section.id }} .fcc-sf__grid::-webkit-scrollbar { display: none; }
+  #fcc-sf-{{ section.id }} .fcc-sf__card {
+    scroll-snap-align: start;
+    flex: 0 0 calc(25% - 18px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Card media */
+  #fcc-sf-{{ section.id }} .fcc-sf__media {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid #eaeaea;
+    background-color: #FFFFFF;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  #fcc-sf-{{ section.id }} .fcc-sf__media img,
+  #fcc-sf-{{ section.id }} .fcc-sf__media svg {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    width: calc(100% - 48px) !important;
+    height: calc(100% - 48px) !important;
+    object-fit: contain;
+    display: block;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+  #fcc-sf-{{ section.id }} .fcc-sf__media .placeholder-svg {
+    background: transparent !important;
+    border: none !important;
+    fill: #eaeaea;
+  }
+
+  /* Card text */
+  #fcc-sf-{{ section.id }} .fcc-sf__card-title {
+    font-family: 'Tenor Sans', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 18px !important;
+    line-height: 1.4 !important;
+    color: #13322b;
+    margin: 0 0 12px;
+  }
+  #fcc-sf-{{ section.id }} .fcc-sf__card-title a,
+  #fcc-sf-{{ section.id }} .fcc-sf__card-title span {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+  #fcc-sf-{{ section.id }} .fcc-sf__card-desc {
+    font-family: 'Libre Franklin', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    color: #13322b;
+    margin: 0;
+  }
+
+  /* Scroll progress bar */
+  #fcc-sf-{{ section.id }} .fcc-sf__progress {
+    position: relative;
+    height: 2px;
+    background: #eaeaea;
+    margin: 40px 0 24px;
+    overflow: hidden;
+  }
+  #fcc-sf-{{ section.id }} .fcc-sf__progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: #13322b;
+    transition: width 0.2s ease;
+  }
+
+  /* Footer note */
+  #fcc-sf-{{ section.id }} .fcc-sf__note {
+    max-width: 700px;
+  }
+  #fcc-sf-{{ section.id }} .fcc-sf__note p {
+    font-family: 'Libre Franklin', sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    color: #13322b;
+    margin: 0;
+  }
+  #fcc-sf-{{ section.id }} .fcc-sf__note strong { font-weight: 600; }
+
+  @media (prefers-reduced-motion: reduce) {
+    #fcc-sf-{{ section.id }} .fcc-sf__progress-fill { transition: none; }
+  }
+
+  /* Tablet & mobile */
+  @media (max-width: 1024px) {
+    #fcc-sf-{{ section.id }} .fcc-sf__header {
+      text-align: left;
+      margin-bottom: 32px;
+    }
+    #fcc-sf-{{ section.id }} .fcc-sf__heading { font-size: 30px !important; }
+    #fcc-sf-{{ section.id }} .fcc-sf__description { font-size: 16px !important; }
+    #fcc-sf-{{ section.id }} .fcc-sf__controls {
+      justify-content: flex-start;
+      margin-bottom: 20px;
+    }
+    #fcc-sf-{{ section.id }} .fcc-sf__grid {
+      gap: 16px;
+      margin-right: -24px;
+      padding-right: 24px;
+    }
+    #fcc-sf-{{ section.id }} .fcc-sf__card {
+      flex: 0 0 calc(75vw - 24px);
+      max-width: 300px;
+    }
+    #fcc-sf-{{ section.id }} .fcc-sf__progress { margin-top: 28px; }
+  }
+</style>
+<section aria-labelledby="fcc-sf-heading-{{ section.id }}" class="fcc-sf" id="fcc-sf-{{ section.id }}">
+<div class="fcc-sf__wrap">
+<div class="fcc-sf__header">
+<h2 class="fcc-sf__heading" id="fcc-sf-heading-{{ section.id }}">{{ section.settings.heading_specialty }}</h2>
+<div class="fcc-sf__description">{{ section.settings.description }}</div>
+</div>
+<div class="fcc-sf__controls">
+<button aria-label="Previous formulas" class="fcc-sf__arrow fcc-sf__arrow--prev" id="fcc-sf-prev-{{ section.id }}" type="button">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>
+</button>
+<button aria-label="Next formulas" class="fcc-sf__arrow fcc-sf__arrow--next" id="fcc-sf-next-{{ section.id }}" type="button">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+</button>
+</div>
+<div class="fcc-sf__grid" id="fcc-sf-slider-{{ section.id }}">
+{%- for block in section.blocks -%}
+  <div class="fcc-sf__card" {{ block.shopify_attributes }}>
+    <div class="fcc-sf__media">
+      {%- if block.settings.image != blank -%}
+        {{ block.settings.image | image_url: width: 600 | image_tag: 
+           loading: 'lazy',
+           sizes: '(max-width: 768px) 352px, 600px',
+           widths: '352, 600',
+           style: 'object-position:50.0% 50.0%;'
+        }}
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+    </div>
+    <h3 class="fcc-sf__card-title">
+      {%- if block.settings.url != blank -%}
+        <a href="{{ block.settings.url }}">{{ block.settings.title }}</a>
+      {%- else -%}
+        <span>{{ block.settings.title }}</span>
+      {%- endif -%}
+    </h3>
+    <div class="fcc-sf__card-desc">{{ block.settings.content }}</div>
+  </div>
+{%- endfor -%}
+</div>
+<div aria-hidden="true" class="fcc-sf__progress">
+<span class="fcc-sf__progress-fill" id="fcc-sf-progress-{{ section.id }}"></span>
+</div>
+<div class="fcc-sf__note">
+  {{ section.settings.note }}
+</div>
+</div>
+</section>
+<script>
+  (function () {
+    var slider = document.getElementById('fcc-sf-slider-{{ section.id }}');
+    var btnPrev = document.getElementById('fcc-sf-prev-{{ section.id }}');
+    var btnNext = document.getElementById('fcc-sf-next-{{ section.id }}');
+    var fill = document.getElementById('fcc-sf-progress-{{ section.id }}');
+
+    if (!slider || !btnPrev || !btnNext) return;
+
+    function scrollAmount() {
+      var card = slider.querySelector('.fcc-sf__card');
+      if (card) {
+        var gap = window.innerWidth > 1024 ? 24 : 16;
+        return card.offsetWidth + gap;
+      }
+      return 300;
+    }
+
+    function update() {
+      var maxScroll = slider.scrollWidth - slider.clientWidth;
+      btnPrev.disabled = slider.scrollLeft <= 1;
+      btnNext.disabled = slider.scrollLeft >= maxScroll - 1;
+      if (fill) {
+        var pct = slider.scrollWidth > 0
+          ? ((slider.scrollLeft + slider.clientWidth) / slider.scrollWidth) * 100
+          : 0;
+        fill.style.width = Math.min(100, Math.max(0, pct)) + '%';
+      }
+    }
+
+    btnPrev.addEventListener('click', function () {
+      slider.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+    });
+    btnNext.addEventListener('click', function () {
+      slider.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+    });
+    slider.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    // Use timeout to ensure accurate widths on initialization
+    setTimeout(update, 100);
+  })();
+</script>
+</section>
+{% schema %}
+{
+  "name": "Specialty Formulas",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading_specialty",
+      "label": "Heading", 
+      "default": "Specialty <em>HiPP Formulas</em>"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Beyond the standard Organic range, HiPP produces several formulas designed for specific feeding challenges. These options are worth considering if your baby has needs that a standard formula doesn’t address.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "note",
+      "label": "Footer Note",
+      "default": "<p><strong>A note on specialty formulas:</strong> If your baby has a confirmed cow’s milk protein allergy (CMPA) or a diagnosed medical condition, please consult your pediatrician before selecting any formula. Specialty formulas are designed to support specific digestive concerns and should not be used as a substitute for medical diagnosis or treatment.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slider_item",
+      "name": "Formula Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "HiPP Formula"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link URL"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Description",
+          "default": "<p>Description of the specialty formula goes here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Formula Collection Specialty Formulas",
+      "blocks": [
+        {
+          "type": "slider_item",
+          "settings": {
+            "title": "HiPP Bio Combiotic",
+            "content": "<p>The standard HiPP Organic cow’s milk formula, available from PRE through Stage 3. It contains the Combiotic® blend and is appropriate for healthy infants at each developmental stage.</p>"
+          }
+        },
+        {
+          "type": "slider_item",
+          "settings": {
+            "title": "HiPP Anti-Reflux",
+            "content": "<p>A cow’s milk-based formula with a thicker consistency, designed to reduce spitting up in babies prone to acid reflux or regurgitation.</p>"
+          }
+        },
+        {
+          "type": "slider_item",
+          "settings": {
+            "title": "HiPP HA Combiotik",
+            "content": "<p>A cow’s milk formula made with partially hydrolyzed whey protein, formulated for infants with a family history of sensitivities or mild protein-related digestive discomfort.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,261 @@
+<section class="shopify-section fcc-osa-section" id="shopify-section-{{ section.id }}">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Libre+Franklin:wght@400;500;600&amp;family=Tenor+Sans&amp;display=swap" rel="stylesheet"/>
+<style data-shopify="">
+  #fcc-osa-{{ section.id }} {
+    position: relative;
+    background-color: #e7f1fb;
+  }
+  #fcc-osa-{{ section.id }} .fcc-osa__pattern {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  #fcc-osa-{{ section.id }} .fcc-osa__pattern img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 1.0;
+  }
+  #fcc-osa-{{ section.id }} .fcc-osa__wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 100px 24px 100px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 90px;
+    align-items: start;
+  }
+  #fcc-osa-{{ section.id }} .fcc-osa__heading {
+    font-family: 'Libre Baskerville', serif !important;
+    font-weight: 400 !important;
+    font-size: 40px !important;
+    line-height: 1.35 !important;
+    color: #4e2026;
+    margin: 0 0 26px;
+  }
+  #fcc-osa-{{ section.id }} .fcc-osa__heading em {
+    font-style: italic;
+    color: inherit;
+  }
+  #fcc-osa-{{ section.id }} .fcc-osa__intro {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #4e2026;
+  }
+  #fcc-osa-{{ section.id }} .fcc-osa__intro p {
+    margin: 0 0 16px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+  #fcc-osa-{{ section.id }} .fcc-osa__intro p:last-child { margin-bottom: 0; }
+  #fcc-osa-{{ section.id }} .fcc-osa__list {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+  #fcc-osa-{{ section.id }} .fcc-osa__item summary {
+    list-style: none;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 26px;
+    align-items: start;
+  }
+  #fcc-osa-{{ section.id }} .fcc-osa__item summary::-webkit-details-marker { display: none; }
+  #fcc-osa-{{ section.id }} .fcc-osa__pill {
+    display: inline-block;
+    width: 14px;
+    min-width: 14px;
+    height: 28px;
+    flex: none;
+    border: 2px solid #4e2026;
+    border-radius: 999px;
+    background: transparent;
+    justify-self: center;
+    margin-top: 3px;
+    box-sizing: border-box;
+  }
+  #fcc-osa-{{ section.id }} .fcc-osa__item[open] .fcc-osa__pill {
+    background: #4e2026;
+  }
+  #fcc-osa-{{ section.id }} .fcc-osa__item-title {
+    font-family: 'Tenor Sans', sans-serif !important;
+    font-size: 26px !important;
+    line-height: 1.3 !important;
+    font-weight: 400 !important;
+    color: #4e2026;
+    margin: 0;
+  }
+  #fcc-osa-{{ section.id }} .fcc-osa__body-row {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 26px;
+    margin-top: 16px;
+  }
+  #fcc-osa-{{ section.id }} .fcc-osa__rule {
+    justify-self: center;
+    width: 1px;
+    background: #4e2026;
+  }
+  #fcc-osa-{{ section.id }} .fcc-osa__item-body {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #4e2026;
+  }
+  #fcc-osa-{{ section.id }} .fcc-osa__item-body p {
+    margin: 0 0 12px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+  #fcc-osa-{{ section.id }} .fcc-osa__item-body p:last-child { margin-bottom: 0; }
+  #fcc-osa-{{ section.id }} .fcc-osa__item-body a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  @media (max-width: 1024px) {
+    #fcc-osa-{{ section.id }} .fcc-osa__wrap {
+      grid-template-columns: 1fr;
+      gap: 44px;
+      padding: 64px 20px;
+    }
+    #fcc-osa-{{ section.id }} .fcc-osa__heading { font-size: 30px !important; }
+    #fcc-osa-{{ section.id }} .fcc-osa__item-title { font-size: 21px !important; }
+    #fcc-osa-{{ section.id }} .fcc-osa__pill {
+      width: 12px;
+      height: 24px;
+      margin-top: 2px;
+    }
+  }
+</style>
+<section aria-labelledby="fcc-osa-heading-{{ section.id }}" class="fcc-osa" id="fcc-osa-{{ section.id }}"><div aria-hidden="true" class="fcc-osa__pattern">
+{%- if section.settings.bg_image != blank -%}
+  {{ section.settings.bg_image | image_url: width: 2400 | image_tag: 
+     loading: 'lazy',
+     sizes: '100vw',
+     widths: '1200, 1920, 2400',
+     style: 'object-position:50.0% 95.605%; width: 100%; height: 100%; object-fit: cover;'
+  }}
+{%- else -%}
+  <img alt="" height="875" loading="lazy" src="//formuland.com/cdn/shop/files/Section.jpg?v=1786628948&amp;width=2400" srcset="//formuland.com/cdn/shop/files/Section.jpg?v=1786628948&amp;width=1200 1200w, //formuland.com/cdn/shop/files/Section.jpg?v=1786628948&amp;width=1920 1920w, //formuland.com/cdn/shop/files/Section.jpg?v=1786628948&amp;width=2400 2400w" style="object-position:50.0% 95.605%;" width="2400"/>
+{%- endif -%}
+</div><div class="fcc-osa__wrap">
+<div class="fcc-osa__text"><h2 class="fcc-osa__heading" id="fcc-osa-heading-{{ section.id }}">{{ section.settings.heading_what_sets }}</h2>
+<div class="fcc-osa__intro">{{ section.settings.description }}</div></div>
+<div class="fcc-osa__list" id="fcc-osa-list-{{ section.id }}">
+{%- for block in section.blocks -%}
+  <details class="fcc-osa__item" {% if forloop.first %}open=""{% endif %} {{ block.shopify_attributes }}>
+  <summary>
+  <span aria-hidden="true" class="fcc-osa__pill"></span>
+  <h3 class="fcc-osa__item-title">{{ block.settings.title }}</h3>
+  </summary><div class="fcc-osa__body-row">
+  <span aria-hidden="true" class="fcc-osa__rule"></span>
+  <div class="fcc-osa__item-body">{{ block.settings.content }}</div>
+  </div></details>
+{%- endfor -%}
+</div></div>
+</section>
+<script>
+  (function () {
+    var list = document.getElementById('fcc-osa-list-{{ section.id }}');
+    if (!list) return;
+    var items = list.querySelectorAll('.fcc-osa__item');
+
+    // Enforce one-open on load: keep only the first open item open
+    var foundOpen = false;
+    items.forEach(function (item) {
+      if (item.open) {
+        if (foundOpen) { item.open = false; }
+        foundOpen = true;
+      }
+    });
+
+    items.forEach(function (item) {
+      item.addEventListener('toggle', function () {
+        if (!item.open) return;
+        items.forEach(function (other) {
+          if (other !== item && other.open) other.open = false;
+        });
+      });
+    });
+  })();
+</script>
+</section>
+{% schema %}
+{
+  "name": "What Sets Apart",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "inline_richtext", 
+      "id": "heading_what_sets",
+      "label": "Heading",
+      "default": "What Sets <em>HiPP Organic Formula Apart</em> vs Other Brands"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Choosing the right formula is a big decision, and HiPP makes it easier by going well beyond standard organic requirements. We’ve highlighted the key factors that distinguish their formulas so you can feel confident in your choice.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "list_item",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Feature description goes here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Formula Collection What Sets Apart",
+      "blocks": [
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "HiPP Organic Seal",
+            "content": "<p>HiPP works directly with its network of organic farms and holds its suppliers to standards that exceed both statutory and international requirements. Every product bearing the HiPP Organic Seal has passed some of the industry’s most rigorous residue checks. Parents can trust that what’s on the label reflects what’s in the tin.</p>"
+          }
+        },
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "Up to 260 Safety Checks Per Product",
+            "content": "<p>Every jar and tin of HiPP formula undergoes up to 260 individual safety checks, including tests by independent institutes. Few manufacturers in any food category can point to that level of scrutiny. For parents who want full confidence in what their baby consumes, it matters.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

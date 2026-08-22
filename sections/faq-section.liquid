@@ -1,0 +1,243 @@
+<section class="shopify-section ffq-section" id="shopify-section-{{ section.id }}">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&amp;family=Tenor+Sans&amp;family=Libre+Franklin:wght@400;600&amp;display=swap" rel="stylesheet"/><style>
+  #ffq-{{ section.id }}.ffq {
+    position: relative;
+    background-color: {{ section.settings.bg_color | default: '#efefe3' }};
+    padding-top: 100px;
+    padding-bottom: 100px;
+    overflow: hidden;
+  }
+  #ffq-{{ section.id }} .ffq__wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  #ffq-{{ section.id }} .ffq__eyebrow {
+    font-family: 'Tenor Sans', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: clamp(18px, 1.6vw, 24px) !important;
+    line-height: 140% !important;
+    letter-spacing: 0 !important;
+    text-transform: uppercase !important;
+    color: #13322b !important;
+    text-align: center !important;
+    margin: 0 0 8px !important;
+  }
+  #ffq-{{ section.id }} .ffq__heading {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+    font-weight: 400 !important;
+    font-size: clamp(28px, 2.6vw, 40px) !important;
+    line-height: 130% !important;
+    letter-spacing: 0 !important;
+    color: #13322b !important;
+    text-align: center !important;
+    margin: 0 0 48px !important;
+  }
+  #ffq-{{ section.id }} .ffq__heading em {
+    font-family: 'Libre Baskerville', Georgia, serif !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+  }
+  #ffq-{{ section.id }} .ffq__item {
+    border-bottom: 1px solid rgba(19, 50, 43, 0.4);
+  }
+  #ffq-{{ section.id }} .ffq__question {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: transparent;
+    border: none;
+    padding: 22px 0;
+    cursor: pointer;
+    text-align: left;
+    white-space: normal !important;
+    font-family: 'Tenor Sans', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: clamp(17px, 1.4vw, 20px) !important;
+    line-height: 140% !important;
+    letter-spacing: 0.01em !important;
+    color: #13322b !important;
+  }
+  #ffq-{{ section.id }} .ffq__question > span {
+    flex: 1 1 auto;
+    min-width: 0;
+    white-space: normal !important;
+    overflow-wrap: break-word;
+  }
+  #ffq-{{ section.id }} .ffq__chevron {
+    flex: 0 0 auto;
+    width: 16px;
+    height: 16px;
+    transition: transform 0.25s ease;
+  }
+  #ffq-{{ section.id }} .ffq__question[aria-expanded="true"] .ffq__chevron {
+    transform: rotate(180deg);
+  }
+  #ffq-{{ section.id }} .ffq__answer {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+  }
+  #ffq-{{ section.id }} .ffq__answer-inner {
+    padding: 6px 0 26px;
+  }
+  #ffq-{{ section.id }} .ffq__answer-inner p {
+    font-family: 'Libre Franklin', -apple-system, sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 17px !important;
+    line-height: 170% !important;
+    letter-spacing: 0 !important;
+    color: #14171c !important;
+    margin: 0 0 16px !important;
+  }
+  #ffq-{{ section.id }} .ffq__answer-inner p:last-child {
+    margin-bottom: 0 !important;
+  }
+  #ffq-{{ section.id }} .ffq__answer-inner a {
+    color: #14171c !important;
+    text-decoration: underline !important;
+  }
+  @media (max-width: 767px) {
+    #ffq-{{ section.id }}.ffq {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+    #ffq-{{ section.id }} .ffq__heading {
+      margin-bottom: 32px !important;
+    }
+    #ffq-{{ section.id }} .ffq__question {
+      padding: 18px 0;
+    }
+    #ffq-{{ section.id }} .ffq__answer-inner p {
+      font-size: 16px !important;
+    }
+  }
+</style>
+<section aria-label="{{ section.settings.heading | escape }}" class="ffq" id="ffq-{{ section.id }}">
+  <div class="ffq__wrapper">
+    {% if section.settings.eyebrow != blank %}
+      <p class="ffq__eyebrow">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+      <h2 class="ffq__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+    <div class="ffq__list">
+      {% for block in section.blocks %}
+        <div class="ffq__item" {{ block.shopify_attributes }}>
+          <button aria-controls="ffq-a-{{ section.id }}-{{ forloop.index0 }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" class="ffq__question" data-ffq-question="" id="ffq-q-{{ section.id }}-{{ forloop.index0 }}" type="button">
+            <span>{{ block.settings.question }}</span>
+            <svg aria-hidden="true" class="ffq__chevron" focusable="false" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"></path></svg>
+          </button>
+          <div aria-labelledby="ffq-q-{{ section.id }}-{{ forloop.index0 }}" class="ffq__answer" data-ffq-answer="" id="ffq-a-{{ section.id }}-{{ forloop.index0 }}" role="region">
+            <div class="ffq__answer-inner">{{ block.settings.answer }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<script>
+  (function () {
+    var root = document.getElementById('ffq-{{ section.id }}');
+    if (!root) return;
+
+    var questions = Array.prototype.slice.call(root.querySelectorAll('[data-ffq-question]'));
+
+    function setOpen(btn, open) {
+      var answer = document.getElementById(btn.getAttribute('aria-controls'));
+      if (!answer) return;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      answer.style.maxHeight = open ? answer.scrollHeight + 'px' : '0px';
+    }
+
+    questions.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var isOpen = btn.getAttribute('aria-expanded') === 'true';
+        questions.forEach(function (other) {
+          if (other !== btn) setOpen(other, false);
+        });
+        setOpen(btn, !isOpen);
+      });
+    });
+
+    // Open the first item on load if configured
+    var initiallyOpen = root.querySelector('[data-ffq-question][aria-expanded="true"]');
+    if (initiallyOpen) setOpen(initiallyOpen, true);
+
+    // Keep open panel height correct on resize
+    window.addEventListener('resize', function () {
+      questions.forEach(function (btn) {
+        if (btn.getAttribute('aria-expanded') === 'true') setOpen(btn, true);
+      });
+    }, { passive: true });
+  })();
+</script>
+</section>
+{% schema %}
+{
+  "name": "FAQ Section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#efefe3"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "About Our Curated European Baby Formula Brands and Baby Essentials"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What is your question?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Here is the answer.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Section",
+      "blocks": [
+        {
+          "type": "faq"
+        },
+        {
+          "type": "faq"
+        },
+        {
+          "type": "faq"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
