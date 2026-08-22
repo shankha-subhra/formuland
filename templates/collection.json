@@ -11,10 +11,23 @@
   "sections": {
     "custom_collection": {
       "type": "formuland-collection",
+      "settings": {
+        "eyebrow_text": "Shop our collection",
+        "age_filter_label": "Age",
+        "formula_type_filter_label": "Formula Type",
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "columns_mobile": "2"
+      }
+    },
+    "collection_why_buy_rxKQdm": {
+      "type": "collection-why-buy",
+      "name": "Formula Collection Why Buy",
       "settings": {}
     }
   },
   "order": [
-    "custom_collection"
+    "custom_collection",
+    "collection_why_buy_rxKQdm"
   ]
 }
