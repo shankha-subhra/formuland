@@ -155,12 +155,114 @@
         "subheading_1": "What HiPP includes",
         "subheading_2": "What HiPP excludes"
       }
+    },
+    "collection_country_origin_zjFXmy": {
+      "type": "collection-country-origin",
+      "name": "Formula Collection Country Origin",
+      "settings": {
+        "heading_hipp_formula": "<em>HiPP Formula </em>"
+      }
+    },
+    "collection_specialty_formulas_9mLJCy": {
+      "type": "collection-specialty-formulas",
+      "blocks": {
+        "slider_item_GpxDtM": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/image_7.png",
+            "title": "HiPP Bio Combiotic",
+            "url": "#",
+            "content": "<p>The standard HiPP Organic cow’s milk formula, available from PRE through Stage 3. It contains the Combiotic® blend and is appropriate for healthy infants at each developmental stage.</p>"
+          }
+        },
+        "slider_item_ewwXVt": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/image_9.png",
+            "title": "HiPP Anti-Reflux",
+            "url": "#",
+            "content": "<p>A cow’s milk-based formula with a thicker consistency, designed to reduce spitting up in babies prone to acid reflux or regurgitation.</p>"
+          }
+        },
+        "slider_item_nRAV64": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/image_10.png",
+            "title": "HiPP HA Combiotik",
+            "url": "#",
+            "content": "<p>A cow’s milk formula made with partially hydrolyzed whey protein, formulated for infants with a family history of sensitivities or mild protein-related digestive discomfort.</p>"
+          }
+        },
+        "slider_item_4h9cEi": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/image_10.png",
+            "title": "HiPP Comfort",
+            "url": "#",
+            "content": "<p>A cow’s milk formula with reduced lactose and partially hydrolyzed protein, developed specifically for babies experiencing gas, colic, or constipation.</p>"
+          }
+        },
+        "slider_item_xWLHVK": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/image_10.png",
+            "title": "HiPP PUR",
+            "url": "#",
+            "content": "<p>A cow’s milk-based organic formula with a simplified ingredient list, designed for parents who want the fewest additives possible while still meeting full infant nutritional requirements.</p>"
+          }
+        },
+        "slider_item_bcBMdJ": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/image_10.png",
+            "title": "HiPP HA Combiotik",
+            "url": "",
+            "content": "<p>A cow’s milk formula made with partially hydrolyzed whey protein, formulated for infants with a family history of sensitivities or mild protein-related digestive discomfort.</p>"
+          }
+        },
+        "slider_item_DLhcE3": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/image_10.png",
+            "title": "HiPP HA Combiotik",
+            "url": "",
+            "content": "<p>A cow’s milk formula made with partially hydrolyzed whey protein, formulated for infants with a family history of sensitivities or mild protein-related digestive discomfort.</p>"
+          }
+        },
+        "slider_item_kAirK8": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/image_10.png",
+            "title": "HiPP HA Combiotik",
+            "url": "",
+            "content": "<p>A cow’s milk formula made with partially hydrolyzed whey protein, formulated for infants with a family history of sensitivities or mild protein-related digestive discomfort.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "slider_item_GpxDtM",
+        "slider_item_ewwXVt",
+        "slider_item_nRAV64",
+        "slider_item_4h9cEi",
+        "slider_item_xWLHVK",
+        "slider_item_bcBMdJ",
+        "slider_item_DLhcE3",
+        "slider_item_kAirK8"
+      ],
+      "name": "Formula Collection Specialty Formulas",
+      "settings": {
+        "heading_specialty": "Specialty <em>HiPP Formulas</em>",
+        "description": "<p>Beyond the standard Organic range, HiPP produces several formulas designed for specific feeding challenges. These options are worth considering if your baby has needs that a standard formula doesn’t address.</p>",
+        "note": "<p><strong>A note on specialty formulas:</strong> If your baby has a confirmed cow’s milk protein allergy (CMPA) or a diagnosed medical condition, please consult your pediatrician before selecting any formula. Specialty formulas are designed to support specific digestive concerns and should not be used as a substitute for medical diagnosis or treatment.</p>"
+      }
     }
   },
   "order": [
     "custom_collection",
     "collection_why_buy_rxKQdm",
     "collection_what_sets_apart_XPWhfk",
-    "collection_nutritional_profile_YngAYN"
+    "collection_nutritional_profile_YngAYN",
+    "collection_country_origin_zjFXmy",
+    "collection_specialty_formulas_9mLJCy"
   ]
 }
