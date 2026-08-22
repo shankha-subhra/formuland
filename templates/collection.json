@@ -262,6 +262,13 @@
       "settings": {
         "heading_right_stage": "The Right <em>Organic Baby Formula Stage or Specialty Formula</em> For My Baby"
       }
+    },
+    "collection_prep_tips_gkpVne": {
+      "type": "collection-prep-tips",
+      "name": "Formula Collection Prep Tips",
+      "settings": {
+        "heading_for_hipp": "For <em>HiPP Organic Formula</em>"
+      }
     }
   },
   "order": [
@@ -271,6 +278,7 @@
     "collection_nutritional_profile_YngAYN",
     "collection_country_origin_zjFXmy",
     "collection_specialty_formulas_9mLJCy",
-    "collection_stage_guide_JaERQQ"
+    "collection_stage_guide_JaERQQ",
+    "collection_prep_tips_gkpVne"
   ]
 }
