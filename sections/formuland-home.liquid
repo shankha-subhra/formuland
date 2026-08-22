@@ -910,8 +910,8 @@
     transform: translateX(-100%) scaleX(0);
   }
 
-   #fct-template--22898945491163__collection_tabs_home_YCgw3G span.fct__rating-stars {
-    font-size: 18px;
+   #fct-template--22898945491163__collection_tabs_home_YCgw3G span.fct__rating-stars span {
+    font-size: 20px;
   }
 
   @media (max-width: 767px) {
@@ -1110,6 +1110,22 @@
 
     window.addEventListener('resize', updateUI, { passive: true });
     updateUI();
+  })();
+  (function () {
+    function removeReviewText() {
+      document.querySelectorAll('.jdgm-prev-badge__text').forEach(function(el) {
+        el.textContent = el.textContent.replace(/reviews?/gi, '').trim();
+      });
+    }
+
+    removeReviewText();
+
+    document.addEventListener('DOMContentLoaded', removeReviewText);
+
+    new MutationObserver(removeReviewText).observe(document.body, {
+      childList: true,
+      subtree: true
+    });
   })();
 </script>
 </section><section class="shopify-section fwc-section" id="shopify-section-template--22898945491163__why_choose_qLQttk">
