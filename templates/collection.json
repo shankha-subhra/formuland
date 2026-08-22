@@ -233,9 +233,9 @@
           "type": "slider_item",
           "settings": {
             "image": "shopify://shop_images/image_10.png",
-            "title": "HiPP HA Combiotik",
-            "url": "",
-            "content": "<p>A cow’s milk formula made with partially hydrolyzed whey protein, formulated for infants with a family history of sensitivities or mild protein-related digestive discomfort.</p>"
+            "title": "HiPP Ready-to-Feed",
+            "url": "#",
+            "content": "<p>A pre-mixed liquid formula available in select stages, convenient for travel, nighttime feeds, or any situation where measuring and mixing powder is not practical.</p>"
           }
         }
       },
