@@ -77,6 +77,27 @@
             "content": "<p>Long-chain polyunsaturated fatty acids that support brain development and visual acuity during the critical early months.</p>"
           }
         },
+        "include_item_GLckFT": {
+          "type": "include_item",
+          "settings": {
+            "title": "Lactose-Derived Oligosaccharides",
+            "content": "<p>Naturally sourced prebiotic carbohydrates that feed beneficial gut bacteria and support healthy digestion.</p>"
+          }
+        },
+        "include_item_x3KK7b": {
+          "type": "include_item",
+          "settings": {
+            "title": "DHA and ALA (Omega-3 and Omega-6 LCPs)",
+            "content": "<p>Long-chain polyunsaturated fatty acids that support brain development and visual acuity during the critical early months.</p>"
+          }
+        },
+        "include_item_gJy338": {
+          "type": "include_item",
+          "settings": {
+            "title": "DHA and ALA (Omega-3 and Omega-6 LCPs)",
+            "content": "<p>Long-chain polyunsaturated fatty acids that support brain development and visual acuity during the critical early months.</p>"
+          }
+        },
         "exclude_item_c4EAgW": {
           "type": "exclude_item",
           "settings": {
@@ -96,6 +117,9 @@
         "include_item_Uk9aFC",
         "include_item_Hia3Fm",
         "include_item_DWwExL",
+        "include_item_GLckFT",
+        "include_item_x3KK7b",
+        "include_item_gJy338",
         "exclude_item_c4EAgW",
         "exclude_item_7x7Pyn"
       ],
