@@ -255,6 +255,13 @@
         "description": "<p>Beyond the standard Organic range, HiPP produces several formulas designed for specific feeding challenges. These options are worth considering if your baby has needs that a standard formula doesn’t address.</p>",
         "note": "<p><strong>A note on specialty formulas:</strong> If your baby has a confirmed cow’s milk protein allergy (CMPA) or a diagnosed medical condition, please consult your pediatrician before selecting any formula. Specialty formulas are designed to support specific digestive concerns and should not be used as a substitute for medical diagnosis or treatment.</p>"
       }
+    },
+    "collection_stage_guide_JaERQQ": {
+      "type": "collection-stage-guide",
+      "name": "Formula Collection Stage Guide",
+      "settings": {
+        "heading_right_stage": "The Right <em>Organic Baby Formula Stage or Specialty Formula</em> For My Baby"
+      }
     }
   },
   "order": [
@@ -263,6 +270,7 @@
     "collection_what_sets_apart_XPWhfk",
     "collection_nutritional_profile_YngAYN",
     "collection_country_origin_zjFXmy",
-    "collection_specialty_formulas_9mLJCy"
+    "collection_specialty_formulas_9mLJCy",
+    "collection_stage_guide_JaERQQ"
   ]
 }
