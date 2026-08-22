@@ -910,6 +910,10 @@
     transform: translateX(-100%) scaleX(0);
   }
 
+   #fct-template--22898945491163__collection_tabs_home_YCgw3G span.fct__rating-stars {
+    font-size: 18px;
+  }
+
   @media (max-width: 767px) {
     #fct-template--22898945491163__collection_tabs_home_YCgw3G.fct {
       padding-top: 60px;
@@ -981,13 +985,22 @@
               <h3 class="fct__card-title">{{ product.title }}</h3>
               <div class="fct__card-row">
                 <span class="fct__rating">
-                  <span class="fct__rating-stars" role="img">
-                    <span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span>
-                    <span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span>
-                    <span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span>
-                    <span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span>
-                    <span style="color: #13322b;"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5l2.95 6.36 6.96.66-5.24 4.63 1.53 6.82L12 17.4l-6.2 3.57 1.53-6.82-5.24-4.63 6.96-.66L12 2.5z" fill="currentColor"></path></svg></span>
-                  </span>
+                  {% assign judge_badge = product.metafields.judgeme.badge %}
+
+                  {% if judge_badge != blank %}
+                    <span class="jdgm-widget jdgm-preview-badge" data-id="{{ product.id }}">
+                      {{ judge_badge }}
+                    </span>
+                  {% else %}
+                    <span class="fct__rating-stars" role="img" aria-label="0 reviews">
+                      <span>☆</span>
+                      <span>☆</span>
+                      <span>☆</span>
+                      <span>☆</span>
+                      <span>☆</span>
+                    </span>
+                    <span class="fct__rating-count">(0)</span>
+                  {% endif %}
                 </span>
                 <span class="fct__price">
                   {{ product.price | money }}
