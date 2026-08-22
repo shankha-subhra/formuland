@@ -70,6 +70,13 @@
             "content": "<p>HiPP's proprietary blend of live cultures and prebiotic fibers supports a balanced gut microbiome and a developing immune system.</p>"
           }
         },
+        "include_item_DWwExL": {
+          "type": "include_item",
+          "settings": {
+            "title": "DHA and ALA (Omega-3 and Omega-6 LCPs)",
+            "content": "<p>Long-chain polyunsaturated fatty acids that support brain development and visual acuity during the critical early months.</p>"
+          }
+        },
         "exclude_item_c4EAgW": {
           "type": "exclude_item",
           "settings": {
@@ -88,6 +95,7 @@
       "block_order": [
         "include_item_Uk9aFC",
         "include_item_Hia3Fm",
+        "include_item_DWwExL",
         "exclude_item_c4EAgW",
         "exclude_item_7x7Pyn"
       ],
