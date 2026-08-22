@@ -129,8 +129,8 @@
         "exclude_item_3cWGHj": {
           "type": "exclude_item",
           "settings": {
-            "title": "GMOs",
-            "content": "<p>All ingredients comply with EU organic standards, which prohibit genetically modified organisms.</p>"
+            "title": "Soy",
+            "content": "<p>HiPP Organic formulas do not contain soy-based ingredients.</p>"
           }
         }
       },
