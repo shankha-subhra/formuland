@@ -269,6 +269,73 @@
       "settings": {
         "heading_for_hipp": "For <em>HiPP Organic Formula</em>"
       }
+    },
+    "collection_about_UVAftC": {
+      "type": "collection-about",
+      "blocks": {
+        "faq_item_D4eJ6h": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where is the best place to buy HiPP formula?",
+            "answer": "<p>HiPP formula is not commonly stocked in U.S. retail stores. Formuland is one of the most established sources for authentic HiPP Organic formula in the United States, with direct supplier relationships and U.S.-based warehousing. You can shop our curated formulas and receive your order within one to three business days on standard shipping.</p>"
+          }
+        },
+        "faq_item_pb4frJ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you have to boil water for HiPP Organic formula?",
+            "answer": "<p>Yes. Using freshly boiled water is recommended for hygiene and safety. However, make sure to allow the water to cool to the temperature specified on the tin before adding the formula powder, as excessive heat can affect the live cultures in HiPP's Combiotic® blend.</p>"
+          }
+        },
+        "faq_item_R33MaN": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do you prepare HiPP Organic formula?",
+            "answer": "<p>To prepare HiPP formula, follow these guidelines:</p><ul><li>Use the scoop provided in the pack. Don’t use any other scoop or measuring device.</li><li>Don’t alter the strength of the formula by adding extra water or scoops. Follow the recommended quantity of water and measuring spoon specified for each stage.</li><li>For hygiene reasons, always prepare fresh feeds and avoid preparing them in advance. Use the prepared formula within 2 hours. Discard any leftover formula after feeding.</li><li>Don’t heat the formula in a microwave, as it may create hot spots and cause scalding. Use alternative methods for warming the formula, such as a bottle warmer or warm water bath.</li><li>Introduce a cup or beaker as soon as possible to prevent prolonged or frequent contact of teeth with milk feeds, which can increase the risk of tooth decay.</li><li>Use the sachet of formula within 3 weeks of opening to ensure freshness and quality.</li></ul><p>By following these instructions, you can ensure the proper preparation and safety of HiPP formula for your baby's consumption.</p>"
+          }
+        },
+        "faq_item_TikEpg": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What makes HiPP Organic formula a good choice for your baby?",
+            "answer": "<p>HiPP Organic formula is free of corn syrup, GMOs, and artificial additives. It’s certified organic by the European Union and formulated with key nutrients including DHA, ALA, and the Combiotic® blend of prebiotics and probiotics. The brand also conducts up to 260 safety checks per product, providing a high level of quality assurance that is difficult to match.</p>"
+          }
+        },
+        "faq_item_MfWUnj": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What makes HiPP Organic formula a good choice for your baby?",
+            "answer": "<p>HiPP Organic formula is free of corn syrup, GMOs, and artificial additives. It’s certified organic by the European Union and formulated with key nutrients including DHA, ALA, and the Combiotic® blend of prebiotics and probiotics. The brand also conducts up to 260 safety checks per product, providing a high level of quality assurance that is difficult to match.</p>"
+          }
+        },
+        "faq_item_74biFC": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What makes HiPP Organic formula a good choice for your baby?",
+            "answer": "<p>HiPP Organic formula is free of corn syrup, GMOs, and artificial additives. It’s certified organic by the European Union and formulated with key nutrients including DHA, ALA, and the Combiotic® blend of prebiotics and probiotics. The brand also conducts up to 260 safety checks per product, providing a high level of quality assurance that is difficult to match.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_D4eJ6h",
+        "faq_item_pb4frJ",
+        "faq_item_R33MaN",
+        "faq_item_TikEpg",
+        "faq_item_MfWUnj",
+        "faq_item_74biFC"
+      ],
+      "name": "Formula Collection FAQ",
+      "settings": {
+        "subheading": "FREQUENTLY ASKED QUESTIONS",
+        "heading": "About HiPP Organic Formula"
+      }
+    },
+    "collection_purchase_cta_DCkQPM": {
+      "type": "collection-purchase-cta",
+      "name": "Formula Collection Purchase CTA",
+      "settings": {
+        "heading_purchase": "Purchase <em>HiPP Organic Baby Formula </em>Today"
+      }
     }
   },
   "order": [
@@ -279,6 +346,8 @@
     "collection_country_origin_zjFXmy",
     "collection_specialty_formulas_9mLJCy",
     "collection_stage_guide_JaERQQ",
-    "collection_prep_tips_gkpVne"
+    "collection_prep_tips_gkpVne",
+    "collection_about_UVAftC",
+    "collection_purchase_cta_DCkQPM"
   ]
 }
