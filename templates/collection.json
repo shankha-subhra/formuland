@@ -111,6 +111,27 @@
             "title": "GMOs",
             "content": "<p>All ingredients comply with EU organic standards, which prohibit genetically modified organisms.</p>"
           }
+        },
+        "exclude_item_LDgFU7": {
+          "type": "exclude_item",
+          "settings": {
+            "title": "Artificial Preservatives",
+            "content": "<p>HiPP relies on proper sealing and storage rather than chemical preservatives.</p>"
+          }
+        },
+        "exclude_item_tH3YFJ": {
+          "type": "exclude_item",
+          "settings": {
+            "title": "GMOs",
+            "content": "<p>All ingredients comply with EU organic standards, which prohibit genetically modified organisms.</p>"
+          }
+        },
+        "exclude_item_3cWGHj": {
+          "type": "exclude_item",
+          "settings": {
+            "title": "GMOs",
+            "content": "<p>All ingredients comply with EU organic standards, which prohibit genetically modified organisms.</p>"
+          }
         }
       },
       "block_order": [
@@ -121,7 +142,10 @@
         "include_item_x3KK7b",
         "include_item_gJy338",
         "exclude_item_c4EAgW",
-        "exclude_item_7x7Pyn"
+        "exclude_item_7x7Pyn",
+        "exclude_item_LDgFU7",
+        "exclude_item_tH3YFJ",
+        "exclude_item_3cWGHj"
       ],
       "name": "Formula Nutritional Profile",
       "settings": {
