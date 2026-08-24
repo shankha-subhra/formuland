@@ -27,6 +27,26 @@
     },
     "collection_what_sets_apart_XPWhfk": {
       "type": "collection-what-sets-apart",
+      "blocks": {
+        "list_item_hdUDd8": {
+          "type": "list_item",
+          "settings": {
+            "title": "HiPP Organic Seal",
+            "content": "<p>HiPP works directly with its network of organic farms and holds its suppliers to standards that exceed both statutory and international requirements. Every product bearing the HiPP Organic Seal has passed some of the industry’s most rigorous residue checks. Parents can trust that what’s on the label reflects what’s in the tin.</p>"
+          }
+        },
+        "list_item_DBpxnd": {
+          "type": "list_item",
+          "settings": {
+            "title": "Up to 260 Safety Checks Per Product",
+            "content": "<p>Every jar and tin of HiPP formula undergoes up to 260 individual safety checks, including tests by independent institutes. Few manufacturers in any food category can point to that level of scrutiny. For parents who want full confidence in what their baby consumes, it matters.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "list_item_hdUDd8",
+        "list_item_DBpxnd"
+      ],
       "name": "Formula Collection What Sets Apart",
       "settings": {
         "heading_what_sets": "What Sets <em>HiPP Organic Formula Apart</em> vs Other Brands",
@@ -35,6 +55,98 @@
     },
     "collection_nutritional_profile_YngAYN": {
       "type": "collection-nutritional-profile",
+      "blocks": {
+        "include_item_Uk9aFC": {
+          "type": "include_item",
+          "settings": {
+            "title": "Organic Lactose",
+            "content": "<p>The primary carbohydrate source, mirroring the composition of breastmilk.</p>"
+          }
+        },
+        "include_item_Hia3Fm": {
+          "type": "include_item",
+          "settings": {
+            "title": "Combiotic® Prebiotics and Probiotics",
+            "content": "<p>HiPP's proprietary blend of live cultures and prebiotic fibers supports a balanced gut microbiome and a developing immune system.</p>"
+          }
+        },
+        "include_item_DWwExL": {
+          "type": "include_item",
+          "settings": {
+            "title": "DHA and ALA (Omega-3 and Omega-6 LCPs)",
+            "content": "<p>Long-chain polyunsaturated fatty acids that support brain development and visual acuity during the critical early months.</p>"
+          }
+        },
+        "include_item_GLckFT": {
+          "type": "include_item",
+          "settings": {
+            "title": "Lactose-Derived Oligosaccharides",
+            "content": "<p>Naturally sourced prebiotic carbohydrates that feed beneficial gut bacteria and support healthy digestion.</p>"
+          }
+        },
+        "include_item_x3KK7b": {
+          "type": "include_item",
+          "settings": {
+            "title": "Essential Vitamins and Minerals",
+            "content": "<p>Each stage is fortified with a balanced profile of essential vitamins and minerals calibrated to infant developmental needs.</p>"
+          }
+        },
+        "include_item_gJy338": {
+          "type": "include_item",
+          "settings": {
+            "title": "Organic Skimmed Milk",
+            "content": "<p>The primary protein and calcium source, sourced from HiPP's network of certified organic farms.</p>"
+          }
+        },
+        "exclude_item_c4EAgW": {
+          "type": "exclude_item",
+          "settings": {
+            "title": "Corn Syrup and Added Sugars",
+            "content": "<p>No refined sugars are used. Lactose provides all necessary carbohydrates.</p>"
+          }
+        },
+        "exclude_item_7x7Pyn": {
+          "type": "exclude_item",
+          "settings": {
+            "title": "GMOs",
+            "content": "<p>All ingredients comply with EU organic standards, which prohibit genetically modified organisms.</p>"
+          }
+        },
+        "exclude_item_LDgFU7": {
+          "type": "exclude_item",
+          "settings": {
+            "title": "Artificial Preservatives",
+            "content": "<p>HiPP relies on proper sealing and storage rather than chemical preservatives.</p>"
+          }
+        },
+        "exclude_item_tH3YFJ": {
+          "type": "exclude_item",
+          "settings": {
+            "title": "Synthetic Colors and Flavors",
+            "content": "<p>Nothing artificial is added to alter the appearance or taste of the formula.</p>"
+          }
+        },
+        "exclude_item_3cWGHj": {
+          "type": "exclude_item",
+          "settings": {
+            "title": "Soy",
+            "content": "<p>HiPP Organic formulas do not contain soy-based ingredients.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "include_item_Uk9aFC",
+        "include_item_Hia3Fm",
+        "include_item_DWwExL",
+        "include_item_GLckFT",
+        "include_item_x3KK7b",
+        "include_item_gJy338",
+        "exclude_item_c4EAgW",
+        "exclude_item_7x7Pyn",
+        "exclude_item_LDgFU7",
+        "exclude_item_tH3YFJ",
+        "exclude_item_3cWGHj"
+      ],
       "name": "Formula Nutritional Profile",
       "settings": {
         "heading_nutritional_profile": "Understanding <em>HiPP Organic Formula's</em> Nutritional Profile",
@@ -53,6 +165,90 @@
     },
     "collection_specialty_formulas_9mLJCy": {
       "type": "collection-specialty-formulas",
+      "blocks": {
+        "slider_item_GpxDtM": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/image_7.png",
+            "title": "HiPP Bio Combiotic",
+            "url": "#",
+            "content": "<p>The standard HiPP Organic cow’s milk formula, available from PRE through Stage 3. It contains the Combiotic® blend and is appropriate for healthy infants at each developmental stage.</p>"
+          }
+        },
+        "slider_item_ewwXVt": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/image_9.png",
+            "title": "HiPP Anti-Reflux",
+            "url": "#",
+            "content": "<p>A cow’s milk-based formula with a thicker consistency, designed to reduce spitting up in babies prone to acid reflux or regurgitation.</p>"
+          }
+        },
+        "slider_item_nRAV64": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/image_10.png",
+            "title": "HiPP HA Combiotik",
+            "url": "#",
+            "content": "<p>A cow’s milk formula made with partially hydrolyzed whey protein, formulated for infants with a family history of sensitivities or mild protein-related digestive discomfort.</p>"
+          }
+        },
+        "slider_item_4h9cEi": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/image_10.png",
+            "title": "HiPP Comfort",
+            "url": "#",
+            "content": "<p>A cow’s milk formula with reduced lactose and partially hydrolyzed protein, developed specifically for babies experiencing gas, colic, or constipation.</p>"
+          }
+        },
+        "slider_item_xWLHVK": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/image_10.png",
+            "title": "HiPP PUR",
+            "url": "#",
+            "content": "<p>A cow’s milk-based organic formula with a simplified ingredient list, designed for parents who want the fewest additives possible while still meeting full infant nutritional requirements.</p>"
+          }
+        },
+        "slider_item_bcBMdJ": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/image_10.png",
+            "title": "HiPP Bio Kindermilch",
+            "url": "#",
+            "content": "<p>A cow’s milk-based drink formulated for children from 12 months onward, providing added vitamins and minerals to support nutritional needs beyond infancy.</p>"
+          }
+        },
+        "slider_item_DLhcE3": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/image_10.png",
+            "title": "HiPP Goat Milk Formula",
+            "url": "#",
+            "content": "<p>Made from organic goat milk, this option offers a different protein profile that some parents find easier on sensitive tummies than standard cow’s milk formula.</p>"
+          }
+        },
+        "slider_item_kAirK8": {
+          "type": "slider_item",
+          "settings": {
+            "image": "shopify://shop_images/image_10.png",
+            "title": "HiPP Ready-to-Feed",
+            "url": "#",
+            "content": "<p>A pre-mixed liquid formula available in select stages, convenient for travel, nighttime feeds, or any situation where measuring and mixing powder is not practical.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "slider_item_GpxDtM",
+        "slider_item_ewwXVt",
+        "slider_item_nRAV64",
+        "slider_item_4h9cEi",
+        "slider_item_xWLHVK",
+        "slider_item_bcBMdJ",
+        "slider_item_DLhcE3",
+        "slider_item_kAirK8"
+      ],
       "name": "Formula Collection Specialty Formulas",
       "settings": {
         "heading_specialty": "Specialty <em>HiPP Formulas</em>",
@@ -76,6 +272,58 @@
     },
     "collection_about_UVAftC": {
       "type": "collection-about",
+      "blocks": {
+        "faq_item_D4eJ6h": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where is the best place to buy HiPP formula?",
+            "answer": "<p>HiPP formula is not commonly stocked in U.S. retail stores. Formuland is one of the most established sources for authentic HiPP Organic formula in the United States, with direct supplier relationships and U.S.-based warehousing. You can shop our curated formulas and receive your order within one to three business days on standard shipping.</p>"
+          }
+        },
+        "faq_item_pb4frJ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you have to boil water for HiPP Organic formula?",
+            "answer": "<p>Yes. Using freshly boiled water is recommended for hygiene and safety. However, make sure to allow the water to cool to the temperature specified on the tin before adding the formula powder, as excessive heat can affect the live cultures in HiPP's Combiotic® blend.</p>"
+          }
+        },
+        "faq_item_R33MaN": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do you prepare HiPP Organic formula?",
+            "answer": "<p>To prepare HiPP formula, follow these guidelines:</p><ul><li>Use the scoop provided in the pack. Don’t use any other scoop or measuring device.</li><li>Don’t alter the strength of the formula by adding extra water or scoops. Follow the recommended quantity of water and measuring spoon specified for each stage.</li><li>For hygiene reasons, always prepare fresh feeds and avoid preparing them in advance. Use the prepared formula within 2 hours. Discard any leftover formula after feeding.</li><li>Don’t heat the formula in a microwave, as it may create hot spots and cause scalding. Use alternative methods for warming the formula, such as a bottle warmer or warm water bath.</li><li>Introduce a cup or beaker as soon as possible to prevent prolonged or frequent contact of teeth with milk feeds, which can increase the risk of tooth decay.</li><li>Use the sachet of formula within 3 weeks of opening to ensure freshness and quality.</li></ul><p>By following these instructions, you can ensure the proper preparation and safety of HiPP formula for your baby's consumption.</p>"
+          }
+        },
+        "faq_item_TikEpg": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What makes HiPP Organic formula a good choice for your baby?",
+            "answer": "<p>HiPP Organic formula is free of corn syrup, GMOs, and artificial additives. It’s certified organic by the European Union and formulated with key nutrients including DHA, ALA, and the Combiotic® blend of prebiotics and probiotics. The brand also conducts up to 260 safety checks per product, providing a high level of quality assurance that is difficult to match.</p>"
+          }
+        },
+        "faq_item_MfWUnj": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which HiPP Organic formula is best for my baby?",
+            "answer": "<p>The right formula depends on your baby’s age and any specific feeding needs. For healthy infants, HiPP Bio Combiotik is the standard choice, available from PRE through Stage 3. For babies with mild sensitivities, HiPP HA or HiPP Comfort may be worth considering. HiPP Dutch Goat is a popular cow’s milk alternative. HiPP AR is formulated for babies prone to reflux. If you’re unsure which option suits your baby best, our support team is available 24 hours at care@formuland.com.</p>"
+          }
+        },
+        "faq_item_74biFC": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is HiPP Organic formula safe?",
+            "answer": "<p>Yes. HiPP Organic formula meets EU infant formula regulations, which are among the most stringent in the world. Every product undergoes up to 260 safety checks, including independent laboratory testing. HiPP also holds its own Organic Seal, which requires farms and suppliers to meet standards beyond what EU certification mandates.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_D4eJ6h",
+        "faq_item_pb4frJ",
+        "faq_item_R33MaN",
+        "faq_item_TikEpg",
+        "faq_item_MfWUnj",
+        "faq_item_74biFC"
+      ],
       "name": "Formula Collection FAQ",
       "settings": {
         "subheading": "FREQUENTLY ASKED QUESTIONS",
