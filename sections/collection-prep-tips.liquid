@@ -1,9 +1,11 @@
+{% assign prep_tips = collection.metafields.custom.preparation_tips.value %}
+{% if prep_tips != blank %}
 <section class="shopify-section fcc-prep-section" id="shopify-section-{{ section.id }}">
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Libre+Franklin:wght@400;500;600&amp;family=Tenor+Sans&amp;display=swap" rel="stylesheet"/>
 <style data-shopify="">
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg {
+  #fcc-prep-{{ section.id }} {
     position: relative;
     background-color: #e7f1fb;
     padding: 150px 24px 150px;
@@ -11,13 +13,13 @@
   }
 
   /* Section background image */
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__section-bg {
+  #fcc-prep-{{ section.id }} .fcc-prep__section-bg {
     position: absolute;
     inset: 0;
     z-index: 0;
     pointer-events: none;
   }
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__section-bg img {
+  #fcc-prep-{{ section.id }} .fcc-prep__section-bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -25,7 +27,7 @@
     opacity: 0.7;
   }
 
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__wrap {
+  #fcc-prep-{{ section.id }} .fcc-prep__wrap {
     position: relative;
     z-index: 1;
     max-width: 1360px;
@@ -33,16 +35,16 @@
   }
 
   /* Header */
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__header-row {
+  #fcc-prep-{{ section.id }} .fcc-prep__header-row {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     gap: 24px;
     margin-bottom: 40px;
   }
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__header-text { max-width: 680px; }
+  #fcc-prep-{{ section.id }} .fcc-prep__header-text { max-width: 680px; }
 
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__subheading {
+  #fcc-prep-{{ section.id }} .fcc-prep__subheading {
     font-family: 'Libre Franklin', sans-serif !important;
     font-size: 13px !important;
     font-weight: 500 !important;
@@ -51,7 +53,7 @@
     color: #4a2b29;
     margin: 0 0 16px;
   }
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__heading {
+  #fcc-prep-{{ section.id }} .fcc-prep__heading {
     font-family: 'Libre Baskerville', serif !important;
     font-weight: 400 !important;
     font-size: 40px !important;
@@ -59,11 +61,11 @@
     color: #4a2b29;
     margin: 0 0 24px;
   }
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__heading em {
+  #fcc-prep-{{ section.id }} .fcc-prep__heading em {
     font-style: italic;
     color: inherit;
   }
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__description {
+  #fcc-prep-{{ section.id }} .fcc-prep__description {
     font-family: 'Libre Franklin', sans-serif !important;
     font-size: clamp(16px, 1.4vw, 18px) !important;
     line-height: 1.65 !important;
@@ -72,12 +74,12 @@
   }
 
   /* Round arrows */
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__controls {
+  #fcc-prep-{{ section.id }} .fcc-prep__controls {
     display: flex;
     gap: 12px;
     flex-shrink: 0;
   }
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__arrow {
+  #fcc-prep-{{ section.id }} .fcc-prep__arrow {
     background: transparent;
     border: 1px solid #4a2b29;
     border-radius: 50%;
@@ -91,21 +93,21 @@
     justify-content: center;
     transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
   }
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__arrow:hover:not([disabled]) {
+  #fcc-prep-{{ section.id }} .fcc-prep__arrow:hover:not([disabled]) {
     background: #4a2b29;
     color: #e7f1fb;
   }
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__arrow[disabled] {
+  #fcc-prep-{{ section.id }} .fcc-prep__arrow[disabled] {
     opacity: 0.35;
     cursor: default;
   }
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__arrow svg {
+  #fcc-prep-{{ section.id }} .fcc-prep__arrow svg {
     width: 20px;
     height: 20px;
   }
 
   /* Slider */
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__grid {
+  #fcc-prep-{{ section.id }} .fcc-prep__grid {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -114,8 +116,8 @@
     margin-bottom: 32px;
     scrollbar-width: none;
   }
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__grid::-webkit-scrollbar { display: none; }
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__card {
+  #fcc-prep-{{ section.id }} .fcc-prep__grid::-webkit-scrollbar { display: none; }
+  #fcc-prep-{{ section.id }} .fcc-prep__card {
     scroll-snap-align: start;
     flex: 0 0 calc(22.5% - 18px);
     background-color: #fbfbf8;
@@ -125,14 +127,14 @@
   }
 
   /* Card content */
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__card-num {
+  #fcc-prep-{{ section.id }} .fcc-prep__card-num {
     font-family: 'Tenor Sans', sans-serif !important;
     font-size: 18px !important;
     font-weight: 400 !important;
     color: #4a2b29;
     margin: 0 0 24px;
   }
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__card-title {
+  #fcc-prep-{{ section.id }} .fcc-prep__card-title {
     font-family: 'Tenor Sans', sans-serif !important;
     font-size: 22px !important;
     font-weight: 400 !important;
@@ -140,16 +142,19 @@
     color: #4a2b29;
     margin: 0 0 16px;
   }
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__card-desc {
+  #fcc-prep-{{ section.id }} .fcc-prep__card-desc {
     font-family: 'Libre Franklin', sans-serif !important;
     font-size: 16px !important;
     line-height: 1.6 !important;
     color: #4a2b29;
     margin: 0;
   }
+  #fcc-prep-{{ section.id }} .fcc-prep__card-desc p {
+    margin: 0;
+  }
 
   /* CTA button */
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__btn {
+  #fcc-prep-{{ section.id }} .fcc-prep__btn {
     display: inline-block;
     padding: 14px 32px;
     border: 1px solid #4a2b29;
@@ -163,83 +168,76 @@
     transition: background-color 0.3s ease, color 0.3s ease;
     background: transparent;
   }
-  #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__btn:hover {
+  #fcc-prep-{{ section.id }} .fcc-prep__btn:hover {
     background-color: #4a2b29;
     color: #FFFFFF;
   }
 
   /* Tablet & mobile */
   @media (max-width: 1024px) {
-    #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__header-row {
+    #fcc-prep-{{ section.id }} .fcc-prep__header-row {
       flex-direction: column;
       align-items: flex-start;
       gap: 32px;
     }
-    #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__heading { font-size: 30px !important; }
-    #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__description { font-size: 16px !important; }
-    #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__grid {
+    #fcc-prep-{{ section.id }} .fcc-prep__heading { font-size: 30px !important; }
+    #fcc-prep-{{ section.id }} .fcc-prep__description { font-size: 16px !important; }
+    #fcc-prep-{{ section.id }} .fcc-prep__grid {
       gap: 16px;
       margin-right: -24px;
       padding-right: 24px;
     }
-    #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__card {
+    #fcc-prep-{{ section.id }} .fcc-prep__card {
       flex: 0 0 calc(85vw - 24px);
       max-width: 340px;
       padding: 24px;
     }
-    #fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg .fcc-prep__card-title { font-size: 19px !important; }
+    #fcc-prep-{{ section.id }} .fcc-prep__card-title { font-size: 19px !important; }
   }
 </style>
-<section aria-labelledby="fcc-prep-heading-template--22974334501083__fcc_prep_tips_MG93Vg" class="fcc-prep" id="fcc-prep-template--22974334501083__fcc_prep_tips_MG93Vg"><div aria-hidden="true" class="fcc-prep__section-bg">
-<img alt="" height="1569" loading="lazy" src="//formuland.com/cdn/shop/files/Section_2.jpg?v=1786631554&amp;width=2400" srcset="//formuland.com/cdn/shop/files/Section_2.jpg?v=1786631554&amp;width=1000 1000w, //formuland.com/cdn/shop/files/Section_2.jpg?v=1786631554&amp;width=1600 1600w, //formuland.com/cdn/shop/files/Section_2.jpg?v=1786631554&amp;width=2400 2400w" style="object-position:50.0% 51.66%;" width="2400"/>
+<section aria-labelledby="fcc-prep-heading-{{ section.id }}" class="fcc-prep" id="fcc-prep-{{ section.id }}"><div aria-hidden="true" class="fcc-prep__section-bg">
+{%- if section.settings.bg_image != blank -%}
+  {{ section.settings.bg_image | image_url: width: 2400 | image_tag: 
+     loading: 'lazy',
+     sizes: '100vw',
+     widths: '1000, 1600, 2400',
+     style: 'object-position:50.0% 51.66%; width: 100%; height: 100%; object-fit: cover;'
+  }}
+{%- else -%}
+  <img alt="" height="1569" loading="lazy" src="//formuland.com/cdn/shop/files/Section_2.jpg?v=1786631554&amp;width=2400" srcset="//formuland.com/cdn/shop/files/Section_2.jpg?v=1786631554&amp;width=1000 1000w, //formuland.com/cdn/shop/files/Section_2.jpg?v=1786631554&amp;width=1600 1600w, //formuland.com/cdn/shop/files/Section_2.jpg?v=1786631554&amp;width=2400 2400w" style="object-position:50.0% 51.66%;" width="2400"/>
+{%- endif -%}
 </div><div class="fcc-prep__wrap">
 <div class="fcc-prep__header-row">
-<div class="fcc-prep__header-text"><p class="fcc-prep__subheading">PREPARATION AND STORAGE TIPS</p><h2 class="fcc-prep__heading" id="fcc-prep-heading-template--22974334501083__fcc_prep_tips_MG93Vg">For HiPP Organic Formula</h2>
-<p class="fcc-prep__description">Follow these general guidelines when preparing HiPP Organic formula. Always check the instructions printed on the tin for stage-specific measurements and any brand variations.</p>
+<div class="fcc-prep__header-text"><p class="fcc-prep__subheading">{{ section.settings.subheading }}</p><h2 class="fcc-prep__heading" id="fcc-prep-heading-{{ section.id }}">{{ section.settings.heading_for_hipp }}</h2>
+<div class="fcc-prep__description">{{ section.settings.description }}</div>
 </div>
 <div class="fcc-prep__controls">
-<button aria-label="Previous steps" class="fcc-prep__arrow fcc-prep__arrow--prev" id="fcc-prep-prev-template--22974334501083__fcc_prep_tips_MG93Vg" type="button">
+<button aria-label="Previous steps" class="fcc-prep__arrow fcc-prep__arrow--prev" id="fcc-prep-prev-{{ section.id }}" type="button">
 <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>
 </button>
-<button aria-label="Next steps" class="fcc-prep__arrow fcc-prep__arrow--next" id="fcc-prep-next-template--22974334501083__fcc_prep_tips_MG93Vg" type="button">
+<button aria-label="Next steps" class="fcc-prep__arrow fcc-prep__arrow--next" id="fcc-prep-next-{{ section.id }}" type="button">
 <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
 </button>
 </div>
 </div>
-<div class="fcc-prep__grid" id="fcc-prep-slider-template--22974334501083__fcc_prep_tips_MG93Vg"><div class="fcc-prep__card">
-<div class="fcc-prep__card-num">1.</div>
-<h3 class="fcc-prep__card-title">Wash and sterilize</h3>
-<p class="fcc-prep__card-desc">Before preparing any feed, wash your hands and sterilize all bottles, teats, and rings.</p>
-</div><div class="fcc-prep__card">
-<div class="fcc-prep__card-num">2.</div>
-<h3 class="fcc-prep__card-title">Boil fresh water</h3>
-<p class="fcc-prep__card-desc">Use freshly drawn water and bring it to a full boil. Allow it to cool to lukewarm, approximately 104°F to 122°F, before mixing. Remember, though, that water that’s too hot can damage the live Combiotic® cultures.</p>
-</div><div class="fcc-prep__card">
-<div class="fcc-prep__card-num">3.</div>
-<h3 class="fcc-prep__card-title">Measure carefully</h3>
-<p class="fcc-prep__card-desc">Add the correct amount of water to the bottle first, then add the exact number of level scoops of powder using the scoop provided. Do not use a different scoop or alter the ratio.</p>
-</div><div class="fcc-prep__card">
-<div class="fcc-prep__card-num">4.</div>
-<h3 class="fcc-prep__card-title">Mix until dissolved</h3>
-<p class="fcc-prep__card-desc">Cap the bottle and shake until the powder is fully dissolved. Check that the formula is lukewarm before feeding.</p>
-</div><div class="fcc-prep__card">
-<div class="fcc-prep__card-num">5.</div>
-<h3 class="fcc-prep__card-title">Use promptly</h3>
-<p class="fcc-prep__card-desc">Prepared formula should be used within two hours at room temperature. Discard any leftovers after a feed.</p>
-</div><div class="fcc-prep__card">
-<div class="fcc-prep__card-num">6.</div>
-<h3 class="fcc-prep__card-title">Store opened tins properly</h3>
-<p class="fcc-prep__card-desc">Keep opened tins in a cool, dry place and use the contents within three weeks of opening.</p>
-</div></div><a class="fcc-prep__btn" href="#curated-range" id="fcc-prep-btn-template--22974334501083__fcc_prep_tips_MG93Vg">
-        SHOP OUR HIPP ORGANIC FORMULA
+<div class="fcc-prep__grid" id="fcc-prep-slider-{{ section.id }}">
+{%- for tip in prep_tips -%}
+<div class="fcc-prep__card">
+<div class="fcc-prep__card-num">{{ forloop.index }}.</div>
+<h3 class="fcc-prep__card-title">{{ tip.title.value }}</h3>
+<div class="fcc-prep__card-desc">{{ tip.description | metafield_tag }}</div>
+</div>
+{%- endfor -%}
+</div><a class="fcc-prep__btn" href="#curated-range" id="fcc-prep-btn-{{ section.id }}">
+        {{ section.settings.cta_text }}
       </a></div>
 </section>
 <script>
   (function () {
-    var slider = document.getElementById('fcc-prep-slider-template--22974334501083__fcc_prep_tips_MG93Vg');
-    var btnPrev = document.getElementById('fcc-prep-prev-template--22974334501083__fcc_prep_tips_MG93Vg');
-    var btnNext = document.getElementById('fcc-prep-next-template--22974334501083__fcc_prep_tips_MG93Vg');
-    var cta = document.getElementById('fcc-prep-btn-template--22974334501083__fcc_prep_tips_MG93Vg');
+    var slider = document.getElementById('fcc-prep-slider-{{ section.id }}');
+    var btnPrev = document.getElementById('fcc-prep-prev-{{ section.id }}');
+    var btnNext = document.getElementById('fcc-prep-next-{{ section.id }}');
+    var cta = document.getElementById('fcc-prep-btn-{{ section.id }}');
 
     if (slider && btnPrev && btnNext) {
       var scrollAmount = function () {
@@ -285,15 +283,39 @@
   })();
 </script>
 </section>
+{% endif %}
 {% schema %}
 {
   "name": "Collection Prep Tips",
   "settings": [
     {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "PREPARATION AND STORAGE TIPS"
+    },
+    {
       "type": "inline_richtext",
       "id": "heading_for_hipp",
-      "label": "Heading: For Formula",
+      "label": "Heading",
       "default": "For <em>HiPP Organic Formula</em>"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Follow these general guidelines when preparing HiPP Organic formula. Always check the instructions printed on the tin for stage-specific measurements and any brand variations.</p>"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button Text",
+      "default": "SHOP OUR HIPP ORGANIC FORMULA"
     }
   ],
   "presets": [

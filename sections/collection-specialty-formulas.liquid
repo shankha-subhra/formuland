@@ -1,4 +1,6 @@
-<section class="shopify-section fcc-sf-section" id="shopify-section-{{ section.id }}">
+{% assign specialty_formulas = collection.metafields.custom.specialty_formulas.value %}
+{% if specialty_formulas != blank %}
+<section class="shopify-section fcc-sf-section" id="fcc-sf-section-{{ section.id }}">
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Libre+Franklin:wght@400;500;600&amp;family=Tenor+Sans&amp;display=swap" rel="stylesheet"/>
@@ -213,11 +215,11 @@
 </button>
 </div>
 <div class="fcc-sf__grid" id="fcc-sf-slider-{{ section.id }}">
-{%- for block in section.blocks -%}
-  <div class="fcc-sf__card" {{ block.shopify_attributes }}>
+{%- for item in specialty_formulas -%}
+  <div class="fcc-sf__card">
     <div class="fcc-sf__media">
-      {%- if block.settings.image != blank -%}
-        {{ block.settings.image | image_url: width: 600 | image_tag: 
+      {%- if item.image.value != blank -%}
+        {{ item.image.value | image_url: width: 600 | image_tag: 
            loading: 'lazy',
            sizes: '(max-width: 768px) 352px, 600px',
            widths: '352, 600',
@@ -228,13 +230,14 @@
       {%- endif -%}
     </div>
     <h3 class="fcc-sf__card-title">
-      {%- if block.settings.url != blank -%}
-        <a href="{{ block.settings.url }}">{{ block.settings.title }}</a>
+      {%- assign item_url = item.url.value -%}
+      {%- if item_url != blank -%}
+        <a href="{{ item_url }}">{{ item.title.value }}</a>
       {%- else -%}
-        <span>{{ block.settings.title }}</span>
+        <span>{{ item.title.value }}</span>
       {%- endif -%}
     </h3>
-    <div class="fcc-sf__card-desc">{{ block.settings.content }}</div>
+    <div class="fcc-sf__card-desc">{{ item.description | metafield_tag }}</div>
   </div>
 {%- endfor -%}
 </div>
@@ -289,6 +292,7 @@
   })();
 </script>
 </section>
+{% endif %}
 {% schema %}
 {
   "name": "Specialty Formulas",
@@ -312,62 +316,9 @@
       "default": "<p><strong>A note on specialty formulas:</strong> If your baby has a confirmed cow’s milk protein allergy (CMPA) or a diagnosed medical condition, please consult your pediatrician before selecting any formula. Specialty formulas are designed to support specific digestive concerns and should not be used as a substitute for medical diagnosis or treatment.</p>"
     }
   ],
-  "blocks": [
-    {
-      "type": "slider_item",
-      "name": "Formula Card",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "HiPP Formula"
-        },
-        {
-          "type": "url",
-          "id": "url",
-          "label": "Link URL"
-        },
-        {
-          "type": "richtext",
-          "id": "content",
-          "label": "Description",
-          "default": "<p>Description of the specialty formula goes here.</p>"
-        }
-      ]
-    }
-  ],
   "presets": [
     {
-      "name": "Formula Collection Specialty Formulas",
-      "blocks": [
-        {
-          "type": "slider_item",
-          "settings": {
-            "title": "HiPP Bio Combiotic",
-            "content": "<p>The standard HiPP Organic cow’s milk formula, available from PRE through Stage 3. It contains the Combiotic® blend and is appropriate for healthy infants at each developmental stage.</p>"
-          }
-        },
-        {
-          "type": "slider_item",
-          "settings": {
-            "title": "HiPP Anti-Reflux",
-            "content": "<p>A cow’s milk-based formula with a thicker consistency, designed to reduce spitting up in babies prone to acid reflux or regurgitation.</p>"
-          }
-        },
-        {
-          "type": "slider_item",
-          "settings": {
-            "title": "HiPP HA Combiotik",
-            "content": "<p>A cow’s milk formula made with partially hydrolyzed whey protein, formulated for infants with a family history of sensitivities or mild protein-related digestive discomfort.</p>"
-          }
-        }
-      ]
+      "name": "Formula Collection Specialty Formulas"
     }
   ]
 }

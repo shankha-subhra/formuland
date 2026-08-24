@@ -1,7 +1,7 @@
 <!-- Copied from https://formuland.com/collections/hipp-formula -->
 <div class="formuland-custom-wrapper">
 <main class="main-content" id="MainContent">
-<div class="shopify-section" id="shopify-section-template--22974334501083__collection_custom_2_AGXiPQ">
+
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Libre+Franklin:wght@400;500;600&amp;family=Tenor+Sans&amp;display=swap" rel="stylesheet"/>
@@ -737,7 +737,24 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    function formatReviewCount() {
+      document.querySelectorAll('.jdgm-prev-badge__text').forEach(function(el) {
+        var text = el.textContent.trim();
+        var match = text.match(/(\d+)/);
+        var formatted;
+        if (match) {
+          formatted = '(' + match[1] + ')';
+        } else if (/no reviews/i.test(text)) {
+          formatted = '(0)';  
+        }
+        if (formatted && text !== formatted) {
+          el.textContent = formatted;
+        }
+      });
+    }
+
     fcc2ShowJudgeMeBadges();
+    formatReviewCount();
 
     var judgeMeObserver = new MutationObserver(function (mutations) {
       var shouldCheck = false;
@@ -750,6 +767,7 @@
 
       if (shouldCheck) {
         fcc2ShowJudgeMeBadges();
+        formatReviewCount();
       }
     });
 
@@ -761,11 +779,12 @@
     });
 
     window.addEventListener('load', fcc2ShowJudgeMeBadges);
-    setTimeout(fcc2ShowJudgeMeBadges, 500);
-    setTimeout(fcc2ShowJudgeMeBadges, 1500);
+    window.addEventListener('load', formatReviewCount);
+    setTimeout(function() { fcc2ShowJudgeMeBadges(); formatReviewCount(); }, 500);
+    setTimeout(function() { fcc2ShowJudgeMeBadges(); formatReviewCount(); }, 1500);
   });
 </script>
-</div>
+
 </main>
 </div>
 {% schema %}

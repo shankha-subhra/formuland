@@ -1,26 +1,28 @@
+{% assign features = collection.metafields.custom.why_buy.value %}
+{% if features != blank %}
 <section class="shopify-section fcc-owb-section" id="shopify-section-{{ section.id }}">
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Libre+Franklin:wght@400;500;600&amp;family=Tenor+Sans&amp;display=swap" rel="stylesheet"/>
 <style data-shopify="">
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m {
+  #fcc-owb-{{ section.id }} {
     position: relative;
     background-color: #13322b;
     overflow: hidden;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__bg {
+  #fcc-owb-{{ section.id }} .fcc-owb__bg {
     position: absolute;
     inset: 0;
     z-index: 0;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__bg img {
+  #fcc-owb-{{ section.id }} .fcc-owb__bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center center;
     display: block;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__bg::after {
+  #fcc-owb-{{ section.id }} .fcc-owb__bg::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -32,7 +34,7 @@
     );
     opacity: 0.0;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__wrap {
+  #fcc-owb-{{ section.id }} .fcc-owb__wrap {
     position: relative;
     z-index: 1;
     max-width: 1360px;
@@ -42,10 +44,10 @@
     display: flex;
     align-items: center;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__content {
+  #fcc-owb-{{ section.id }} .fcc-owb__content {
     max-width: 600px;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__eyebrow {
+  #fcc-owb-{{ section.id }} .fcc-owb__eyebrow {
     font-family: 'Tenor Sans', sans-serif;
     font-size: 15px;
     letter-spacing: 0.18em;
@@ -53,7 +55,7 @@
     color: #efefe3;
     margin: 0 0 16px;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__heading {
+  #fcc-owb-{{ section.id }} .fcc-owb__heading {
     font-family: 'Libre Baskerville', serif !important;
     font-weight: 400 !important;
     font-size: 48px !important;
@@ -61,7 +63,7 @@
     color: #efefe3;
     margin: 0 0 24px;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__heading p {
+  #fcc-owb-{{ section.id }} .fcc-owb__heading p {
     margin: 0;
     font-family: inherit;
     font-size: inherit;
@@ -70,26 +72,26 @@
     color: inherit;
     letter-spacing: inherit;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__heading em {
+  #fcc-owb-{{ section.id }} .fcc-owb__heading em {
     font-style: italic;
     color: #e6f28c;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__desc {
+  #fcc-owb-{{ section.id }} .fcc-owb__desc {
     font-family: 'Libre Franklin', sans-serif;
     font-size: 16px;
     line-height: 1.65;
     color: #efefe3;
     margin: 0 0 32px;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__desc p {
+  #fcc-owb-{{ section.id }} .fcc-owb__desc p {
     margin: 0 0 12px;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
     color: inherit;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__desc p:last-child { margin-bottom: 0; }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__list {
+  #fcc-owb-{{ section.id }} .fcc-owb__desc p:last-child { margin-bottom: 0; }
+  #fcc-owb-{{ section.id }} .fcc-owb__list {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -97,11 +99,11 @@
     flex-direction: column;
     gap: 20px;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__item {
+  #fcc-owb-{{ section.id }} .fcc-owb__item {
     position: relative;
     padding-left: 28px;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__item::before {
+  #fcc-owb-{{ section.id }} .fcc-owb__item::before {
     content: "\2726";
     position: absolute;
     left: 0;
@@ -109,18 +111,18 @@
     font-size: 13px;
     color: #e6f28c;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__item-title {
+  #fcc-owb-{{ section.id }} .fcc-owb__item-title {
     font-family: 'Tenor Sans', sans-serif;
     font-size: 22px;
     line-height: 1.4;
     color: #efefe3;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__details summary {
+  #fcc-owb-{{ section.id }} .fcc-owb__details summary {
     list-style: none;
     cursor: pointer;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__details summary::-webkit-details-marker { display: none; }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__details summary::after {
+  #fcc-owb-{{ section.id }} .fcc-owb__details summary::-webkit-details-marker { display: none; }
+  #fcc-owb-{{ section.id }} .fcc-owb__details summary::after {
     content: "+";
     display: inline-block;
     margin-left: 10px;
@@ -133,11 +135,11 @@
     opacity: 0.85;
     transition: transform 0.25s ease;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__details[open] summary::after { transform: rotate(45deg); }
+  #fcc-owb-{{ section.id }} .fcc-owb__details[open] summary::after { transform: rotate(45deg); }
   @media (prefers-reduced-motion: reduce) {
-    #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__details summary::after { transition: none; }
+    #fcc-owb-{{ section.id }} .fcc-owb__details summary::after { transition: none; }
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__item-body {
+  #fcc-owb-{{ section.id }} .fcc-owb__item-body {
     font-family: 'Libre Franklin', sans-serif;
     font-size: 15px;
     line-height: 1.6;
@@ -145,31 +147,31 @@
     opacity: 0.9;
     margin-top: 6px;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__item-body p {
+  #fcc-owb-{{ section.id }} .fcc-owb__item-body p {
     margin: 0 0 8px;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
     color: inherit;
   }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__item-body p:last-child { margin-bottom: 0; }
-  #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__bg--mobile { display: none; }
+  #fcc-owb-{{ section.id }} .fcc-owb__item-body p:last-child { margin-bottom: 0; }
+  #fcc-owb-{{ section.id }} .fcc-owb__bg--mobile { display: none; }
 
   @media (max-width: 1024px) {
-    #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__wrap {
+    #fcc-owb-{{ section.id }} .fcc-owb__wrap {
       padding: 64px 20px calc(64px + 360px);
       min-height: 0;
       align-items: flex-start;
     }
-    #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__bg img { object-position: center bottom; }
-    #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__content { max-width: 100%; }
-    #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__heading { font-size: 34px !important; }
-    #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__item-title { font-size: 19px; }
+    #fcc-owb-{{ section.id }} .fcc-owb__bg img { object-position: center bottom; }
+    #fcc-owb-{{ section.id }} .fcc-owb__content { max-width: 100%; }
+    #fcc-owb-{{ section.id }} .fcc-owb__heading { font-size: 34px !important; }
+    #fcc-owb-{{ section.id }} .fcc-owb__item-title { font-size: 19px; }
     
-      #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__bg--desktop { display: none; }
-      #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__bg--mobile { display: block; }
+      #fcc-owb-{{ section.id }} .fcc-owb__bg--desktop { display: none; }
+      #fcc-owb-{{ section.id }} .fcc-owb__bg--mobile { display: block; }
     
-    #fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m .fcc-owb__bg::after {
+    #fcc-owb-{{ section.id }} .fcc-owb__bg::after {
       background: linear-gradient(
         180deg,
         #0b211c 0%,
@@ -179,37 +181,68 @@
     }
   }
 </style>
-<section aria-labelledby="fcc-owb-heading-template--22974334501083__fcc_org_why_buy_6QdL8m" class="fcc-owb" id="fcc-owb-template--22974334501083__fcc_org_why_buy_6QdL8m"><div aria-hidden="true" class="fcc-owb__bg fcc-owb__bg--desktop">
-<img alt="" height="1250" loading="lazy" src="//formuland.com/cdn/shop/files/section_20.png?v=1787239840&amp;width=2400" srcset="//formuland.com/cdn/shop/files/section_20.png?v=1787239840&amp;width=900 900w, //formuland.com/cdn/shop/files/section_20.png?v=1787239840&amp;width=1400 1400w, //formuland.com/cdn/shop/files/section_20.png?v=1787239840&amp;width=1920 1920w, //formuland.com/cdn/shop/files/section_20.png?v=1787239840&amp;width=2400 2400w" style="object-position:50.0% 49.414%;" width="2400"/>
+<section aria-labelledby="fcc-owb-heading-{{ section.id }}" class="fcc-owb" id="fcc-owb-{{ section.id }}"><div aria-hidden="true" class="fcc-owb__bg fcc-owb__bg--desktop">
+{%- if section.settings.bg_image_desktop != blank -%}
+  {{ section.settings.bg_image_desktop | image_url: width: 2400 | image_tag: 
+     loading: 'lazy',
+     sizes: '100vw',
+     widths: '900, 1400, 1920, 2400',
+     style: 'object-position:50.0% 49.414%; width: 100%; height: 100%; object-fit: cover;'
+  }}
+{%- else -%}
+  <img alt="" height="1250" loading="lazy" src="//formuland.com/cdn/shop/files/section_20.png?v=1787239840&amp;width=2400" srcset="//formuland.com/cdn/shop/files/section_20.png?v=1787239840&amp;width=900 900w, //formuland.com/cdn/shop/files/section_20.png?v=1787239840&amp;width=1400 1400w, //formuland.com/cdn/shop/files/section_20.png?v=1787239840&amp;width=1920 1920w, //formuland.com/cdn/shop/files/section_20.png?v=1787239840&amp;width=2400 2400w" style="object-position:50.0% 49.414%;" width="2400"/>
+{%- endif -%}
 </div><div aria-hidden="true" class="fcc-owb__bg fcc-owb__bg--mobile">
-<img alt="" height="2966" loading="lazy" src="//formuland.com/cdn/shop/files/section_21.png?v=1787239909&amp;width=1200" srcset="//formuland.com/cdn/shop/files/section_21.png?v=1787239909&amp;width=600 600w, //formuland.com/cdn/shop/files/section_21.png?v=1787239909&amp;width=900 900w, //formuland.com/cdn/shop/files/section_21.png?v=1787239909&amp;width=1200 1200w" style="object-position:50.0% 94.824%;" width="1200"/>
+{%- if section.settings.bg_image_mobile != blank -%}
+  {{ section.settings.bg_image_mobile | image_url: width: 1200 | image_tag: 
+     loading: 'lazy',
+     sizes: '100vw',
+     widths: '600, 900, 1200',
+     style: 'object-position:50.0% 94.824%; width: 100%; height: 100%; object-fit: cover;'
+  }}
+{%- else -%}
+  <img alt="" height="2966" loading="lazy" src="//formuland.com/cdn/shop/files/section_21.png?v=1787239909&amp;width=1200" srcset="//formuland.com/cdn/shop/files/section_21.png?v=1787239909&amp;width=600 600w, //formuland.com/cdn/shop/files/section_21.png?v=1787239909&amp;width=900 900w, //formuland.com/cdn/shop/files/section_21.png?v=1787239909&amp;width=1200 1200w" style="object-position:50.0% 94.824%;" width="1200"/>
+{%- endif -%}
 </div><div class="fcc-owb__wrap">
-<div class="fcc-owb__content"><h2 class="fcc-owb__heading" id="fcc-owb-heading-template--22974334501083__fcc_org_why_buy_6QdL8m"><em>HiPP Organic Baby</em><br/><em>Formula</em> at Formuland</h2><div class="fcc-owb__desc"><p>Formuland has served U.S. families with European baby formula since 2014. Over that time, we have built direct relationships with our European supplier partners and developed the logistics infrastructure to store, handle, and ship formulas properly, from the manufacturer's facility to your front door.</p></div><ul class="fcc-owb__list"><li class="fcc-owb__item"><details class="fcc-owb__details">
-<summary class="fcc-owb__item-title">Authentic European Sourcing</summary>
-<div class="fcc-owb__item-body"><p>We source HiPP Organic formula directly from our supplier partners in Europe. Every tin is stored in our U.S.-based warehouses under proper temperature and humidity conditions, handled with the same care from the moment it leaves the manufacturer to the moment it reaches your door.</p></div>
-</details></li><li class="fcc-owb__item"><details class="fcc-owb__details">
-<summary class="fcc-owb__item-title">Fast, Reliable Delivery</summary>
-<div class="fcc-owb__item-body"><p>Because we stock locally, most orders ship and arrive quickly. Standard orders arrive in one to three business days. Free shipping is available on orders over $100, and same-day fulfillment is available for express orders placed before the daily cutoff.</p></div>
-</details></li><li class="fcc-owb__item"><details class="fcc-owb__details">
-<summary class="fcc-owb__item-title">Trusted by Over 4,100 Parents</summary>
-<div class="fcc-owb__item-body"><p>We have <a href="https://www.trustpilot.com/review/formuland.com"><span style="text-decoration:underline">more than 4,100 verified reviews</span></a> on Trustpilot, accumulated over more than a decade of operation. That track record reflects the consistency we hold ourselves to: in sourcing, in shipping, and in customer support.</p></div>
-</details></li><li class="fcc-owb__item"><details class="fcc-owb__details">
-<summary class="fcc-owb__item-title">Clean Ingredients, Strict Standards</summary>
-<div class="fcc-owb__item-body"><p>HiPP Organic formula contains no corn syrup, no GMOs, and no artificial preservatives. European formula standards are among the strictest in the world, and HiPP exceeds even those. Parents who care about ingredient transparency will find the HiPP Organic line meets a very high bar.</p></div>
-</details></li><li class="fcc-owb__item"><details class="fcc-owb__details">
-<summary class="fcc-owb__item-title">Support When You Need It</summary>
-<div class="fcc-owb__item-body"><p>Our customer service team is available 24 hours a day. Whether you have a question about formula stages, preparation, or an order, you can reach us at <a href="mailto:care@formuland.com"><span style="text-decoration:underline">care@formuland.com</span></a> and expect a prompt, knowledgeable response.</p></div>
-</details></li><li class="fcc-owb__item"><details class="fcc-owb__details">
-<summary class="fcc-owb__item-title">Baby Satisfaction Guaranteed</summary>
-<div class="fcc-owb__item-body"><p>Finding the right formula can take a few tries. If a product doesn’t work for your baby, we’ll help you find one that does. You can easily request a product replacement from us until you can find the right formula for your baby.</p></div>
-</details></li></ul></div>
+<div class="fcc-owb__content"><h2 class="fcc-owb__heading" id="fcc-owb-heading-{{ section.id }}">{{ section.settings.heading }}</h2><div class="fcc-owb__desc">{{ section.settings.description }}</div><ul class="fcc-owb__list">
+{%- for item in features -%}
+  <li class="fcc-owb__item"><details class="fcc-owb__details">
+  <summary class="fcc-owb__item-title">{{ item.title.value }}</summary>
+  <div class="fcc-owb__item-body">{{ item.content | metafield_tag }}</div>
+  </details></li>
+{%- endfor -%}
+</ul></div>
 </div>
 </section>
 </section>
+{% endif %}
 {% schema %}
 {
   "name": "Collection Why Buy",
-  "settings": [],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image_desktop",
+      "label": "Background Image Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_mobile",
+      "label": "Background Image Mobile"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<em>HiPP Organic Baby Formula</em> at Formuland"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Formuland has served U.S. families with European baby formula since 2014. Over that time, we have built direct relationships with our European supplier partners and developed the logistics infrastructure to store, handle, and ship formulas properly, from the manufacturer's facility to your front door.</p>"
+    }
+  ],
   "presets": [
     {
       "name": "Formula Collection Why Buy"

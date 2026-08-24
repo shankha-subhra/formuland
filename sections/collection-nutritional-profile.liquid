@@ -1,4 +1,8 @@
-<section class="shopify-section fcc-onp-section" id="shopify-section-{{ section.id }}">
+{% assign includes = collection.metafields.custom.nutrition_includes.value %}
+{% assign excludes = collection.metafields.custom.nutrition_excludes.value %}
+{% if includes != blank or excludes != blank %}
+<section class="shopify-section fcc-onp-section" id="fcc-onp-section-{{ section.id }}">
+
 <style data-shopify="">
   #fcc-onp-{{ section.id }} {
     position: relative;
@@ -152,33 +156,25 @@
 <div class="fcc-onp__row">
 <div class="fcc-onp__content">
 <div aria-labelledby="fcc-onp-tab-inc-{{ section.id }}" class="fcc-onp__panel" id="fcc-onp-panel-inc-{{ section.id }}" role="tabpanel"><h3 class="fcc-onp__subheading">{{ section.settings.subheading_1 }}</h3>
-{%- assign first_include = true -%}
-{%- for block in section.blocks -%}
-  {%- if block.type == 'include_item' -%}
-    <details class="fcc-onp__item" {% if first_include %}open=""{% endif %} {{ block.shopify_attributes }}>
+{%- for item in includes -%}
+    <details class="fcc-onp__item" {% if forloop.first %}open=""{% endif %}>
     <summary>
-    <span>{{ block.settings.title }}</span>
+    <span>{{ item.title.value }}</span>
     <svg aria-hidden="true" class="fcc-onp__chev" fill="none" viewbox="0 0 14 14"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
     </summary>
-    <div class="fcc-onp__answer">{{ block.settings.content }}</div>
+    <div class="fcc-onp__answer">{{ item.content | metafield_tag }}</div>
     </details>
-    {%- assign first_include = false -%}
-  {%- endif -%}
 {%- endfor -%}
 </div>
 <div aria-labelledby="fcc-onp-tab-exc-{{ section.id }}" class="fcc-onp__panel" hidden="" id="fcc-onp-panel-exc-{{ section.id }}" role="tabpanel"><h3 class="fcc-onp__subheading">{{ section.settings.subheading_2 }}</h3>
-{%- assign first_exclude = true -%}
-{%- for block in section.blocks -%}
-  {%- if block.type == 'exclude_item' -%}
-    <details class="fcc-onp__item" {% if first_exclude %}open=""{% endif %} {{ block.shopify_attributes }}>
+{%- for item in excludes -%}
+    <details class="fcc-onp__item" {% if forloop.first %}open=""{% endif %}>
     <summary>
-    <span>{{ block.settings.title }}</span>
+    <span>{{ item.title.value }}</span>
     <svg aria-hidden="true" class="fcc-onp__chev" fill="none" viewbox="0 0 14 14"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
     </summary>
-    <div class="fcc-onp__answer">{{ block.settings.content }}</div>
+    <div class="fcc-onp__answer">{{ item.content | metafield_tag }}</div>
     </details>
-    {%- assign first_exclude = false -%}
-  {%- endif -%}
 {%- endfor -%}
 </div>
 </div><div class="fcc-onp__media">
@@ -213,6 +209,7 @@
   })();
 </script>
 </section>
+{% endif %}
 {% schema %}
 {
   "name": "Nutritional Profile",
@@ -258,77 +255,9 @@
       "default": "What HiPP excludes"
     }
   ],
-  "blocks": [
-    {
-      "type": "include_item",
-      "name": "Include Item",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Item Title"
-        },
-        {
-          "type": "richtext",
-          "id": "content",
-          "label": "Description",
-          "default": "<p>Item description.</p>"
-        }
-      ]
-    },
-    {
-      "type": "exclude_item",
-      "name": "Exclude Item",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Item Title"
-        },
-        {
-          "type": "richtext",
-          "id": "content",
-          "label": "Description",
-          "default": "<p>Item description.</p>"
-        }
-      ]
-    }
-  ],
   "presets": [
     {
-      "name": "Formula Nutritional Profile",
-      "blocks": [
-        {
-          "type": "include_item",
-          "settings": {
-            "title": "Organic Lactose",
-            "content": "<p>The primary carbohydrate source, mirroring the composition of breastmilk.</p>"
-          }
-        },
-        {
-          "type": "include_item",
-          "settings": {
-            "title": "Combiotic® Prebiotics and Probiotics",
-            "content": "<p>HiPP's proprietary blend of live cultures and prebiotic fibers supports a balanced gut microbiome and a developing immune system.</p>"
-          }
-        },
-        {
-          "type": "exclude_item",
-          "settings": {
-            "title": "Corn Syrup and Added Sugars",
-            "content": "<p>No refined sugars are used. Lactose provides all necessary carbohydrates.</p>"
-          }
-        },
-        {
-          "type": "exclude_item",
-          "settings": {
-            "title": "GMOs",
-            "content": "<p>All ingredients comply with EU organic standards, which prohibit genetically modified organisms.</p>"
-          }
-        }
-      ]
+      "name": "Formula Nutritional Profile"
     }
   ]
 }

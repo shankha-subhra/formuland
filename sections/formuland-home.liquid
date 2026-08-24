@@ -1,8 +1,9 @@
 <!-- Copied from https://formuland.com/ -->
 <div class="formuland-custom-wrapper">
 <main class="main-content" id="MainContent">
-<div class="shopify-section" id="shopify-section-template--22898945491163__hero_home_v2_WRFrEw"><link as="video" href="https://cdn.shopify.com/videos/c/o/v/0e80a1164c1044978c48e20afc7ca391.mp4" rel="preload"/><style>
-  .fhv2-wrapper-template--22898945491163__hero_home_v2_WRFrEw {
+<div class="shopify-section home-hero-section" id="shopify-section-{{ section.id }}">
+  <style>
+  .fhv2-wrapper-{{ section.id }} {
     position: relative;
     width: 100%;
     /* Responsive height: scales with viewport but is clamped between a
@@ -16,13 +17,13 @@
   }
 
   @media screen and (min-width: 768px) {
-    .fhv2-wrapper-template--22898945491163__hero_home_v2_WRFrEw {
+    .fhv2-wrapper-{{ section.id }} {
       margin-bottom: 0px;
     }
   }
 
   @media screen and (max-width: 768px) {
-    .fhv2-wrapper-template--22898945491163__hero_home_v2_WRFrEw {
+    .fhv2-wrapper-{{ section.id }} {
       height: clamp(490px, 95dvh, 720px);
     }
   }
@@ -204,12 +205,12 @@
     }
   }
 </style>
-<div class="fhv2-wrapper-template--22898945491163__hero_home_v2_WRFrEw">
-<video autoplay="" class="fhv2__bg fhv2-desktop-video" fetchpriority="high" id="Fhv2Desktop-template--22898945491163__hero_home_v2_WRFrEw" muted="" playsinline="" preload="auto" webkit-playsinline="">
+<div class="fhv2-wrapper-{{ section.id }}">
+<video autoplay="" class="fhv2__bg fhv2-desktop-video" fetchpriority="high" id="Fhv2Desktop-{{ section.id }}" muted="" playsinline="" preload="auto" webkit-playsinline="">
 <source src="https://cdn.shopify.com/videos/c/o/v/0e80a1164c1044978c48e20afc7ca391.mp4" type="video/mp4"/>
 </video>
-<img alt="" class="fhv2__end-image fhv2__end-image--desktop has-mobile" id="Fhv2EndImage-template--22898945491163__hero_home_v2_WRFrEw" loading="eager" src="//formuland.com/cdn/shop/files/556e25b3681582df669e1b8b784580bc323c2013.jpg?v=1782919322&amp;width=1920"/><img alt="" class="fhv2__end-image fhv2__end-image--mobile" id="Fhv2EndImageMobile-template--22898945491163__hero_home_v2_WRFrEw" loading="eager" src="//formuland.com/cdn/shop/files/header-section_1.png?v=1787083354&amp;width=900"/><div class="fhv2__end-scrim" id="Fhv2EndScrim-template--22898945491163__hero_home_v2_WRFrEw"></div><div aria-hidden="true" class="fhv2__gradient"></div>
-<div class="fhv2__overlay" id="Fhv2Overlay-template--22898945491163__hero_home_v2_WRFrEw"><h1 class="fhv2__heading"><em class="fhv2__heading-accent">Trusted Organic European Formula</em>for a Healthy Start in Life
+<img alt="" class="fhv2__end-image fhv2__end-image--desktop has-mobile" id="Fhv2EndImage-{{ section.id }}" loading="eager" src="//formuland.com/cdn/shop/files/556e25b3681582df669e1b8b784580bc323c2013.jpg?v=1782919322&amp;width=1920"/><img alt="" class="fhv2__end-image fhv2__end-image--mobile" id="Fhv2EndImageMobile-{{ section.id }}" loading="eager" src="//formuland.com/cdn/shop/files/header-section_1.png?v=1787083354&amp;width=900"/><div class="fhv2__end-scrim" id="Fhv2EndScrim-{{ section.id }}"></div><div aria-hidden="true" class="fhv2__gradient"></div>
+<div class="fhv2__overlay" id="Fhv2Overlay-{{ section.id }}"><h1 class="fhv2__heading"><em class="fhv2__heading-accent">Trusted Organic European Formula</em>for a Healthy Start in Life
 </h1><div class="fhv2__description">Every baby deserves a healthy start. <span class="hero-accent">Formuland</span> brings <span class="hero-accent">best European baby formula brands</span>, making premium, clean-label nutrition simpler than ever.</div><div class="fhv2__buttons">
 <a class="fhv2__btn" href="/collections/organic-baby-formula-temp">Shop Organic European Baby Formula</a>
 </div>
@@ -221,13 +222,13 @@
     // script tag is already placed after the <video> elements in the DOM,
     // so they exist by the time this executes, and starting sooner means
     // playback begins sooner instead of waiting on the rest of the page.
-    var videos = document.querySelectorAll('#Fhv2Desktop-template--22898945491163__hero_home_v2_WRFrEw, #Fhv2Mobile-template--22898945491163__hero_home_v2_WRFrEw');
-    var overlay = document.getElementById('Fhv2Overlay-template--22898945491163__hero_home_v2_WRFrEw');
+    var videos = document.querySelectorAll('#Fhv2Desktop-{{ section.id }}, #Fhv2Mobile-{{ section.id }}');
+    var overlay = document.getElementById('Fhv2Overlay-{{ section.id }}');
     // Both end images (desktop + mobile) live in the DOM at once; CSS media
     // queries decide which one is displayed, so on "ended" we simply reveal
     // whichever ones exist.
-    var endImages = document.querySelectorAll('#Fhv2EndImage-template--22898945491163__hero_home_v2_WRFrEw, #Fhv2EndImageMobile-template--22898945491163__hero_home_v2_WRFrEw');
-    var endScrim = document.getElementById('Fhv2EndScrim-template--22898945491163__hero_home_v2_WRFrEw');
+    var endImages = document.querySelectorAll('#Fhv2EndImage-{{ section.id }}, #Fhv2EndImageMobile-{{ section.id }}');
+    var endScrim = document.getElementById('Fhv2EndScrim-{{ section.id }}');
 
     videos.forEach(function (video) {
       video.muted = true;
@@ -1113,8 +1114,18 @@
   })();
   (function () {
     function removeReviewText() {
-      document.querySelectorAll('.jdgm-prev-badge__text').forEach(function(el) {
-        el.textContent = el.textContent.replace(/reviews?/gi, '').trim();
+     document.querySelectorAll('.jdgm-prev-badge__text').forEach(function(el) {
+        var text = el.textContent.trim();
+        var match = text.match(/(\d+)/);
+        var formatted;
+        if (match) {
+          formatted = '(' + match[1] + ')';
+        } else if (/no reviews/i.test(text)) {
+          formatted = '(0)';  
+        }
+        if (formatted && text !== formatted) {
+          el.textContent = formatted;
+        }
       });
     }
 
