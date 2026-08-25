@@ -155,6 +155,21 @@
         "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {}
+      },
+      "4590014605407904344": {
+        "type": "shopify://apps/sub-app-new/blocks/ai-chat-widget/019fbf33-f2a6-7383-9585-b51f47793a0a",
+        "disabled": false,
+        "settings": {
+          "primary_color": "#000000",
+          "greeting_text": "Hi! How can I help you today?"
+        }
+      },
+      "13891803848868560620": {
+        "type": "shopify://apps/sub-app-new/blocks/ab-experiment-sdk/019fbf33-f2a6-7383-9585-b51f47793a0a",
+        "disabled": false,
+        "settings": {
+          "enable_debug": false
+        }
       }
     },
     "color_schemes": {
